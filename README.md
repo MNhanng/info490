@@ -1,1 +1,1 @@
-# info490
+# INFO 490 Capstone Project
