@@ -34,6 +34,92 @@
 
 /* end of nav code*/
 
+main h1 {
+    margin: 2em 1.875em;
+    font-size: 1.1em;
+}
+
+/* Start of Search Bar Code */
+
+.search-bar-container{
+    display: flex;
+}
+
+.search-bar {
+    background-color: white;
+    margin: 1.875em 1.875em 0 1.875em;
+}
+
+.search-bar input[type=search] {
+    background-color: white;
+    color: #919191;
+    border: #a1a1a1 solid 0.05em;
+    border-radius: 0.625em;
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 0;
+}
+
+.filters h2 {
+    margin: 1.5em 1.875em 0 1.875em;
+    font-size: 0.95em;
+}
+
+/* End of Seach Bar Code */
+
+/* Start of Profiles Page Code */
+
+.profiles-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    margin: 1.875em 1.875em 0 1.875em;
+}
+
+.card {
+    background-color: white;
+    border: #a1a1a1 solid 0.05em;
+    border-radius: 0.625em;
+    cursor: pointer;
+    padding-bottom: 0.625em;
+    width: 31.5%
+}
+
+.profile-card-details {
+    margin: 0 0.75em;
+}
+
+/* End of Profiles Page Code */
+
+/* Start of Community Page Code */
+
+.add-post {
+    display: flex;
+    margin: 2em 1.875em;
+}
+
+.add-post h1 {
+    margin: 0;
+}
+
+.add-post button {
+    margin-left: 1em;
+}
+
+.posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    margin: 1.875em 1.875em 0 1.875em;
+}
+
+.post-card-details {
+    margin: 0 0.75em;
+}
+
+/* End of Community Page Code */
+
+
 /* start of posts code */
 .comment-content, .post-content {
     border: 0.08rem solid gray;
