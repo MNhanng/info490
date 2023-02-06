@@ -1,19 +1,234 @@
+* {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+/* start of nav code */
+
+/* To fix nav at top of the page when scrolling */
+/* .nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+} */
 .nav {
+    margin-bottom: 2rem;
+}
+
+.nav-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
-.nav .nav-elems {
+.nav-container .nav-elems {
     width: 70%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.nav .logo {
+.nav-container .logo {
     padding-left: 0.5rem;
 }
 
+/* end of nav code*/
+
+/* start of posts code */
+.comment-content, .post-content {
+    border: 0.08rem solid gray;
+    /* margin: 2rem; */
+    margin-left: 2rem;
+    margin-right: 2rem;
+    /* padding-top: 0; */
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+    padding-bottom: 5rem;
+    border-radius: 0.2rem;
+}
+
+.comment-info, .post-info {
+    margin-left: 2rem;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    color: #907AA8;
+}
+
+.comment-info div, .post-info div {
+    padding-right: 5rem;
+}
+
+
+.comment, .post {
+    padding-bottom: 2rem;
+}
+
+.add-comment-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+}
+
+.add-comment-box textarea {
+    margin-left: 0;
+    width: 90%;
+    height: 2rem;
+    resize: none;
+    color: #907AA8;
+}
+
+.add-comment-box button {
+    height: 1.7rem;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    background-color: #462E7E;
+    border-radius: 0.4rem;
+    border: 0.08rem solid #462E7E;
+    color: white;
+}
+
+.post-title {
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 0.5rem 2rem;
+    color: #462E7E;
+}
+
+/* end of posts code */
+
+
+
+/* start of events code */
+.calendar-container .events-header {
+    font-weight: 300;
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+    color: #462E7E;
+}
+
+.calendar-container {
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+
+table {
+    color: black;
+    background: white;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border: .5px solid #9A9A9A;
+}
+
+th {
+    text-align: center;
+    padding: 8px;
+}
+
+.month-year {
+    height: 100%;
+    font-size: 20px;
+}
+
+td {
+    height: 100px;
+    vertical-align: top;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-box {
+    display:flex;
+    background-color: #907aa8;
+    margin: 3px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.task-box label {
+    padding-left: 4px;
+    font-size: 15px;
+}
+
+.task-box:hover {
+    border: 1px solid black;
+}
+
+.check-box {
+    accent-color: white;
+    margin-left: 0px;
+}
+
+th .month-year-button {
+    border: none;
+    display: inline-block;
+    background-color: #f3f3f3;
+    font-size: 25px;
+    color: black;
+}
+
+thead tr:first-child{
+    background-color: #f3f3f3;
+}
+
+th .month-year-button:hover {
+    color: #907aa8;
+}
+
+.weekdays { 
+    display: none;
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.week:last-child td:nth-last-child(-n+4) { 
+    display: none; 
+}
+
+@media(min-width: 598px) {
+    .calendar-container .events-header {
+        font-weight: 300;
+        font-size: 2rem;
+        padding-bottom: 0.5rem;
+        padding-top: 1rem;
+        color: #462E7E;
+    }
+
+    table {
+        table-layout: fixed;
+    }
+
+    .weekdays { 
+        display: table-row; 
+    }
+
+    td {
+        display: table-cell;
+    }
+    
+    select {
+        display: none;
+    }
+
+    .week:last-child td:nth-last-child(-n+5) { 
+        display: table-cell; 
+    }
+}
+/* end of events code */
 
