@@ -32,6 +32,20 @@
     padding-left: 0.5rem;
 }
 
+.nav-elems li {
+    list-style: none;
+}
+
+.nav-elems a {
+    text-decoration: none;
+    color: black;
+    padding: 1em;
+    border-radius: 0.625em;
+}
+
+.nav-elems a:hover {
+    background-color: #987aa875;
+}
 /* end of nav code*/
 
 main h1 {
