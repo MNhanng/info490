@@ -332,3 +332,55 @@ select {
 }
 /* end of events code */
 
+/* start of home page code */
+.home-page {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    padding-top: 0;
+    align-items: center;
+}
+
+.home-header {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: #462E7E;
+    padding-right: 1rem;
+}
+
+.home-button a button {
+    height: 3rem;
+    margin-top: 2rem;
+    width: 10rem;
+    font-size: 1rem;
+    background-color: #462E7E;
+    border-radius: 0.4rem;
+    border: none;
+    color: white;
+}
+
+.home-image img {
+    height: 40rem;
+    width: 37rem;
+}
+
+.home-activities {
+    padding: 2rem;
+}
+
+.home-activities-header {
+    font-size: 2rem;
+    color: #462E7E;
+}
+
+.recently-viewed-item {
+    height: 8rem;
+    border: 0.08rem solid gray;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+
+
+
+/* end of home page code */
