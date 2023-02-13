@@ -204,7 +204,7 @@ main h1 {
 
 
 /* start of events code */
-.calendar-container .events-header {
+/* .calendar-container .events-header {
     font-weight: 300;
     font-size: 2rem;
     padding-bottom: 0.5rem;
@@ -329,7 +329,7 @@ select {
     .week:last-child td:nth-last-child(-n+5) { 
         display: table-cell; 
     }
-}
+} */
 /* end of events code */
 
 /* start of home page code */
@@ -380,7 +380,75 @@ select {
     margin-bottom: 1rem;
     border-radius: 1rem;
 }
-
-
-
 /* end of home page code */
+
+
+/* start of profile editing page */
+.profile-edit-popup {
+    padding: 2rem;
+    font-weight: 550;
+    font-size: 0.9rem;
+}
+
+.name-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.first-name-input, .last-name-input {
+    flex-basis: 48%;
+}
+
+.profile-edit-popup label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.profile-edit-popup input {
+    display: block;
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 1.5rem;
+}
+
+.profile-edit-popup select {
+    display: block;  
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 2rem;
+}
+
+.profile-edit-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.profile-edit-buttons div {
+    flex-basis: 8rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-cancel-button button{
+    width: 7rem;
+    height: 2rem;
+    font-size: 0.9rem;;
+    background-color: white;
+    border-radius: 0.4rem;
+    border: 0.1rem solid #907AA8;
+    color: #907AA8;
+}
+
+.profile-save-button button {
+    width: 7rem;
+    height: 2rem;
+    font-size: 0.9rem;;
+    background-color: #462E7E;
+    border-radius: 0.4rem;
+    border: none;
+    color: white;
+}
+
+/* end of prorfile editing page */
