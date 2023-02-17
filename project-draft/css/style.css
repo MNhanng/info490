@@ -135,6 +135,10 @@ main h1 {
 
 
 /* start of posts code */
+h3 a {
+    text-decoration: none;
+}
+
 .comment-content, .post-content {
     border: 0.08rem solid gray;
     /* margin: 2rem; */
