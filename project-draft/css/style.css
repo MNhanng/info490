@@ -121,15 +121,64 @@ main h1 {
 }
 
 .posts-container {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     gap: 1.5em;
-    margin: 1.875em 1.875em 0 1.875em;
+    margin: 1.875em 1.875em 0 1.875em; */
+    padding: 2rem;
+}
+
+.card-post {
+    height: 8rem;
+    border: 0.08rem solid gray;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
 }
 
 .post-card-details {
-    margin: 0 0.75em;
+    margin: 1rem;
 }
+
+.post-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.post-details div:nth-last-child(-n+3) {
+    font-size: 0.9rem;
+    font-weight: 200;
+    color: #462E7E;
+}
+.post-details-divider {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+}
+
+.post-details img {
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.post-content-title {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.post-content-text {
+    font-size: 0.9rem;
+    font-weight: 200;
+    height: 2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 
 /* End of Community Page Code */
 
