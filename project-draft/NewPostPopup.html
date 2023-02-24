@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Profile pop up</title>
+    <script src="https://kit.fontawesome.com/7391ef3e49.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <form class="popup">
+        <a href="CommunityPage.html" type="button">X</a>
+        <h1>Create New Post</h1>
+        <div>
+            <label for="project_name">Post Title</label>
+            <input type="text"> <br>
+        </div>
+        <div class="form-tags">
+            <div>
+                <label for="tags">Tags</label>
+            </div>
+            <div  class="tags">
+                <div>
+                    <input class="Academic" type="button" value="Academic" />
+                </div>
+                <div>
+                    <input class="Career" type="button" value="Career" />
+                </div>
+                <div>
+                    <input class="Micellaneous" type="button" value="Micellaneous" />
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <label for="details">Details</label> <br>
+            <textarea id="details" name="details" rows="5"></textarea> <br>
+        </div>
+        <div class="popup-button" onclick="window.location='CommunityPage.html';">
+            <button type="button" aria-label="Create">Create</button>
+        </div>
+    </form>
+
+</body>

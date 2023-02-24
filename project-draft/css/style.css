@@ -81,6 +81,46 @@ main h1 {
 
 /* End of Seach Bar Code */
 
+/* Start of Post Filters */
+
+.post-filter-container {
+    margin: 1.875em 1.875em 0 1.875em;
+    display: flex;
+    gap: 1em;
+}
+
+.post-filter-container h2 {
+    margin: 0.3em 0.5em;
+    font-size: 0.95em;
+}
+
+.post-tags {
+    display: flex;
+    gap: 1.5em;
+}
+
+/* End of Post Filters */
+
+/* Start of People Filters */
+
+.people-filter-container {
+    margin: 1.875em 1.875em 0 1.875em;
+    display: flex;
+    gap: 1em;
+}
+
+.people-filter-container h2 {
+    margin: 0.3em 0.5em;
+    font-size: 0.95em;
+}
+
+.people-filters {
+    display: flex;
+    gap: 1.5em;
+}
+
+/* End of Post Filters */
+
 /* Start of Profiles Page Code */
 
 .profiles-container {
@@ -605,3 +645,62 @@ select {
 }
 /* end of profile popup */
 
+/* Start of Post Popup */
+
+.popup {
+    padding: 2rem 3rem;
+    width: 40%;
+}
+
+.popup a {
+    text-decoration: none;
+    color: black;
+}
+
+form {
+    margin-left: auto;
+    margin-right: auto;
+    border: solid;
+}
+
+form h1 {
+    text-align: center;
+}
+
+form label {
+    display: inline-block;
+    width: 6em;
+}
+
+form input {
+    margin-bottom: 0.5em;
+    padding: .5em;
+}
+
+.form-tags {
+    display: flex;
+}
+
+.form-tags .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-left: 0.3em;
+}
+
+form textarea {
+    margin: .5em 0;
+    padding: .5em;
+    width: 100%;
+}
+
+.popup-button button {
+    padding: 0.5em 1.25em;
+    margin-top: 0.5em;
+    color: black;
+    border-radius: 0.5em;
+    cursor: pointer;
+    margin-left: 445px;
+}
+
+/* End of Post Popup */
