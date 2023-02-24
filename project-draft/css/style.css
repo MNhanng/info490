@@ -704,3 +704,81 @@ form textarea {
 }
 
 /* End of Post Popup */
+
+
+/* start of profile page */
+.profile-page {
+    margin: 2rem;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #907AA8;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.profile-intro-img img {
+    border-radius: 50%;
+    height: 9rem;
+    width: 9rem;
+    border: 0.2rem solid #F9F9FB;
+}
+
+.profile-bio-container {
+    background-color: #CEB2C8;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.education-hist {
+    margin-top: 3rem;
+}
+
+.education-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+.logo img {
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+}
+
+.education-details {
+    margin-left: 1.5rem;
+}
+
+.profile-intro-details {
+    margin-left: 2rem;
+}
+
+.profile-intro-name {
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+}
+
+.profile-intro-bio {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-bottom: 0.75rem;
+}
+
+.profile-intro-bio-text, .education-details {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.education-header {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+
+
+/* end of profile page */
