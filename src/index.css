@@ -81,6 +81,46 @@ main h1 {
 
 /* End of Seach Bar Code */
 
+/* Start of Post Filters */
+
+.post-filter-container {
+    margin: 1.875em 1.875em 0 1.875em;
+    display: flex;
+    gap: 1em;
+}
+
+.post-filter-container h2 {
+    margin: 0.3em 0.5em;
+    font-size: 0.95em;
+}
+
+.post-tags {
+    display: flex;
+    gap: 1.5em;
+}
+
+/* End of Post Filters */
+
+/* Start of People Filters */
+
+.people-filter-container {
+    margin: 1.875em 1.875em 0 1.875em;
+    display: flex;
+    gap: 1em;
+}
+
+.people-filter-container h2 {
+    margin: 0.3em 0.5em;
+    font-size: 0.95em;
+}
+
+.people-filters {
+    display: flex;
+    gap: 1.5em;
+}
+
+/* End of Post Filters */
+
 /* Start of Profiles Page Code */
 
 .profiles-container {
@@ -96,11 +136,31 @@ main h1 {
     border-radius: 0.625em;
     cursor: pointer;
     padding-bottom: 0.625em;
-    width: 31.5%
+    width: 31.5%;
+    text-align: center;
 }
 
 .profile-card-details {
-    margin: 0 0.75em;
+    /* margin: 0 0.75em; */
+    margin: 1rem;
+}
+
+.profile-card-details img {
+    border-radius: 50%;
+    height: 7rem;
+    width: 7rem;
+}
+
+.profile-card-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #462E7E;
+    padding-top: 0.7rem;
+}
+
+.profile-card-industry, .profile-card-major {
+    font-size: 0.9rem;
+    font-weight: 200;
 }
 
 /* End of Profiles Page Code */
@@ -121,47 +181,106 @@ main h1 {
 }
 
 .posts-container {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     gap: 1.5em;
-    margin: 1.875em 1.875em 0 1.875em;
+    margin: 1.875em 1.875em 0 1.875em; */
+    padding: 2rem;
+}
+
+.card-post {
+    height: 8rem;
+    border: 0.08rem solid gray;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
 }
 
 .post-card-details {
-    margin: 0 0.75em;
+    margin: 1rem;
+}
+
+.post-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.post-details div:nth-last-child(-n+4) {
+    font-size: 0.9rem;
+    font-weight: 200;
+    color: #462E7E;
+}
+.post-details-divider {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+}
+
+.post-details img {
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.post-content-title {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.post-content-text {
+    font-size: 0.9rem;
+    font-weight: 200;
+    height: 2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.post-details-likes {
+    margin-left: auto;
 }
 
 /* End of Community Page Code */
 
 
 /* start of posts code */
+h3 a {
+    text-decoration: none;
+}
+
 .comment-content, .post-content {
-    border: 0.08rem solid gray;
-    /* margin: 2rem; */
-    margin-left: 2rem;
-    margin-right: 2rem;
+    /* border: 0.08rem solid gray; */
+    /* margin: 1rem; */
+    margin-left: 1rem;
+    margin-right: 1rem;
     /* padding-top: 0; */
     padding-right: 0.2rem;
     padding-left: 0.2rem;
-    padding-bottom: 5rem;
-    border-radius: 0.2rem;
+    /* padding-bottom: 1rem; */
+    /* border-radius: 0.2rem; */
 }
 
 .comment-info, .post-info {
-    margin-left: 2rem;
-    margin-bottom: 0;
+    margin-left: 1rem;
+    /* margin-bottom: 0; */
     display: flex;
     flex-direction: row;
-    color: #907AA8;
+    color: #462E7E;
+    align-items: center;
 }
-
-.comment-info div, .post-info div {
-    padding-right: 5rem;
-}
-
 
 .comment, .post {
-    padding-bottom: 2rem;
+    /* padding-bottom: 2rem; */
+    border-radius: 1rem;
+    background-color: #F9F9FB;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
 }
 
 .add-comment-box {
@@ -195,8 +314,38 @@ main h1 {
 .post-title {
     font-weight: 400;
     font-size: 2rem;
-    margin: 0.5rem 2rem;
+    margin: 0.5rem 1rem;
     color: #462E7E;
+}
+
+.post-info img {
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    margin-right: 0.5rem;
+}
+
+.comment-info img {
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 0.5rem;
+}
+
+.post-info-divider, .comment-info-divider {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+}
+
+.posts-page hr {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.post-info-likes {
+    margin-left: auto;
+    margin-right: 1.5rem;
+    
 }
 
 /* end of posts code */
@@ -451,4 +600,185 @@ select {
     color: white;
 }
 
-/* end of prorfile editing page */
+/* end of profile editing page */
+
+/* start of profile popup */
+.profile-popup {
+    padding: 1rem;
+}
+
+.profile-popup-img img {
+    border-radius: 50%;
+    height: 7rem;
+    width: 7rem;
+}
+
+.profile-popup-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-header-details div {
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+}
+
+.profile-popup-name {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #462E7E;
+}
+
+.profile-popup-details {
+    padding-top: 2rem;
+}
+
+.profile-popup-details div {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1rem;
+}
+
+.profile-popup-details div div:first-child {
+    font-weight: 600;
+    width: 10.5%;
+}
+/* end of profile popup */
+
+/* Start of Post Popup */
+
+.popup {
+    padding: 2rem 3rem;
+    width: 40%;
+}
+
+.popup a {
+    text-decoration: none;
+    color: black;
+}
+
+form {
+    margin-left: auto;
+    margin-right: auto;
+    border: solid;
+}
+
+form h1 {
+    text-align: center;
+}
+
+form label {
+    display: inline-block;
+    width: 6em;
+}
+
+form input {
+    margin-bottom: 0.5em;
+    padding: .5em;
+}
+
+.form-tags {
+    display: flex;
+}
+
+.form-tags .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-left: 0.3em;
+}
+
+form textarea {
+    margin: .5em 0;
+    padding: .5em;
+    width: 100%;
+}
+
+.popup-button button {
+    padding: 0.5em 1.25em;
+    margin-top: 0.5em;
+    color: black;
+    border-radius: 0.5em;
+    cursor: pointer;
+    margin-left: 445px;
+}
+
+/* End of Post Popup */
+
+
+/* start of profile page */
+.profile-page {
+    margin: 2rem;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #907AA8;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.profile-intro-img img {
+    border-radius: 50%;
+    height: 9rem;
+    width: 9rem;
+    border: 0.2rem solid #F9F9FB;
+}
+
+.profile-bio-container {
+    background-color: #CEB2C8;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.education-hist {
+    margin-top: 3rem;
+}
+
+.education-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+.logo img {
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+}
+
+.education-details {
+    margin-left: 1.5rem;
+}
+
+.profile-intro-details {
+    margin-left: 2rem;
+}
+
+.profile-intro-name {
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+}
+
+.profile-intro-bio {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-bottom: 0.75rem;
+}
+
+.profile-intro-bio-text, .education-details {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.education-header {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+
+
+/* end of profile page */
