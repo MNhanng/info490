@@ -1,0 +1,34 @@
+{
+    "user1": {
+        "userID": 1,
+        "first_name": "David",
+        "last_name": "Smith",
+        "contact": {"email": "davidsmith@gmail.com", "phone": "206-123-4567", "open_contact": "Yes"},
+        "bio": "I am a senior in Informatics. I am currently looking for internships related to business intelligence and data analysis. I am looking for a mentor, feel free to contact me for additional details!",
+        "job_title": "Student",
+        "employer": "N/A",
+        "industry": "Technology",
+        "major": "Informatics",
+        "school": "University of Washington",
+        "degree": "Bachelor's of Science",
+        "grad_year": "2023",
+        "languages": "English"
+    }, 
+    "user2": {
+        "userID": 2,
+        "first_name": "Bob",
+        "last_name": "Beanie",
+        "contact": {"email": "bobbeannie@gmail.com", "phone": "206-123-4567", "open_contact": "Yes"},
+        "bio": "I am a junior recruiter at Amazon. I am looking for students for internship positions for several teams. If interested, please contact me.",
+        "job_title": "Alumni",
+        "employer": "Amazon",
+        "industry": "Technology",
+        "major": "Business",
+        "school": "University of Washington",
+        "degree": "Bachelor's of Science",
+        "grad_year": "2020",
+        "languages": "English"
+    }
+    
+}
+    
