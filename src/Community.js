@@ -1,3 +1,5 @@
+import { NewPostPopup } from "./Popups"
+
 export function CommunityPage(props) {
     return (
         <main>
@@ -12,7 +14,8 @@ function CommunityPageHeader(props) {
     return (
         <div class="add-post"  onclick="window.location='NewPostPopup.html';">
             <h1>Community Posts</h1>
-            <button type="button" aria-label="add post">+</button>
+            {/* <button type="button" aria-label="add post">+</button> */}
+            <NewPostPopup />
         </div>
     )
 }

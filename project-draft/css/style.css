@@ -657,7 +657,7 @@ select {
     color: black;
 }
 
-form {
+form .popup {
     margin-left: auto;
     margin-right: auto;
     border: solid;

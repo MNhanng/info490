@@ -23,7 +23,7 @@
 }
 
 .nav-container .nav-elems {
-    width: 70%;
+    /* width: 70%; */
     display: flex;
     justify-content: space-evenly;
 }
@@ -647,7 +647,7 @@ select {
 
 /* Start of Post Popup */
 
-.popup {
+/* .popup {
     padding: 2rem 3rem;
     width: 40%;
 }
@@ -657,7 +657,7 @@ select {
     color: black;
 }
 
-form {
+form .popup {
     margin-left: auto;
     margin-right: auto;
     border: solid;
@@ -665,7 +665,7 @@ form {
 
 form h1 {
     text-align: center;
-}
+} */
 
 form label {
     display: inline-block;
