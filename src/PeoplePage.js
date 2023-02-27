@@ -3,14 +3,18 @@ export function PeoplePage (props) {
         <main>
             <h1>Profiles</h1>
             <PeopleSearchFilter />
-            <Profiles />
+            <Profiles usersData={props.usersData}/>
         </main>
     )
 }
 
 function Profiles(props) {
+    // const allProfiles = props.usersData.map((eachUserData) => {
+    //     return <ProfileCard userData={eachUserData} />
+    // })
     return (
         <div class="profiles-container">
+            {/* {allProfiles} */}
             <ProfileCard />
             <ProfileCard />
             <ProfileCard />
