@@ -9,35 +9,36 @@ export function PeoplePage (props) {
 }
 
 function Profiles(props) {
-    // const allProfiles = props.usersData.map((eachUserData) => {
-    //     return <ProfileCard userData={eachUserData} />
-    // })
+    let usersData = props.usersData
+    let usersArray = []
+    for (const user in usersData) {
+        // <ProfileCard userData={usersData[user]} />
+        usersArray.push((usersData[user]));
+    }
+
+    const allProfiles = usersArray.map((user) => {
+        return <ProfileCard user={user}/>
+    })
+
     return (
-        <div class="profiles-container">
-            {/* {allProfiles} */}
-            <ProfileCard />
-            <ProfileCard />
-            <ProfileCard />
-            <ProfileCard />
-            <ProfileCard />
-            <ProfileCard />
-            <ProfileCard />
-            <ProfileCard />
-            <ProfileCard />
+        <div className="profiles-container">
+            {allProfiles}
         </div>
 
     )
 }
 
 function ProfileCard(props) {
+    let user = props.user;
+
     return (
-        <div class="card profile" onclick="window.location='ProfilePopUp.html';">
-            <div class="profile-card-details">
-                <div class="profile-card-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                <div class="profile-card-name">David Smith</div>
-                {/* <div class="tags">[filter tags go here]</div> */}
-                <div class="profile-card-industry">Technology</div>
-                <div class="profile-card-major">Informatics</div>
+        <div className="card profile" onclick="window.location='ProfilePopUp.html';">
+            <div className="profile-card-details">
+                <div className="profile-card-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                <div className="profile-card-name">{user.first_name}</div>
+                {/* <div className="tags">[filter tags go here]</div> */}
+                <div className="profile-card-industry">{user.industry}</div>
+                <div className="profile-card-major">{user.major}</div>
             </div>
         </div>
     )
@@ -46,13 +47,13 @@ function ProfileCard(props) {
 function PeopleSearchFilter (props) {
     return (
         <div>
-             <form class="search-bar">
+             <form className="search-bar">
             <input type="search" placeholder="Search..." />
         </form>
 
-        <div class="people-filter-container">
+        <div className="people-filter-container">
             <h2>Filter</h2>
-            <div class="people-filters">
+            <div className="people-filters">
                 <div>
                     <select name="user_type" id="user_type">
                         <option value="Student">Student</option>
@@ -74,7 +75,7 @@ function PeopleSearchFilter (props) {
                     </select>
                 </div>
                 <div>
-                    <input class="open_contact" type="button" value="Open To Contact" />
+                    <input className="open_contact" type="button" value="Open To Contact" />
                 </div>
             </div>
         </div>
