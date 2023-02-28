@@ -1,0 +1,53 @@
+{
+    "post1": {
+        "userID": 1,
+        "postID": 1,
+        "post_title": "Any tips on getting an internship?", 
+        "tags": "Career",
+        "details": "Hi, I am a junior in accounting. I am a little worries because I have not had any internships yet. Does any one have any advice landing an internship?",
+        "likes": [],
+        "created_date": "2/20/2023",
+        "comments": []
+    },
+    "post2": {
+        "userID": 2,
+        "postID": 2,
+        "post_title": "Any tips on getting an internship?", 
+        "tags": "Career",
+        "details": "Hi, I am a junior in accounting. I am a little worries because I have not had any internships yet. Does any one have any advice landing an internship?",
+        "likes": [],
+        "created_date": "2/20/2023",
+        "comments": []
+    },
+    "post3": {
+        "userID": 3,
+        "postID": 3,
+        "post_title": "Any tips on getting an internship?", 
+        "tags": "Career",
+        "details": "Hi, I am a junior in accounting. I am a little worries because I have not had any internships yet. Does any one have any advice landing an internship?",
+        "likes": [],
+        "created_date": "2/20/2023",
+        "comments": []
+    },
+    "post4": {
+        "userID": 4,
+        "postID": 4,
+        "post_title": "Any tips on getting an internship?", 
+        "tags": "Career",
+        "details": "Hi, I am a junior in accounting. I am a little worries because I have not had any internships yet. Does any one have any advice landing an internship?",
+        "likes": [],
+        "created_date": "2/20/2023",
+        "comments": []
+    },
+    "post5": {
+        "userID": 5,
+        "postID": 5,
+        "post_title": "Any tips on getting an internship?", 
+        "tags": "Career",
+        "details": "Hi, I am a junior in accounting. I am a little worries because I have not had any internships yet. Does any one have any advice landing an internship?",
+        "likes": [],
+        "created_date": "2/20/2023",
+        "comments": []
+    }
+    
+}

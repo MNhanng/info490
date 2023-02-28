@@ -62,7 +62,40 @@
         "grad_year": "2020",
         "languages": "English",
         "profile_pic": "user-img.jpg"
+    },
+    "user5": {
+        "userID": 5,
+        "first_name": "Mia",
+        "last_name": "Mealie",
+        "contact": {"email": "miamealie@gmail.com", "phone": "206-123-4567", "open_contact": "No"},
+        "bio": "I am a junior recruiter at Amazon. I am looking for students for internship positions for several teams. If interested, please contact me.",
+        "job_title": "Student",
+        "employer": "Amazon",
+        "industry": "Healthcare",
+        "major": "Biology",
+        "school": "University of Washington",
+        "degree": "Bachelor's of Science",
+        "grad_year": "2026",
+        "languages": "English",
+        "profile_pic": "user-img.jpg"
+    },
+    "user6": {
+        "userID": 6,
+        "first_name": "James",
+        "last_name": "Chen",
+        "contact": {"email": "jameschen@gmail.com", "phone": "206-123-4567", "open_contact": "No"},
+        "bio": "I am a junior recruiter at Amazon. I am looking for students for internship positions for several teams. If interested, please contact me.",
+        "job_title": "Alumni",
+        "employer": "Amazon",
+        "industry": "Finance",
+        "major": "Accounting",
+        "school": "University of Washington",
+        "degree": "Bachelor's of Science",
+        "grad_year": "2010",
+        "languages": "English",
+        "profile_pic": "user-img.jpg"
     }
+
     
 }
     

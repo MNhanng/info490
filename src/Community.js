@@ -5,7 +5,7 @@ export function CommunityPage(props) {
         <main>
             <CommunityPageHeader />
             <CommunityPageSearch />
-            <AllPosts />
+            <AllPosts postsData={props.postsData} />
         </main>
     )
 }
@@ -46,20 +46,28 @@ function CommunityPageSearch(props) {
 }
 
 function AllPosts(props) {
+    const posts = props.postsData;
+    const allPosts = Object.keys(posts).map((post) => {
+        return <Post post={posts[post]}/>
+    })
+
+
     return (
         <div className="posts-container">
+            {allPosts}
+            {/* <Post />
             <Post />
             <Post />
             <Post />
             <Post />
             <Post />
-            <Post />
-            <Post />
+            <Post /> */}
         </div>     
     )
 }
 
 function Post(props) {
+    const post = props.post;
     return (
         <div class="card-post" onclick="window.location='posts.html';">
             <div className="post-card-details">
@@ -67,17 +75,13 @@ function Post(props) {
                     <div class="post-details-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
                     <div class="post-details-name">Username</div>
                     <div class="post-details-divider">|</div>
-                    <div class="post-details-date">Date and time posted</div>
+                    <div class="post-details-date">{post.created_date}</div>
                     <div class="post-details-likes">20 <i class="fa-regular fa-heart"></i></div>
                 </div>
 
                 <div class="post-content-details">
-                    <div class="post-content-title">Post title</div>
-                    <div class="post-content-text">Some example post content goes here. vfdkrkdhr lshrcjfbkh
-                        sufhlurbvrxhf shfrkubisbriuhushruh kushfkuhrnshrkhsur lsihfruhsuh sfhurhfuosh sf ouoo ufsrbchks
-                        sfhh vfdkrkdhr lshrcjfbkh sufhlurbvrxhf shfrkubisbriuhushruh kushfkuhrnshrkhsur lsihfruhsuh
-                        sfhurhfuosh sf ouoo ufsrbchks sfhh vfdkrkdhr lshrcjfbkh sufhlurbvrxhf shfrkubisbriuhushruh
-                        kushfkuhrnshrkhsur lsihfruhsuh sfhurhfuosh sf ouoo ufsrbchks sfhh
+                    <div class="post-content-title">{post.post_title}</div>
+                    <div class="post-content-text">{post.details}
                     </div>
                 </div>
             </div>

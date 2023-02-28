@@ -9,10 +9,10 @@ export function PeoplePage (props) {
 }
 
 function Profiles(props) {
-    let usersData = props.usersData
+    const usersData = props.usersData
+    // get array of users data
     let usersArray = []
     for (const user in usersData) {
-        // <ProfileCard userData={usersData[user]} />
         usersArray.push((usersData[user]));
     }
 
@@ -31,14 +31,23 @@ function Profiles(props) {
 function ProfileCard(props) {
     let user = props.user;
 
+    const openToContact = (contact) => {
+        if (contact === "Yes") {
+            return (
+                <div className="profile-card-contact">Open to Contact</div>
+            )
+        }
+    }
+
     return (
         <div className="card profile" onclick="window.location='ProfilePopUp.html';">
             <div className="profile-card-details">
                 <div className="profile-card-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                <div className="profile-card-name">{user.first_name}</div>
-                {/* <div className="tags">[filter tags go here]</div> */}
+                <div className="profile-card-name">{user.first_name + " " + user.last_name}</div>
+                <div className="profile-card-job">{user.job_title}</div>
                 <div className="profile-card-industry">{user.industry}</div>
                 <div className="profile-card-major">{user.major}</div>
+                {openToContact(user.contact.open_contact)}
             </div>
         </div>
     )

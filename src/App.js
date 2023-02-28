@@ -10,9 +10,12 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 
 import users_data from "./user_data.json";
+import posts from "./posts.json";
 
 export default function App(props) {
+    const [allPosts, setAllPosts] = useState(posts);
     const [allUsers, setAllUsers] = useState(users_data);
+
 
     return (
         <>
@@ -24,7 +27,7 @@ export default function App(props) {
                 <Routes>
                     <Route path='*' element={<Navigate to='/home' />} />
                     <Route path='home' element={<HomePage />} />
-                    <Route path='community' element={<CommunityPage />} />
+                    <Route path='community' element={<CommunityPage postsData={allPosts} usersData={allUsers} />} />
                     <Route path='people' element={<PeoplePage usersData={allUsers} />} />
                     <Route path='profile' element={<ProfilePage />} />
                 </Routes>

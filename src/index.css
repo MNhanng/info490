@@ -163,9 +163,15 @@ main h1 {
     padding-top: 0.7rem;
 }
 
-.profile-card-industry, .profile-card-major {
+.profile-card-industry, .profile-card-major, .profile-card-job, .profile-card-contact {
+    width: fit-content;
+    margin: 0.3rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 10rem;
+    border: 0.1rem solid grey;
     font-size: 0.9rem;
     font-weight: 200;
+    display: inline-block;
 }
 
 /* End of Profiles Page Code */
