@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export function NavBar(props) {
     return (
         <div className="nav">
+            <div className="logo">Logo</div>
             <div className="nav-container">
-                <div className="logo">Logo</div>
                 <div className="nav-elems">
                     <li><Link to='/home'><span className="home-icon"><i className="fa-solid fa-house"></i> Home</span></Link></li>
                     <li><Link to='/community'><span className="community-icon"><i className="fa-solid fa-globe"></i> Community</span></Link></li>
