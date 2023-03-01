@@ -5,14 +5,14 @@ export function CommunityPage(props) {
         <main>
             <CommunityPageHeader />
             <CommunityPageSearch />
-            <AllPosts postsData={props.postsData} />
+            <AllPosts postsData={props.postsData} usersData={props.usersData}/>
         </main>
     )
 }
 
 function CommunityPageHeader(props) {
     return (
-        <div class="add-post"  onclick="window.location='NewPostPopup.html';">
+        <div className="add-post"  onclick="window.location='NewPostPopup.html';">
             <h1>Community Posts</h1>
             {/* <button type="button" aria-label="add post">+</button> */}
             <NewPostPopup />
@@ -23,21 +23,21 @@ function CommunityPageHeader(props) {
 function CommunityPageSearch(props) {
     return (
         <div>
-            <form class="search-bar">
+            <form className="search-bar">
                 <input type="search" placeholder="Search..." />
             </form>
 
-            <div class="post-filter-container">
+            <div className="post-filter-container">
                 <h2>Filter</h2>
-                <div class="post-tags">
+                <div className="post-tags">
                     <div>
-                        <input class="Academic" type="button" value="Academic" />
+                        <input className="Academic" type="button" value="Academic" />
                     </div>
                     <div>
-                        <input class="Career" type="button" value="Career" />
+                        <input className="Career" type="button" value="Career" />
                     </div>
                     <div>
-                        <input class="Micellaneous" type="button" value="Micellaneous" />
+                        <input className="Micellaneous" type="button" value="Micellaneous" />
                     </div>
                 </div>
             </div>
@@ -47,41 +47,35 @@ function CommunityPageSearch(props) {
 
 function AllPosts(props) {
     const posts = props.postsData;
-    const allPosts = Object.keys(posts).map((post) => {
-        return <Post post={posts[post]}/>
+    const allPosts = Object.values(posts).map((post) => {
+        return <Post post={post} postOwner={props.usersData[(post.userID)]} />
     })
 
 
     return (
         <div className="posts-container">
             {allPosts}
-            {/* <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post /> */}
         </div>     
     )
 }
 
 function Post(props) {
     const post = props.post;
+    const owner = props.postOwner;
     return (
-        <div class="card-post" onclick="window.location='posts.html';">
+        <div className="card-post" onclick="window.location='posts.html';">
             <div className="post-card-details">
-                <div class="post-details">
-                    <div class="post-details-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                    <div class="post-details-name">Username</div>
-                    <div class="post-details-divider">|</div>
-                    <div class="post-details-date">{post.created_date}</div>
-                    <div class="post-details-likes">20 <i class="fa-regular fa-heart"></i></div>
+                <div className="post-details">
+                    <div className="post-details-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                    <div className="post-details-name">{owner.first_name + " " + owner.last_name}</div>
+                    <div className="post-details-divider">|</div>
+                    <div className="post-details-date">{post.created_date}</div>
+                    <div className="post-details-likes">20 <i className="fa-regular fa-heart"></i></div>
                 </div>
 
-                <div class="post-content-details">
-                    <div class="post-content-title">{post.post_title}</div>
-                    <div class="post-content-text">{post.details}
+                <div className="post-content-details">
+                    <div className="post-content-title">{post.post_title}</div>
+                    <div className="post-content-text">{post.details}
                     </div>
                 </div>
             </div>

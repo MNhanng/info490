@@ -1,5 +1,5 @@
 {
-    "post1": {
+    "1": {
         "userID": 1,
         "postID": 1,
         "post_title": "Any tips on getting an internship?", 
@@ -9,7 +9,7 @@
         "created_date": "2/20/2023",
         "comments": []
     },
-    "post2": {
+    "2": {
         "userID": 2,
         "postID": 2,
         "post_title": "Any tips on getting an internship?", 
@@ -19,7 +19,7 @@
         "created_date": "2/20/2023",
         "comments": []
     },
-    "post3": {
+    "3": {
         "userID": 3,
         "postID": 3,
         "post_title": "Any tips on getting an internship?", 
@@ -29,7 +29,7 @@
         "created_date": "2/20/2023",
         "comments": []
     },
-    "post4": {
+    "4": {
         "userID": 4,
         "postID": 4,
         "post_title": "Any tips on getting an internship?", 
@@ -39,7 +39,7 @@
         "created_date": "2/20/2023",
         "comments": []
     },
-    "post5": {
+    "5": {
         "userID": 5,
         "postID": 5,
         "post_title": "Any tips on getting an internship?", 

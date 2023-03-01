@@ -1,5 +1,5 @@
 {
-    "user1": {
+    "1": {
         "userID": 1,
         "first_name": "David",
         "last_name": "Smith",
@@ -15,7 +15,7 @@
         "languages": "English", 
         "profile_pic": "user-img.jpg"
     }, 
-    "user2": {
+    "2": {
         "userID": 2,
         "first_name": "Bob",
         "last_name": "Beanie",
@@ -31,7 +31,7 @@
         "languages": "English",
         "profile_pic": "user-img.jpg"
     },
-    "user3": {
+    "3": {
         "userID": 3,
         "first_name": "Diana",
         "last_name": "Jeans",
@@ -47,7 +47,7 @@
         "languages": "English", 
         "profile_pic": "user-img.jpg"
     }, 
-    "user4": {
+    "4": {
         "userID": 4,
         "first_name": "Leah",
         "last_name": "Long",
@@ -63,7 +63,7 @@
         "languages": "English",
         "profile_pic": "user-img.jpg"
     },
-    "user5": {
+    "5": {
         "userID": 5,
         "first_name": "Mia",
         "last_name": "Mealie",
@@ -79,7 +79,7 @@
         "languages": "English",
         "profile_pic": "user-img.jpg"
     },
-    "user6": {
+    "6": {
         "userID": 6,
         "first_name": "James",
         "last_name": "Chen",

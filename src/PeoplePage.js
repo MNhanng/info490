@@ -10,13 +10,7 @@ export function PeoplePage (props) {
 
 function Profiles(props) {
     const usersData = props.usersData
-    // get array of users data
-    let usersArray = []
-    for (const user in usersData) {
-        usersArray.push((usersData[user]));
-    }
-
-    const allProfiles = usersArray.map((user) => {
+    const allProfiles = Object.values(usersData).map((user) => {
         return <ProfileCard user={user}/>
     })
 
