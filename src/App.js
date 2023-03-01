@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavBar } from "./NavBar.js";
 import { HomePage } from "./HomePage.js";
-import { Post } from "./Post.js";
+import { PostPage } from "./Post.js";
 import { CommunityPage } from "./Community.js";
 import { PeoplePage } from "./PeoplePage.js";
 import { ProfilePage } from "./ProfilePage.js";
@@ -28,6 +28,7 @@ export default function App(props) {
                     <Route path='*' element={<Navigate to='/home' />} />
                     <Route path='home' element={<HomePage />} />
                     <Route path='community' element={<CommunityPage postsData={allPosts} usersData={allUsers} />} />
+                    <Route path=':postTitle' element={<PostPage postsData={allPosts} usersData={allUsers} />} />
                     <Route path='people' element={<PeoplePage usersData={allUsers} />} />
                     <Route path='profile' element={<ProfilePage />} />
                 </Routes>

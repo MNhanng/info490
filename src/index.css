@@ -254,6 +254,13 @@ main h1 {
     margin-left: auto;
 }
 
+.post-details-tag {
+    margin-left: 2em;
+    border: solid grey;
+    padding: 0em 0.7em;
+    border-radius: 0.6em;
+}
+
 /* End of Community Page Code */
 
 
@@ -357,6 +364,11 @@ h3 a {
     margin-left: auto;
     margin-right: 1.5rem;
     
+}
+
+.posts-page button:first-child {
+    margin: 1rem 2rem;
+    padding: 0 1rem;
 }
 
 /* end of posts code */
