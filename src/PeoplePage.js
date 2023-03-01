@@ -1,16 +1,31 @@
+import { useState } from "react";
+
 export function PeoplePage (props) {
+    // get users data in array form
+    const allProfiles = Object.values(props.usersData)
+
+    // filter for people based on search string
+    const [searchString, setSearchString] = useState("")
+    const onChange = (event) => {
+        setSearchString(event.target.value);
+    }
+    const searchPeople = (people) => {
+        return (people.first_name.toLowerCase().includes(searchString.toLowerCase()) || people.last_name.toLowerCase().includes(searchString.toLowerCase()));
+    };
+    const filteredPeople = (allProfiles).filter(searchPeople);
+
     return (
         <main>
             <h1>Profiles</h1>
-            <PeopleSearchFilter />
-            <Profiles usersData={props.usersData}/>
+            <PeopleSearchFilter onChange={onChange}/>
+            <Profiles usersData={filteredPeople}/>
         </main>
     )
 }
 
 function Profiles(props) {
-    const usersData = props.usersData
-    const allProfiles = Object.values(usersData).map((user) => {
+    // const usersData = props.usersData
+    const allProfiles = props.usersData.map((user) => {
         return <ProfileCard user={user}/>
     })
 
@@ -50,38 +65,38 @@ function ProfileCard(props) {
 function PeopleSearchFilter (props) {
     return (
         <div>
-             <form className="search-bar">
-            <input type="search" placeholder="Search..." />
-        </form>
+            <form className="search-bar" onChange={props.onChange} >
+                <input type="search" placeholder="Search..." />
+            </form>
 
-        <div className="people-filter-container">
-            <h2>Filter</h2>
-            <div className="people-filters">
-                <div>
-                    <select name="user_type" id="user_type">
-                        <option value="Student">Student</option>
-                        <option value="Alumni">Alumni</option>
-                    </select>
-                </div>
-                <div>
-                    <select name="major" id="major">
-                        <option value="Major">Major</option>
-                        <option value="Informatics">Informatics</option>
-                    </select>
-                </div>
-                <div>
-                    <select name="industry" id="industry">
-                        <option value="Industry">Industry</option>
-                        <option value="Technology">Technology</option>
-                        <option value="Healthcare">Healthcare</option>
-                        <option value="Business">Business</option>
-                    </select>
-                </div>
-                <div>
-                    <input className="open_contact" type="button" value="Open To Contact" />
+            <div className="people-filter-container">
+                <h2>Filter</h2>
+                <div className="people-filters">
+                    <div>
+                        <select name="user_type" id="user_type">
+                            <option value="Student">Student</option>
+                            <option value="Alumni">Alumni</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select name="major" id="major">
+                            <option value="Major">Major</option>
+                            <option value="Informatics">Informatics</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select name="industry" id="industry">
+                            <option value="Industry">Industry</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Business">Business</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input className="open_contact" type="button" value="Open To Contact" />
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     )
 }

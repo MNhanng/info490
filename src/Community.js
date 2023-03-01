@@ -1,13 +1,24 @@
 import { NewPostPopup } from "./Popups"
 import { CardActionArea } from '@mui/material';
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export function CommunityPage(props) {
+    const allPosts = Object.values(props.postsData)
+    const [searchString, setSearchString] = useState("")
+    const onChange = (event) => {
+        setSearchString(event.target.value);
+    }
+    const searchPosts = (posts) => {
+        return (posts.post_title.toLowerCase().includes(searchString.toLowerCase()) || posts.details.toLowerCase().includes(searchString.toLowerCase()));
+    };
+    const filteredPosts = (allPosts).filter(searchPosts)
+
     return (
         <main>
             <CommunityPageHeader />
-            <CommunityPageSearch />
-            <AllPosts postsData={props.postsData} usersData={props.usersData} />
+            <CommunityPageSearch onChange={onChange} />
+            <AllPosts postsData={filteredPosts} usersData={props.usersData} />
         </main>
     )
 }
@@ -25,7 +36,7 @@ function CommunityPageHeader(props) {
 function CommunityPageSearch(props) {
     return (
         <div>
-            <form className="search-bar">
+            <form className="search-bar" onChange={props.onChange} >
                 <input type="search" placeholder="Search..." />
             </form>
 
@@ -48,11 +59,10 @@ function CommunityPageSearch(props) {
 }
 
 function AllPosts(props) {
-    const posts = props.postsData;
-    const allPosts = Object.values(posts).map((post) => {
+    // const posts = props.postsData;
+    const allPosts = props.postsData.map((post) => {
         return <Post post={post} postOwner={props.usersData[(post.userID)]} />
     })
-
 
     return (
         <div className="posts-container">
