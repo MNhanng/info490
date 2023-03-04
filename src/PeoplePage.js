@@ -53,7 +53,7 @@ function ProfileCard(props) {
             <div className="profile-card-details">
                 <div className="profile-card-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
                 <div className="profile-card-name">{user.first_name + " " + user.last_name}</div>
-                <div className="profile-card-job">{user.job_title}</div>
+                <div className="profile-card-role">{user.role}</div>
                 <div className="profile-card-industry">{user.industry}</div>
                 <div className="profile-card-major">{user.major}</div>
                 {openToContact(user.contact.open_contact)}

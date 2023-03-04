@@ -1,10 +1,11 @@
 import { NewPostPopup } from "./Popups"
 import { CardActionArea } from '@mui/material';
 import { Link } from "react-router-dom";
+import _ from 'lodash';
 import { useState } from "react";
 
 export function CommunityPage(props) {
-    const allPosts = Object.values(props.postsData)
+    const allPosts = props.postsData
     const [searchString, setSearchString] = useState("")
     const onChange = (event) => {
         setSearchString(event.target.value);
@@ -61,7 +62,7 @@ function CommunityPageSearch(props) {
 function AllPosts(props) {
     // const posts = props.postsData;
     const allPosts = props.postsData.map((post) => {
-        return <Post post={post} postOwner={props.usersData[(post.userID)]} />
+        return <Post post={post} postOwner={_.find(props.usersData, { userID: post.userID })} />
     })
 
     return (

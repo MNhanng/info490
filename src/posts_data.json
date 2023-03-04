@@ -1,5 +1,5 @@
-{
-    "1": {
+[
+    {
         "userID": 1,
         "postID": 1,
         "post_title": "Any tips on getting an internship?", 
@@ -9,7 +9,8 @@
         "created_date": "2/20/2023",
         "comments": []
     },
-    "2": {
+    
+    {
         "userID": 2,
         "postID": 2,
         "post_title": "Any tips on getting a job?", 
@@ -19,7 +20,8 @@
         "created_date": "2/20/2023",
         "comments": []
     },
-    "3": {
+
+    {
         "userID": 3,
         "postID": 3,
         "post_title": "Any tips on getting an into biochem?", 
@@ -29,17 +31,19 @@
         "created_date": "2/20/2023",
         "comments": []
     },
-    "4": {
+
+    {
         "userID": 4,
         "postID": 4,
         "post_title": "Any tips on acing interviews?", 
         "tags": "Career",
-        "details": "Hi, I am a junior in accounting. I am a little worries because I have not had any internships yet. Does any one have any advice landing an internship?",
+        "details": "Hi, I always get really nervous for interviews and haven't had a lot of experience with them. Any advice would be appreciated!",
         "likes": [],
         "created_date": "2/20/2023",
         "comments": []
     },
-    "5": {
+
+    {
         "userID": 5,
         "postID": 5,
         "post_title": "Any tips on getting an A?", 
@@ -50,4 +54,4 @@
         "comments": []
     }
     
-}
+]

@@ -163,7 +163,7 @@ main h1 {
     padding-top: 0.7rem;
 }
 
-.profile-card-industry, .profile-card-major, .profile-card-job, .profile-card-contact {
+.profile-card-industry, .profile-card-major, .profile-card-role, .profile-card-contact {
     width: fit-content;
     margin: 0.3rem;
     padding: 0.3rem 0.5rem;
@@ -302,25 +302,29 @@ h3 a {
 }
 
 .add-comment-box {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     margin-left: 2rem;
     margin-right: 2rem;
     margin-bottom: 2rem;
 }
 
+.add-comment-box form {
+    display: flex;
+}
+
 .add-comment-box textarea {
     margin-left: 0;
     width: 90%;
-    height: 2rem;
+    height: 2.5rem;
     resize: none;
-    color: #907AA8;
+    /* color: #907AA8; */
 }
 
 .add-comment-box button {
-    height: 1.7rem;
+    height: 2.5rem;
     margin-top: 0.3rem;
     font-size: 0.8rem;
     background-color: #462E7E;
@@ -800,6 +804,38 @@ form textarea {
 .education-header {
     font-size: 1.2rem;
     font-weight: 500;
+}
+
+
+.edit_profile {
+    
+    border: solid black;
+    padding: 3rem;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.edit_profile h1 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 1em;
+} 
+
+.edit_profile label {
+    display: inline-block;
+    width: 10em;
+}
+
+.edit_profile input {
+    margin-bottom: 0.5em;
+    padding: .2em;
+}
+
+.edit_profile select {
+    margin-bottom: 0.5em;
+    padding: .2em;
 }
 
 
