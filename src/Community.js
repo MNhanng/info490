@@ -5,8 +5,11 @@ import _ from 'lodash';
 import { useState } from "react";
 
 export function CommunityPage(props) {
-    const allPosts = props.postsData
     const [searchString, setSearchString] = useState("")
+    const [selectedTags, setSelectedTags] = useState([])
+    const allPosts = props.postsData
+
+    // filter posts by search
     const onChange = (event) => {
         setSearchString(event.target.value);
     }
@@ -15,11 +18,36 @@ export function CommunityPage(props) {
     };
     const filteredPosts = (allPosts).filter(searchPosts)
 
+
+
+    // filter posts by tags
+    const filterPosts = (posts, filters) => {
+        return posts.filter( post => filters.some( filter => post.tags.includes(filter)))
+    }
+    const onClick = (event) => {
+        if (selectedTags.includes(event.target.value)) {
+            // if the selected tags array already include the tag user just clicked, remove it from array 
+            setSelectedTags(selectedTags.filter((tag) => tag !== event.target.value))
+        } else {
+            // add it to array
+            setSelectedTags([...selectedTags, event.target.value])
+        }
+    } 
+    // if the array is empty or filled, then show all data
+    let filterByTags = null;
+    if (selectedTags.length === 3 || selectedTags.length === 0) {
+        filterByTags = filteredPosts
+    } else {
+        filterByTags = filterPosts(filteredPosts, selectedTags)
+    }
+
+    
+
     return (
         <main>
             <CommunityPageHeader addPostCallback={props.addPostCallback}/>
-            <CommunityPageSearch onChange={onChange} />
-            <AllPosts postsData={filteredPosts} usersData={props.usersData} />
+            <CommunityPageSearch onChange={onChange} onClick={onClick} />
+            <AllPosts postsData={filterByTags} usersData={props.usersData} />
         </main>
     )
 }
@@ -46,13 +74,13 @@ function CommunityPageSearch(props) {
                 <h2>Filter</h2>
                 <div className="post-tags">
                     <div>
-                        <input className="Academic" type="button" value="Academic" />
+                        <input className="Academic" type="button" value="Academic" onClick={props.onClick} />
                     </div>
                     <div>
-                        <input className="Career" type="button" value="Career" />
+                        <input className="Career" type="button" value="Career" onClick={props.onClick} />
                     </div>
                     <div>
-                        <input className="Micellaneous" type="button" value="Micellaneous" />
+                        <input className="Miscellaneous" type="button" value="Miscellaneous" onClick={props.onClick} />
                     </div>
                 </div>
             </div>
