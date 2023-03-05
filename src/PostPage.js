@@ -16,7 +16,7 @@ export function PostPage(props) {
 
     return (
         <main>
-            <div class="posts-page">
+            <div className="posts-page">
                 <PostHeader post={post} postOwner={postOwner} />
                 <CommentForm addCommentCallback={props.addCommentCallback}/>
                 <AllComments commentData={postComments} usersData={props.usersData} />
@@ -32,17 +32,17 @@ function PostHeader(props) {
     return (
         <div>
             <Link to="/community"><CreateButton type="button" title="<-" label="Back to Community Page" /></Link>
-            <div class="post">
-                <div class="post-info">
-                    <div class="post-info-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                    <div class="post-info-name">{postOwner.first_name + " " + postOwner.last_name}</div>
-                    <div class="post-info-divider">|</div>
-                    <div class="post-info-date">{post.created_date}</div>
+            <div className="post">
+                <div className="post-info">
+                    <div className="post-info-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                    <div className="post-info-name">{postOwner.first_name + " " + postOwner.last_name}</div>
+                    <div className="post-info-divider">|</div>
+                    <div className="post-info-date">{post.created_date}</div>
                     <div className="post-details-tag">{post.tags}</div>
-                    <div class="post-info-likes">{post.likes.length} <i class="fa-regular fa-heart"></i></div>
+                    <div className="post-info-likes">{post.likes.length} <i className="fa-regular fa-heart"></i></div>
                 </div>
-                <div class="post-title">{post.post_title}</div>
-                <div class="post-content">{post.details}</div>
+                <div className="post-title">{post.post_title}</div>
+                <div className="post-content">{post.details}</div>
             </div>
 
             <hr />
@@ -65,10 +65,12 @@ function CommentForm(props) {
     }
 
     return (
-        <div class="add-comment-box">
+        <div className="add-comment-box">
             <form >
                 <textarea onChange={commentHandleChange} value={commentInput} id="comment_details" name="comment_details" row="1" placeholder="Type new comment here..."></textarea>
-                <button onClick={handleSubmit} type="submit" title="Add Comment" label="Add Comment">Add Comment</button>
+                {/* <button onClick={handleSubmit} type="submit" title="Add Comment" label="Add Comment">Add Comment</button> */}
+                <CreateButton onClick={handleSubmit} type="submit" title="Add Comment" label="Add Comment"/>
+
             </form>
         </div>
     )
@@ -87,14 +89,14 @@ function Comment(props) {
     const commentOwner = props.commentOwner
 
     return (
-        <div class="comment">
-            <div class="comment-info">
-                <div class="comment-info-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                <div class="comment-info-name">{commentOwner.first_name + " " + commentOwner.last_name}</div>
-                <div class="comment-info-divider">|</div>
-                <div class="comment-info-date">{comment.created_date}</div>
+        <div className="comment">
+            <div className="comment-info">
+                <div className="comment-info-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                <div className="comment-info-name">{commentOwner.first_name + " " + commentOwner.last_name}</div>
+                <div className="comment-info-divider">|</div>
+                <div className="comment-info-date">{comment.created_date}</div>
             </div>
-            <div class="comment-content">{comment.comment}</div>
+            <div className="comment-content">{comment.comment}</div>
         </div>
 
     )
