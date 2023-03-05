@@ -17,7 +17,7 @@ export function CommunityPage(props) {
 
     return (
         <main>
-            <CommunityPageHeader />
+            <CommunityPageHeader addPostCallback={props.addPostCallback}/>
             <CommunityPageSearch onChange={onChange} />
             <AllPosts postsData={filteredPosts} usersData={props.usersData} />
         </main>
@@ -25,11 +25,12 @@ export function CommunityPage(props) {
 }
 
 function CommunityPageHeader(props) {
+    
     return (
-        <div className="add-post" onclick="window.location='NewPostPopup.html';">
+        <div className="add-post">
             <h1>Community Posts</h1>
             {/* <button type="button" aria-label="add post">+</button> */}
-            <NewPostPopup />
+            <NewPostPopup addPostCallback={props.addPostCallback}/>
         </div>
     )
 }

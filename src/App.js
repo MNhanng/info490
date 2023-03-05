@@ -18,12 +18,28 @@ export default function App(props) {
     const [allPosts, setAllPosts] = useState(posts);
     const [allUsers, setAllUsers] = useState(users_data);
 
+    const addPost = (post_title, tags, details) => {
+        const newPost = {
+            "userID": 1,
+            "postID": posts.length + 1,
+            "post_title": post_title,
+            "tags": tags,
+            "details": details,
+            "likes": [],
+            "created_date": new Date().toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"}),
+            "comments": []
+        };
+
+        const updatePosts = [...allPosts, newPost];
+        setAllPosts(updatePosts);
+    }
+
     const [allComments, setAllComments] = useState(comments);
     const addComment = (comment) => {
         const newComment = {
             "userID": 5,
             "postID": 1,
-            "created_date": Date(),
+            "created_date": new Date().toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"}),
             "comment": comment
         };
 
@@ -43,7 +59,7 @@ export default function App(props) {
                 <Routes>
                     <Route path='*' element={<Navigate to='/home' />} />
                     <Route path='home' element={<HomePage />} />
-                    <Route path='community' element={<CommunityPage postsData={allPosts} usersData={allUsers} />} />
+                    <Route path='community' element={<CommunityPage addPostCallback={addPost} postsData={allPosts} usersData={allUsers} />} />
                     <Route path=':postTitle' element={<PostPage addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} />} />
                     <Route path='people' element={<PeoplePage usersData={allUsers} />} />
                     <Route path='profile' element={<ProfilePage />} />
@@ -58,7 +74,7 @@ export default function App(props) {
                 <Post /> */}
             </main>
             <footer>
-                <p>&copy; 2022 </p>
+                <p>&copy; iConnect 2023 </p>
             </footer>
         </>
 

@@ -9,6 +9,33 @@ export function NewPostPopup(props) {
     const handleShow = () => setShowPopup(true);
     const handleClose = () => setShowPopup(false);
 
+    const [titleInput, setTitleInput] = useState('');
+    const titleHandleChange = (event) => {
+        let newValue = event.target.value;
+        setTitleInput(newValue);
+    }
+
+    const [tagInput, setTagInput] = useState('');
+    const tagHandleClick = (event) => {
+      let newValue = event.target.value;
+      setTagInput(newValue);
+    }
+
+    const [detailsInput, setDetailsInput] = useState('');
+    const detailsHandleChange = (event) => {
+        let newValue = event.target.value;
+        setDetailsInput(newValue);
+    }
+
+    const handleSubmit = (event) => {
+        console.log("submitting", titleInput, tagInput, detailsInput);
+        props.addPostCallback(titleInput, tagInput, detailsInput);
+        setTitleInput('');
+        setTagInput('');
+        setDetailsInput('');
+        setShowPopup(false);
+    }
+
     return (
         <>
             <CreateButton onClick={handleShow} type="button" title="+" label="Create new post" />
@@ -20,8 +47,8 @@ export function NewPostPopup(props) {
                 <Modal.Body>
                     <form>
                         <div>
-                            <label for="post_name">Post Name</label>
-                            <input type="text" id="post_name" /> <br />
+                            <label for="title">Post Title</label>
+                            <input onChange={titleHandleChange} value={titleInput} type="text" id="post_title" /> <br />
                         </div>
 
                         <div className="form-tags">
@@ -30,26 +57,26 @@ export function NewPostPopup(props) {
                             </div>
                             <div class="tags">
                                 <div>
-                                    <input className="Academic" type="button" value="Academic" />
+                                    <input onClick={tagHandleClick} className="Academic" type="button" value="Academic" />
                                 </div>
                                 <div>
-                                    <input className="Career" type="button" value="Career" />
+                                    <input onClick={tagHandleClick} className="Career" type="button" value="Career" />
                                 </div>
                                 <div>
-                                    <input className="Micellaneous" type="button" value="Micellaneous" />
+                                    <input onClick={tagHandleClick} className="Micellaneous" type="button" value="Micellaneous" />
                                 </div>
                             </div>
                         </div>
 
                         <div>
                             <label for="post_details">Details</label> <br />
-                            <textarea id="post_details" name="details" rows="5"></textarea> <br />
+                            <textarea onChange={detailsHandleChange} value={detailsInput} id="post_details" name="details" rows="5"></textarea> <br />
                         </div>
                     </form>
                 </Modal.Body>
                 <Modal.Footer>
                     <div className="popup-button">
-                        <CreateButton onClick={handleClose} type="submit" title="Create" label="Create new post" />
+                        <CreateButton onClick={handleSubmit} type="submit" title="Create" label="Create new post" />
                     </div>
                 </Modal.Footer>
             </Modal>
