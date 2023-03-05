@@ -47,6 +47,7 @@ export default function App(props) {
         setAllComments(updateComments);
     }
 
+    console.log(allPosts)
     console.log(allComments)
 
     return (
