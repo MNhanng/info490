@@ -4,7 +4,7 @@ import { HomePage } from "./HomePage.js";
 import { PostPage } from "./PostPage.js";
 import { CommunityPage } from "./Community.js";
 import { PeoplePage } from "./PeoplePage.js";
-import { ProfilePage } from "./ProfilePage.js";
+import { MyProfilePage, UserProfilePage } from "./ProfilePage.js";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
 
@@ -63,7 +63,8 @@ export default function App(props) {
                     <Route path='community' element={<CommunityPage addPostCallback={addPost} postsData={allPosts} usersData={allUsers} />} />
                     <Route path=':postTitle' element={<PostPage addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} />} />
                     <Route path='people' element={<PeoplePage usersData={allUsers} />} />
-                    <Route path='profile' element={<ProfilePage />} />
+                    <Route path='people/:profileName' element={<UserProfilePage usersData={allUsers} />} />
+                    <Route path='profile' element={<MyProfilePage />} />
                 </Routes>
 
                 {/* <NavBar />

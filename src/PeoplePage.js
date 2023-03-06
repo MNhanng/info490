@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { CardActionArea } from '@mui/material';
+import { Link } from "react-router-dom";
 
-export function PeoplePage (props) {
+export function PeoplePage(props) {
     const [searchString, setSearchString] = useState("")
     const [selectedRole, setSelectedRole] = useState("all")
     const [selectedMajor, setSelectedMajor] = useState("all")
@@ -48,9 +50,9 @@ export function PeoplePage (props) {
     let filteredByFiltersPeople = filteredPeople;
     if (selectedRole !== "all") {
         filteredByFiltersPeople = filteredPeople.filter(filterByRole)
-    } 
+    }
     if (selectedIndustry !== "all") {
-       filteredByFiltersPeople = filteredPeople.filter(filterByIndustry)
+        filteredByFiltersPeople = filteredPeople.filter(filterByIndustry)
     }
     if (selectedMajor !== "all") {
         filteredByFiltersPeople = filteredPeople.filter(filterByMajor)
@@ -63,7 +65,7 @@ export function PeoplePage (props) {
         <main>
             <h1>Profiles</h1>
             <PeopleSearchFilter onChange={onChange} handleRoleClick={handleRoleClick} handleIndustryClick={handleIndustryClick} handleMajorClick={handleMajorClick} handleTagClick={handleTagClick} />
-            <Profiles usersData={filteredByFiltersPeople}/>
+            <Profiles usersData={filteredByFiltersPeople} />
         </main>
     )
 }
@@ -71,7 +73,7 @@ export function PeoplePage (props) {
 function Profiles(props) {
     // const usersData = props.usersData
     const allProfiles = props.usersData.map((user) => {
-        return <ProfileCard user={user}/>
+        return <ProfileCard user={user} />
     })
 
     return (
@@ -93,21 +95,25 @@ function ProfileCard(props) {
         }
     }
 
+    const profileLink = '/people/' + encodeURIComponent(user.first_name + " " + user.last_name);
+
     return (
-        <div className="card profile" onclick="window.location='ProfilePopUp.html';">
-            <div className="profile-card-details">
-                <div className="profile-card-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                <div className="profile-card-name">{user.first_name + " " + user.last_name}</div>
-                <div className="profile-card-role">{user.role}</div>
-                <div className="profile-card-industry">{user.industry}</div>
-                <div className="profile-card-major">{user.major}</div>
-                {openToContact(user.contact.open_contact)}
-            </div>
+        <div className="card profile">
+            <CardActionArea component={Link} to={profileLink}>
+                <div className="profile-card-details">
+                    <div className="profile-card-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                    <div className="profile-card-name">{user.first_name + " " + user.last_name}</div>
+                    <div className="profile-card-role">{user.role}</div>
+                    <div className="profile-card-industry">{user.industry}</div>
+                    <div className="profile-card-major">{user.major}</div>
+                    {openToContact(user.contact.open_contact)}
+                </div>
+            </CardActionArea>
         </div>
     )
 }
 
-function PeopleSearchFilter (props) {
+function PeopleSearchFilter(props) {
     return (
         <div>
             <form className="search-bar" onChange={props.onChange} >
@@ -151,7 +157,7 @@ function PeopleSearchFilter (props) {
                         </select>
                     </div>
                     <div>
-                        <input className="open_contact" type="button" value="Open To Contact" onClick={props.handleTagClick}/>
+                        <input className="open_contact" type="button" value="Open To Contact" onClick={props.handleTagClick} />
                     </div>
                 </div>
             </div>
