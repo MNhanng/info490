@@ -5,8 +5,8 @@ import { PostPage } from "./PostPage.js";
 import { CommunityPage } from "./Community.js";
 import { PeoplePage } from "./PeoplePage.js";
 import { ProfilePage } from "./ProfilePage.js";
-
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
 
 
 import users_data from "./user_data.json";

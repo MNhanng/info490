@@ -1,11 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import App from './App.js';
 import { BrowserRouter } from 'react-router-dom';
 
+import { initializeApp } from "firebase/app";
+
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
+import App from './App.js';
+
 // import reportWebVitals from './reportWebVitals';
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBjjsGziYB8o_b1WozK_XOBy9Z-MnxZZ4A",
+  authDomain: "iconnect-23.firebaseapp.com",
+  projectId: "iconnect-23",
+  storageBucket: "iconnect-23.appspot.com",
+  messagingSenderId: "226565239518",
+  appId: "1:226565239518:web:e14be7896d4aa66ecc884f"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
