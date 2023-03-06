@@ -37,6 +37,11 @@
     padding-bottom: 1rem;
 }
 
+.nav .logo a {
+    text-decoration: none;
+    color: black;
+}
+
 .nav-elems li {
     list-style: none;
 }
@@ -50,7 +55,10 @@
 
 .nav-elems a:hover {
     background-color: #987aa875;
+    cursor: pointer;
+    color: black;
 }
+
 /* end of nav code*/
 
 main h1 {
@@ -58,9 +66,20 @@ main h1 {
     font-size: 1.1em;
 }
 
+.sign-in {
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0.3em;
+    font-size: 80%;
+}
+
 /* Start of Search Bar Code */
 
-.search-bar-container{
+.search-bar-container {
     display: flex;
 }
 
@@ -163,7 +182,10 @@ main h1 {
     padding-top: 0.7rem;
 }
 
-.profile-card-industry, .profile-card-major, .profile-card-role, .profile-card-contact {
+.profile-card-industry,
+.profile-card-major,
+.profile-card-role,
+.profile-card-contact {
     width: fit-content;
     margin: 0.3rem;
     padding: 0.3rem 0.5rem;
@@ -222,6 +244,7 @@ main h1 {
     font-weight: 200;
     color: #462E7E;
 }
+
 .post-details-divider {
     padding-left: 0.3rem;
     padding-right: 0.3rem;
@@ -269,7 +292,8 @@ h3 a {
     text-decoration: none;
 }
 
-.comment-content, .post-content {
+.comment-content,
+.post-content {
     /* border: 0.08rem solid gray; */
     /* margin: 1rem; */
     margin-left: 1rem;
@@ -281,7 +305,8 @@ h3 a {
     /* border-radius: 0.2rem; */
 }
 
-.comment-info, .post-info {
+.comment-info,
+.post-info {
     margin-left: 1rem;
     /* margin-bottom: 0; */
     display: flex;
@@ -290,7 +315,8 @@ h3 a {
     align-items: center;
 }
 
-.comment, .post {
+.comment,
+.post {
     /* padding-bottom: 2rem; */
     border-radius: 1rem;
     background-color: #F9F9FB;
@@ -354,7 +380,8 @@ h3 a {
     margin-right: 0.5rem;
 }
 
-.post-info-divider, .comment-info-divider {
+.post-info-divider,
+.comment-info-divider {
     padding-left: 0.3rem;
     padding-right: 0.3rem;
 }
@@ -367,7 +394,7 @@ h3 a {
 .post-info-likes {
     margin-left: auto;
     margin-right: 1.5rem;
-    
+
 }
 
 .posts-page button:first-child {
@@ -556,6 +583,7 @@ select {
     margin-bottom: 1rem;
     border-radius: 1rem;
 }
+
 /* end of home page code */
 
 
@@ -573,7 +601,8 @@ select {
     justify-content: space-between;
 }
 
-.first-name-input, .last-name-input {
+.first-name-input,
+.last-name-input {
     flex-basis: 48%;
 }
 
@@ -590,7 +619,7 @@ select {
 }
 
 .profile-edit-popup select {
-    display: block;  
+    display: block;
     margin-bottom: 2rem;
     width: 100%;
     height: 2rem;
@@ -607,10 +636,11 @@ select {
     margin-bottom: 0.5rem;
 }
 
-.profile-cancel-button button{
+.profile-cancel-button button {
     width: 7rem;
     height: 2rem;
-    font-size: 0.9rem;;
+    font-size: 0.9rem;
+    ;
     background-color: white;
     border-radius: 0.4rem;
     border: 0.1rem solid #907AA8;
@@ -620,7 +650,8 @@ select {
 .profile-save-button button {
     width: 7rem;
     height: 2rem;
-    font-size: 0.9rem;;
+    font-size: 0.9rem;
+    ;
     background-color: #462E7E;
     border-radius: 0.4rem;
     border: none;
@@ -670,6 +701,7 @@ select {
     font-weight: 600;
     width: 10.5%;
 }
+
 /* end of profile popup */
 
 /* Start of Post Popup */
@@ -796,7 +828,8 @@ form textarea {
     padding-bottom: 0.75rem;
 }
 
-.profile-intro-bio-text, .education-details {
+.profile-intro-bio-text,
+.education-details {
     font-size: 0.9rem;
     font-weight: 300;
 }
@@ -808,7 +841,7 @@ form textarea {
 
 
 .edit_profile {
-    
+
     border: solid black;
     padding: 3rem;
     width: 40%;
@@ -821,7 +854,7 @@ form textarea {
     text-align: center;
     margin: 0;
     margin-bottom: 1em;
-} 
+}
 
 .edit_profile label {
     display: inline-block;
