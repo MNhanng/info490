@@ -18,7 +18,9 @@ const nullUser = { uid: null };
 
 export default function App(props) {
     const [currentUser, setCurrentUser] = useState(nullUser)
+    const [alertMessage, setAlertMessage] = useState(null);
     const navigateTo = useNavigate();
+    
     useEffect(() => {
         const auth = getAuth();
         onAuthStateChanged(auth, (firebaseUser) => {
@@ -58,7 +60,7 @@ export default function App(props) {
                 userObj.key = keyString;
                 return userObj;
             })
-            setAllUsers(valueObj);
+            setAllUsers(objArray);
         })
 
         const postsFunction = onValue(allPostsRef, (snapshot) => {
@@ -69,7 +71,7 @@ export default function App(props) {
                 postObj.key = keyString;
                 return postObj;
             })
-            setAllPosts(valueObj);
+            setAllPosts(objArray);
         })
 
         const commentsFunction = onValue(allCommentsRef, (snapshot) => {
@@ -80,7 +82,7 @@ export default function App(props) {
                 commentObj.key = keyString;
                 return commentObj;
             })
-            setAllComments(valueObj);
+            setAllComments(objArray);
         })
 
         function cleanup() {
@@ -90,34 +92,37 @@ export default function App(props) {
         }
         return cleanup;
     }, [currentUser]);
-
+    console.log(allPosts)
 
     const addPost = (post_title, tags, details) => {
         const newPost = {
             "userID": 1,
-            "postID": posts.length + 1,
+            "postID": allPosts.length + 1,
             "post_title": post_title,
             "tags": tags,
             "details": details,
-            "likes": [],
+            "likes": ["placeholder"],
             "created_date": new Date().toLocaleDateString('en-us', { year: "numeric", month: "short", day: "numeric" }),
             "comments": []
         };
-
-        const updatePosts = [...allPosts, newPost];
-        setAllPosts(updatePosts);
+        const db = getDatabase();
+        const allPostsRef = ref(db, 'posts_data/')
+        firebasePush(allPostsRef, newPost).then(() => console.log("Successfully added new post")).catch((error) => setAlertMessage(error.message));
     }
 
     const addComment = (comment) => {
         const newComment = {
-            "userID": 5,
+            "userID": 1,
             "postID": 1,
             "created_date": new Date().toLocaleDateString('en-us', { year: "numeric", month: "short", day: "numeric" }),
             "comment": comment
         };
+        const db = getDatabase();
+        const allPostsRef = ref(db, 'comments_data/')
+        firebasePush(allPostsRef, newComment).then(() => console.log("Successfully added new comment")).catch((error) => setAlertMessage(error.message));
 
-        const updateComments = [...allComments, newComment];
-        setAllComments(updateComments);
+        // const updateComments = [...allComments, newComment];
+        // setAllComments(updateComments);
     }
 
     console.log(allPosts)

@@ -8,6 +8,7 @@ export function CommunityPage(props) {
     const [searchString, setSearchString] = useState("")
     const [selectedTags, setSelectedTags] = useState([])
     const allPosts = props.postsData
+    console.log(allPosts)
 
     // filter posts by search
     const onChange = (event) => {
