@@ -18,14 +18,10 @@ const nullUser = { uid: null };
 
 export default function App(props) {
     const [currentUser, setCurrentUser] = useState(nullUser)
-
     const navigateTo = useNavigate();
-
     useEffect(() => {
         const auth = getAuth();
-
         onAuthStateChanged(auth, (firebaseUser) => {
-
             if (firebaseUser) { // logged in
                 console.log(firebaseUser)
 
@@ -40,10 +36,61 @@ export default function App(props) {
         })
     }, []);
 
+    // const [allPosts, setAllPosts] = useState(posts);
+    // const [allUsers, setAllUsers] = useState(users_data);
+    // const [allComments, setAllComments] = useState(comments);
+    const [allUsers, setAllUsers] = useState([]);
+    const [allPosts, setAllPosts] = useState([]);
+    const [allComments, setAllComments] = useState([]);
 
+    // read data from firebase
+    useEffect(() => {
+        const db = getDatabase();
+        const allUserProfileRef = ref(db, 'users_data/');
+        const allPostsRef = ref(db, 'posts_data/')
+        const allCommentsRef = ref(db, 'comments_data/')
 
-    const [allPosts, setAllPosts] = useState(posts);
-    const [allUsers, setAllUsers] = useState(users_data);
+        const userFunction = onValue(allUserProfileRef, (snapshot) => {
+            const valueObj = snapshot.val();
+            const objKeys = Object.keys(valueObj);
+            const objArray = objKeys.map((keyString) => {
+                const userObj = valueObj[keyString];
+                userObj.key = keyString;
+                return userObj;
+            })
+            setAllUsers(valueObj);
+        })
+
+        const postsFunction = onValue(allPostsRef, (snapshot) => {
+            const valueObj = snapshot.val();
+            const objKeys = Object.keys(valueObj);
+            const objArray = objKeys.map((keyString) => {
+                const postObj = valueObj[keyString];
+                postObj.key = keyString;
+                return postObj;
+            })
+            setAllPosts(valueObj);
+        })
+
+        const commentsFunction = onValue(allCommentsRef, (snapshot) => {
+            const valueObj = snapshot.val();
+            const objKeys = Object.keys(valueObj);
+            const objArray = objKeys.map((keyString) => {
+                const commentObj = valueObj[keyString];
+                commentObj.key = keyString;
+                return commentObj;
+            })
+            setAllComments(valueObj);
+        })
+
+        function cleanup() {
+            userFunction();
+            postsFunction();
+            commentsFunction();
+        }
+        return cleanup;
+    }, [currentUser]);
+
 
     const addPost = (post_title, tags, details) => {
         const newPost = {
@@ -61,7 +108,6 @@ export default function App(props) {
         setAllPosts(updatePosts);
     }
 
-    const [allComments, setAllComments] = useState(comments);
     const addComment = (comment) => {
         const newComment = {
             "userID": 5,

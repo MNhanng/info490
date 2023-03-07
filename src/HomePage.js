@@ -3,7 +3,7 @@ export function HomePage(props) {
 
     return (
         <main>
-            <div class="home-page">
+            <div className="home-page">
             <div className="home-content">
                 <div className="home-header">Connect With Our Networking Team</div>
                 <div className="home-button"><a href="CommunityPage.html"><button type="button">Start Exploring</button></a></div>

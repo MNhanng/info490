@@ -73,7 +73,7 @@ export function PeoplePage(props) {
 function Profiles(props) {
     // const usersData = props.usersData
     const allProfiles = props.usersData.map((user) => {
-        return <ProfileCard user={user} />
+        return <ProfileCard user={user} key={user.userID} />
     })
 
     return (
@@ -125,14 +125,14 @@ function PeopleSearchFilter(props) {
                 <div className="people-filters">
                     <div>
                         <select name="user_type" id="user_type" onChange={props.handleRoleClick} >
-                            <option value="all" selected>Role</option>
+                            <option value="all" defaultValue>Role</option>
                             <option value="Student">Student</option>
                             <option value="Alumni">Alumni</option>
                         </select>
                     </div>
                     <div>
                         <select name="major" id="major" onChange={props.handleMajorClick}>
-                            <option value="all" selected>Major</option>
+                            <option value="all" defaultValue>Major</option>
                             <option value="Art">Art</option>
                             <option value="Business">Business</option>
                             <option value="Biology">Biology</option>
@@ -146,7 +146,7 @@ function PeopleSearchFilter(props) {
                     </div>
                     <div>
                         <select name="industry" id="industry" onChange={props.handleIndustryClick}>
-                            <option value="all" selected>Industry</option>
+                            <option value="all" defaultValue>Industry</option>
                             <option value="Technology">Technology</option>
                             <option value="Healthcare">Healthcare</option>
                             <option value="Business">Business</option>

@@ -89,9 +89,8 @@ function CommunityPageSearch(props) {
 }
 
 function AllPosts(props) {
-    // const posts = props.postsData;
     const allPosts = props.postsData.map((post) => {
-        return <Post post={post} postOwner={_.find(props.usersData, { userID: post.userID })} />
+        return <Post post={post} key={post.postID} postOwner={_.find(props.usersData, { userID: post.userID })} />
     })
 
     return (
