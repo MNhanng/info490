@@ -120,9 +120,6 @@ export default function App(props) {
         const db = getDatabase();
         const allPostsRef = ref(db, 'comments_data/')
         firebasePush(allPostsRef, newComment).then(() => console.log("Successfully added new comment")).catch((error) => setAlertMessage(error.message));
-
-        // const updateComments = [...allComments, newComment];
-        // setAllComments(updateComments);
     }
 
     console.log(allPosts)

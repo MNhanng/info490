@@ -66,12 +66,12 @@ function CommentForm(props) {
 
     return (
         <div className="add-comment-box">
-            <form >
+            {/* <form > */}
                 <textarea onChange={commentHandleChange} value={commentInput} id="comment_details" name="comment_details" row="1" placeholder="Type new comment here..."></textarea>
                 {/* <button onClick={handleSubmit} type="submit" title="Add Comment" label="Add Comment">Add Comment</button> */}
                 <CreateButton onClick={handleSubmit} type="submit" title="Add Comment" label="Add Comment"/>
 
-            </form>
+            {/* </form> */}
         </div>
     )
 }
