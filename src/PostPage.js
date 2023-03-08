@@ -35,7 +35,7 @@ function PostHeader(props) {
             <div className="post">
                 <div className="post-info">
                     <div className="post-info-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                    <div className="post-info-name">{postOwner.first_name + " " + postOwner.last_name}</div>
+                    <div className="post-info-name">{postOwner.firstName + " " + postOwner.lastName}</div>
                     <div className="post-info-divider">|</div>
                     <div className="post-info-date">{post.created_date}</div>
                     <div className="post-details-tag">{post.tags}</div>
@@ -92,7 +92,7 @@ function Comment(props) {
         <div className="comment">
             <div className="comment-info">
                 <div className="comment-info-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                <div className="comment-info-name">{commentOwner.first_name + " " + commentOwner.last_name}</div>
+                <div className="comment-info-name">{commentOwner.firstName + " " + commentOwner.lastName}</div>
                 <div className="comment-info-divider">|</div>
                 <div className="comment-info-date">{comment.created_date}</div>
             </div>

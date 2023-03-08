@@ -16,7 +16,7 @@ export function PeoplePage(props) {
         setSearchString(event.target.value);
     }
     const searchPeople = (people) => {
-        return (people.first_name.toLowerCase().includes(searchString.toLowerCase()) || people.last_name.toLowerCase().includes(searchString.toLowerCase()));
+        return (people.firstName.toLowerCase().includes(searchString.toLowerCase()) || people.lastName.toLowerCase().includes(searchString.toLowerCase()));
     };
     const filteredPeople = (allProfiles).filter(searchPeople);
 
@@ -44,7 +44,7 @@ export function PeoplePage(props) {
         return people.major.includes(selectedMajor);
     }
     const filterByTag = (people) => {
-        return people.contact.open_contact === "Yes";
+        return people.contact.openContact === "Yes";
     }
 
     let filteredByFiltersPeople = filteredPeople;
@@ -95,18 +95,18 @@ function ProfileCard(props) {
         }
     }
 
-    const profileLink = '/people/' + encodeURIComponent(user.first_name + " " + user.last_name);
+    const profileLink = '/people/' + encodeURIComponent(user.firstName + " " + user.lastName);
 
     return (
         <div className="card profile">
             <CardActionArea component={Link} to={profileLink}>
                 <div className="profile-card-details">
                     <div className="profile-card-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                    <div className="profile-card-name">{user.first_name + " " + user.last_name}</div>
+                    <div className="profile-card-name">{user.firstName + " " + user.lastName}</div>
                     <div className="profile-card-role">{user.role}</div>
                     <div className="profile-card-industry">{user.industry}</div>
                     <div className="profile-card-major">{user.major}</div>
-                    {openToContact(user.contact.open_contact)}
+                    {openToContact(user.openContact)}
                 </div>
             </CardActionArea>
         </div>

@@ -113,7 +113,7 @@ function Post(props) {
                 <div className="post-card-details">
                     <div className="post-details">
                         <div className="post-details-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                        <div className="post-details-name">{owner.first_name + " " + owner.last_name}</div>
+                        <div className="post-details-name">{owner.firstName + " " + owner.lastName}</div>
                         <div className="post-details-divider">|</div>
                         <div className="post-details-date">{post.created_date}</div>
                         <div className="post-details-tag">{post.tags}</div>

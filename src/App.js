@@ -60,6 +60,7 @@ export default function App(props) {
                 userObj.key = keyString;
                 return userObj;
             })
+            
             setAllUsers(objArray);
         })
 
@@ -92,6 +93,33 @@ export default function App(props) {
         }
         return cleanup;
     }, [currentUser]);
+
+
+    // testing some things
+    // if the users_data db does not contain the current users info, then add blank profile to db
+    // if (!Object.values(allUsers).includes(currentUser.uid)) {
+    //     const newProfile = {
+    //         "bio": "",
+    //         "degree": "",
+    //         "email": currentUser.email,
+    //         "employer": "",
+    //         "firstName": currentUser.displayName.substring(0, currentUser.displayName.indexOf(' ')),    
+    //         "lastName": currentUser.displayName.substring(currentUser.displayName.indexOf(' ') + 1),
+    //         "gradYear": "",
+    //         "industry": "",
+    //         "jobTitle": "",
+    //         "languages": "",
+    //         "major": "",
+    //         "number": "",
+    //         "openContact": "",
+    //         "role": "",
+    //         "school": "",
+    //         "userID": currentUser.uid
+    //     }
+    //     const db = getDatabase();
+    //     const allUserProfileRef = ref(db, 'users_data/');
+    //     firebasePush(allUserProfileRef, newProfile).then(() => console.log("Successfully added new post")).catch((error) => setAlertMessage(error.message));
+    // }
 
     const addPost = (post_title, tags, details) => {
         const newPost = {
