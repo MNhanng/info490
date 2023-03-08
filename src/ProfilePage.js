@@ -236,6 +236,7 @@ export function MyProfilePage(props) {
         console.log("submitting", firstNameInput, lastNameInput, roleInput, bioInput, openContactInput, numberInput, emailInput, schoolInput, degreeInput, gradYearInput, majorInput, industryInput, employerInput, jobTitleInput, languagesInput);
 
         const db = getDatabase();
+        const userIDRef = ref(db, 'users_data/' + userUID + '/userID');
         const firstNameRef = ref(db, 'users_data/' + userUID + '/firstName');
         const lastNameRef = ref(db, 'users_data/' + userUID + '/lastName');
         const roleRef = ref(db, 'users_data/' + userUID + '/role');
@@ -252,6 +253,7 @@ export function MyProfilePage(props) {
         const jobTitleRef = ref(db, 'users_data/' + userUID + '/jobTitle');
         const languagesRef = ref(db, 'users_data/' + userUID + '/languages');
 
+        firebaseSet(userIDRef, userUID)
         firebaseSet(firstNameRef, firstNameInput);
         firebaseSet(lastNameRef, lastNameInput);
         firebaseSet(roleRef, roleInput);
