@@ -1,136 +1,308 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CreateButton } from "./ButtonsAndTags"
 import { Link, useParams } from "react-router-dom";
 import _ from 'lodash';
+import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
 
 export function MyProfilePage(props) {
+    const userUID = props.currentUser.uid;
+    console.log(userUID);
+
     const [firstNameInput, setFirstNameInput] = useState('');
+    const [lastNameInput, setLastNameInput] = useState('');
+    const [roleInput, setRoleInput] = useState('');
+    const [bioInput, setBioInput] = useState('');
+    const [openContactInput, setOpenContactInput] = useState('');
+    const [numberInput, setNumberInput] = useState('');
+    const [emailInput, setEmailInput] = useState('');
+    const [schoolInput, setSchoolInput] = useState('');
+    const [degreeInput, setDegreeInput] = useState('');
+    const [gradYearInput, setGradYearInput] = useState('');
+    const [majorInput, setMajorInput] = useState('');
+    const [industryInput, setIndustryInput] = useState('');
+    const [employerInput, setEmployerInput] = useState('');
+    const [jobTitleInput, setJobTitleInput] = useState('');
+    const [languagesInput, setLanguagesInput] = useState('');
+
+    useEffect(() => {
+        const db = getDatabase();
+        const firstNameRef = ref(db, 'users_data/' + userUID + '/firstName');
+        const lastNameRef = ref(db, 'users_data/' + userUID + '/lastName');
+        const roleRef = ref(db, 'users_data/' + userUID + '/role');
+        const bioRef = ref(db, 'users_data/' + userUID + '/bio');
+        const openContactRef = ref(db, 'users_data/' + userUID + '/openContact');
+        const numberRef = ref(db, 'users_data/' + userUID + '/number');
+        const emailRef = ref(db, 'users_data/' + userUID + '/email');
+        const schoolRef = ref(db, 'users_data/' + userUID + '/school');
+        const degreeRef = ref(db, 'users_data/' + userUID + '/degree');
+        const gradYearRef = ref(db, 'users_data/' + userUID + '/gradYear');
+        const majorRef = ref(db, 'users_data/' + userUID + '/major');
+        const industryRef = ref(db, 'users_data/' + userUID + '/industry');
+        const employerRef = ref(db, 'users_data/' + userUID + '/employer');
+        const jobTitleRef = ref(db, 'users_data/' + userUID + '/jobTitle');
+        const languagesRef = ref(db, 'users_data/' + userUID + '/languages');
+
+        console.log(firstNameRef)
+
+        const fnFunction = onValue(firstNameRef, (snapshot) => {
+            const fnObj = snapshot.val();
+            setFirstNameInput(fnObj);
+        })
+
+        const lnFunction = onValue(lastNameRef, (snapshot) => {
+            const lnObj = snapshot.val();
+            setLastNameInput(lnObj);
+        })
+
+        const roleFunction = onValue(roleRef, (snapshot) => {
+            const roleObj = snapshot.val();
+            setRoleInput(roleObj);
+        })
+
+        const bioFunction = onValue(bioRef, (snapshot) => {
+            const bioObj = snapshot.val();
+            setBioInput(bioObj);
+        })
+
+        const openContactFunction = onValue(openContactRef, (snapshot) => {
+            const openContactObj = snapshot.val();
+            setOpenContactInput(openContactObj);
+        })
+
+        const numberFunction = onValue(numberRef, (snapshot) => {
+            const numberObj = snapshot.val();
+            setNumberInput(numberObj);
+        })
+
+        const emailFunction = onValue(emailRef, (snapshot) => {
+            const emailObj = snapshot.val();
+            setEmailInput(emailObj);
+        })
+
+        const schoolFunction = onValue(schoolRef, (snapshop) => {
+            const schoolObj = snapshop.val();
+            setSchoolInput(schoolObj);
+        })
+
+        const degreeFunction = onValue(degreeRef, (snapshop) => {
+            const degreeObj = snapshop.val();
+            setDegreeInput(degreeObj);
+        })
+
+        const gradYearFunction = onValue(gradYearRef, (snapshop) => {
+            const gradYearObj = snapshop.val();
+            setGradYearInput(gradYearObj);
+        })
+
+        const majorFunction = onValue(majorRef, (snapshop) => {
+            const majorObj = snapshop.val();
+            setMajorInput(majorObj);
+        })
+
+        const industryFunction = onValue(industryRef, (snapshop) => {
+            const industryObj = snapshop.val();
+            setIndustryInput(industryObj);
+        })
+
+        const employerFunction = onValue(employerRef, (snapshop) => {
+            const employerObj = snapshop.val();
+            setEmployerInput(employerObj);
+        })
+
+        const jobTitleFunction = onValue(jobTitleRef, (snapshop) => {
+            const jobTitleObj = snapshop.val();
+            setJobTitleInput(jobTitleObj);
+        })
+
+        const languageFunction = onValue(languagesRef, (snapshop) => {
+            const languageObj = snapshop.val();
+            setLanguagesInput(languageObj);
+        })
+
+        console.log("firebasing");
+
+        function cleanup() {
+            fnFunction();
+            lnFunction();
+            roleFunction();
+            bioFunction();
+            openContactFunction();
+            numberFunction();
+            emailFunction();
+            schoolFunction();
+            degreeFunction();
+            gradYearFunction();
+            majorFunction();
+            industryFunction();
+            employerFunction();
+            jobTitleFunction();
+            languageFunction();
+        }
+
+        return cleanup;
+    }, [])
+
     const firstNameHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('first name', newValue);
         setFirstNameInput(newValue);
     }
 
-    const [lastNameInput, setLasttNameInput] = useState('');
     const lastNameHandleChange = (event) => {
         let newValue = event.target.value;
-        setLasttNameInput(newValue);
+        console.log('last name', newValue);
+        setLastNameInput(newValue);
     }
 
-    const [roleInput, setRoleInput] = useState('');
     const roleHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('role', newValue);
         setRoleInput(newValue);
     }
 
-    const [bioInput, setBioInput] = useState('');
     const bioHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('bio', newValue);
         setBioInput(newValue);
     }
 
-    const [openContactInput, setOpenContactInput] = useState('');
     const openContactHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('open contact', newValue);
         setOpenContactInput(newValue);
     }
 
-    const [numberInput, setNumberInput] = useState('');
     const numberHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('number', newValue);
         setNumberInput(newValue);
     }
 
-    const [emailInput, setEmailInput] = useState('');
     const emailHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('email', newValue);
         setEmailInput(newValue);
     }
 
-    const [schoolInput, setSchoolInput] = useState('');
     const schoolHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('school', newValue);
         setSchoolInput(newValue);
     }
 
-    const [degreeInput, setDegreeInput] = useState('');
     const degreeHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('degree', newValue);
         setDegreeInput(newValue);
     }
 
-    const [gradYearInput, setGradYearInput] = useState('');
     const gradYearHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('grad year', newValue);
         setGradYearInput(newValue);
     }
 
-    const [majorInput, setMajorInput] = useState('');
     const majorHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('major', newValue);
         setMajorInput(newValue);
     }
 
-    const [industryInput, setIndustryInput] = useState('');
     const industryHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('industry', newValue);
         setIndustryInput(newValue);
     }
 
-    const [employerInput, setEmployerInput] = useState('');
     const employerHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('employer', newValue);
         setEmployerInput(newValue);
     }
 
-    const [jobTitleInput, setJobTitleInput] = useState('');
     const jobTitleHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('job title', newValue);
         setJobTitleInput(newValue);
     }
 
-    const [languagesInput, setLanguagesInput] = useState('');
     const languagesHandleChange = (event) => {
         let newValue = event.target.value;
+        console.log('languages', newValue);
         setLanguagesInput(newValue);
     }
 
-
-    const handleSubmit = (event) => {
+    const handleSubmit = () => {
         console.log("submitting", firstNameInput, lastNameInput, roleInput, bioInput, openContactInput, numberInput, emailInput, schoolInput, degreeInput, gradYearInput, majorInput, industryInput, employerInput, jobTitleInput, languagesInput);
+
+        const db = getDatabase();
+        const firstNameRef = ref(db, 'users_data/' + userUID + '/firstName');
+        const lastNameRef = ref(db, 'users_data/' + userUID + '/lastName');
+        const roleRef = ref(db, 'users_data/' + userUID + '/role');
+        const bioRef = ref(db, 'users_data/' + userUID + '/bio');
+        const openContactRef = ref(db, 'users_data/' + userUID + '/openContact');
+        const numberRef = ref(db, 'users_data/' + userUID + '/number');
+        const emailRef = ref(db, 'users_data/' + userUID + '/email');
+        const schoolRef = ref(db, 'users_data/' + userUID + '/school');
+        const degreeRef = ref(db, 'users_data/' + userUID + '/degree');
+        const gradYearRef = ref(db, 'users_data/' + userUID + '/gradYear');
+        const majorRef = ref(db, 'users_data/' + userUID + '/major');
+        const industryRef = ref(db, 'users_data/' + userUID + '/industry');
+        const employerRef = ref(db, 'users_data/' + userUID + '/employer');
+        const jobTitleRef = ref(db, 'users_data/' + userUID + '/jobTitle');
+        const languagesRef = ref(db, 'users_data/' + userUID + '/languages');
+
+        firebaseSet(firstNameRef, firstNameInput);
+        firebaseSet(lastNameRef, lastNameInput);
+        firebaseSet(roleRef, roleInput);
+        firebaseSet(bioRef, bioInput);
+        firebaseSet(openContactRef, openContactInput);
+        firebaseSet(numberRef, numberInput);
+        firebaseSet(emailRef, emailInput);
+        firebaseSet(schoolRef, schoolInput);
+        firebaseSet(degreeRef, degreeInput);
+        firebaseSet(gradYearRef, gradYearInput);
+        firebaseSet(majorRef, majorInput);
+        firebaseSet(industryRef, industryInput);
+        firebaseSet(employerRef, employerInput);
+        firebaseSet(jobTitleRef, jobTitleInput);
+        firebaseSet(languagesRef, languagesInput);
     }
 
     return (
-        <form className="edit_profile">
-            <h1>Edit Profile</h1>
+        <div className="edit_profile">
+            <h1>Edit Profile for {firstNameInput + " " + lastNameInput}</h1>
             <div>
                 <label for="first_name">First Name</label>
-                <input onChange={firstNameHandleChange} value={firstNameInput} type="text" /> <br></br>
+                <input onChange={firstNameHandleChange} type="text" /> <br></br>
 
                 <label for="last_name">Last Name</label>
-                <input onChange={lastNameHandleChange} value={lastNameInput} type="text" /> <br></br>
+                <input onChange={lastNameHandleChange} type="text" /> <br></br>
 
                 <label for="role">Role</label>
                 <select onChange={roleHandleChange} id="role" name="role">
+                    <option value="">Choose A Role:</option>
                     <option value="Alumni">Alumni</option>
                     <option value="Student">Student</option>
                 </select> <br />
 
                 <label for="bio">Bio</label> <br />
-                <textarea onChange={bioHandleChange} value={bioInput} id="bio" name="bio" rows="2"></textarea> <br />
+                <textarea onChange={bioHandleChange} id="bio" name="bio" rows="2"></textarea> <br />
 
                 <p><b>Contact Information</b></p>
 
                 <label for="open_contact">Open to Contact?</label>
                 <select onChange={openContactHandleChange} id="open_contact" name="open_contact">
+                    <option value="">Choose A Preference:</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select> <br></br>
 
                 <label for="contact_number">Contact Number</label>
-                <input onChange={numberHandleChange} value={numberInput} type="text" /> <br></br>
+                <input onChange={numberHandleChange} type="text" /> <br></br>
 
                 <label for="contact_email">Email</label>
-                <input onChange={emailHandleChange} value={emailInput} type="text" /> <br></br>
+                <input onChange={emailHandleChange} type="text" /> <br></br>
 
             </div>
 
@@ -138,10 +310,11 @@ export function MyProfilePage(props) {
                 <p><b>Educational History</b></p>
 
                 <label for="school">School</label>
-                <input onChange={schoolHandleChange} value={schoolInput} type="text" /> <br></br>
+                <input onChange={schoolHandleChange} type="text" /> <br></br>
 
                 <label for="degree">Degree</label>
                 <select onChange={degreeHandleChange} id="degree" name="degree">
+                    <option value="">Choose A Degree:</option>
                     <option value="Associate Degree">Associate Degree</option>
                     <option value="Bachelor's Degree">Bachelor's Degree</option>
                     <option value="Master's Degree">Master's Degree</option>
@@ -151,10 +324,10 @@ export function MyProfilePage(props) {
                 </select>
 
                 <label for="grad_year">Graduation Year</label>
-                <input onChange={gradYearHandleChange} value={gradYearInput} type="text" /> <br></br>
+                <input onChange={gradYearHandleChange} type="text" /> <br></br>
 
                 <label for="Major">Major</label>
-                <input onChange={majorHandleChange} value={majorInput} type="text" /> <br></br>
+                <input onChange={majorHandleChange} type="text" /> <br></br>
             </div>
 
             <div>
@@ -162,6 +335,7 @@ export function MyProfilePage(props) {
 
                 <label for="industry">Industry</label>
                 <select onChange={industryHandleChange} id="industry" name="industry">
+                    <option value="">Choose A Industry:</option>
                     <option value="Technology">Technology</option>
                     <option value="Business">Business</option>
                     <option value="Health">Health</option>
@@ -171,19 +345,19 @@ export function MyProfilePage(props) {
                 </select>
 
                 <label for="employer">Employer</label>
-                <input onChange={employerHandleChange} value={employerInput} type="text" /> <br></br>
+                <input onChange={employerHandleChange} type="text" /> <br></br>
 
                 <label for="job_title">Job Title</label>
-                <input onChange={jobTitleHandleChange} value={jobTitleInput} type="text" /> <br></br>
+                <input onChange={jobTitleHandleChange} type="text" /> <br></br>
 
                 <label for="languages">Languages</label>
-                <input onChange={languagesHandleChange} value={languagesInput} type="text" /> <br></br>
+                <input onChange={languagesHandleChange} type="text" /> <br></br>
             </div>
 
             <div>
                 <CreateButton onClick={handleSubmit} type="submit" title="Save" label="Save profile information" />
             </div>
-        </form>
+        </div>
     )
 }
 

@@ -141,7 +141,7 @@ export default function App(props) {
                         <Route path=':postTitle' element={<PostPage currentUser={currentUser} addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} />} />
                         <Route path='people' element={<PeoplePage usersData={allUsers} />} />
                         <Route path='people/:profileName' element={<UserProfilePage usersData={allUsers} />} />
-                        <Route path='profile' element={<MyProfilePage />} />
+                        <Route path='profile' element={<MyProfilePage currentUser={currentUser} />} />
                     </Route>
                 </Routes>
             </main>

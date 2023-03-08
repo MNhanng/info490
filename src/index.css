@@ -704,7 +704,7 @@ select {
 
 /* end of profile popup */
 
-/* Start of Post Popup */
+/* Start of Post Popup  + Edit Profile Form */
 
 /* .popup {
     padding: 2rem 3rem;
@@ -726,14 +726,15 @@ form h1 {
     text-align: center;
 } */
 
-form label {
+form label, .edit_profile label {
     display: inline-block;
     width: 6em;
 }
 
-form input {
+form input, .edit_profile input, .edit_profile select {
     margin-bottom: 0.5em;
     padding: .5em;
+    width: 200px;
 }
 
 .form-tags {
@@ -747,7 +748,7 @@ form input {
     margin-left: 0.3em;
 }
 
-form textarea {
+form textarea, .edit_profile textarea {
     margin: .5em 0;
     padding: .5em;
     width: 100%;
@@ -762,7 +763,15 @@ form textarea {
     margin-left: 445px;
 }
 
-/* End of Post Popup */
+.edit_profile button {
+    padding: 0.5em 1.25em;
+    margin-top: 0.5em;
+    color: black;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+/* End of Post Popup  + Edit Profile Form */
 
 
 /* start of profile page */
