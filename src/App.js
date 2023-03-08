@@ -10,9 +10,9 @@ import { Routes, Route, Outlet, Navigate, useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
 
-import users_data from "./user_data.json";
-import posts from "./posts_data.json";
-import comments from "./comments_data.json";
+// import users_data from "./user_data.json";
+// import posts from "./posts_data.json";
+// import comments from "./comments_data.json";
 
 const nullUser = { uid: null };
 
@@ -92,11 +92,10 @@ export default function App(props) {
         }
         return cleanup;
     }, [currentUser]);
-    console.log(allPosts)
 
     const addPost = (post_title, tags, details) => {
         const newPost = {
-            "userID": 1,
+            "userID": currentUser.uid,
             "postID": allPosts.length + 1,
             "post_title": post_title,
             "tags": tags,
@@ -110,10 +109,10 @@ export default function App(props) {
         firebasePush(allPostsRef, newPost).then(() => console.log("Successfully added new post")).catch((error) => setAlertMessage(error.message));
     }
 
-    const addComment = (comment) => {
+    const addComment = (comment, postID) => {
         const newComment = {
-            "userID": 1,
-            "postID": 1,
+            "userID": currentUser.uid,
+            "postID": postID,
             "created_date": new Date().toLocaleDateString('en-us', { year: "numeric", month: "short", day: "numeric" }),
             "comment": comment
         };
