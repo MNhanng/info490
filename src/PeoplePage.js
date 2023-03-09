@@ -103,9 +103,9 @@ function ProfileCard(props) {
                 <div className="profile-card-details">
                     <div className="profile-card-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
                     <div className="profile-card-name">{user.firstName + " " + user.lastName}</div>
-                    <div className="profile-card-role">{user.role}</div>
-                    <div className="profile-card-industry">{user.industry}</div>
-                    <div className="profile-card-major">{user.major}</div>
+                    {user.role !== "" && <div className="profile-card-role">{user.role}</div>}
+                    {user.industry !== "" && <div className="profile-card-industry">{user.industry}</div>}
+                    {user.major !== "" && <div className="profile-card-major">{user.major}</div>}
                     {openToContact(user.openContact)}
                 </div>
             </CardActionArea>

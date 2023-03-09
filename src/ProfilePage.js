@@ -374,31 +374,31 @@ export function UserProfilePage(props) {
 
     return (
         <main>
-            <div class="profile-page">
+            <div className="profile-page">
                 <Link to="/people"><CreateButton type="button" title="<-" label="Back to People Page" /></Link>
-                <div class="profile-intro">
-                    <div class="profile-container">
-                        <div class="profile-intro-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                        <div class="profile-intro-details">
-                            <div class="profile-intro-name">{user.firstName + " " + user.lastName}</div>
-                            <div class="profile-intro-tags">[tags go here]</div>
+                <div className="profile-intro">
+                    <div className="profile-container">
+                        <div className="profile-intro-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                        <div className="profile-intro-details">
+                            <div className="profile-intro-name">{user.firstName + " " + user.lastName}</div>
+                            <div className="profile-intro-tags">[tags go here]</div>
                         </div>
                     </div>
-                    <div class="profile-bio-container">
-                        <div class="profile-intro-bio">Bio</div>
-                        <div class="profile-intro-bio-text">{user.bio}</div>
+                    <div className="profile-bio-container">
+                        <div className="profile-intro-bio">Bio</div>
+                        <div className="profile-intro-bio-text">{user.bio}</div>
                     </div>
                 </div>
 
-                <div class="education-hist">
-                    <div class="education-header">Education History</div>
+                <div className="education-hist">
+                    <div className="education-header">Education History</div>
                     <hr />
-                    <div class="education-container">
-                        <div class="logo"><img src={require("./img/logo.jpeg")} alt="uw logo" /></div>
-                        <div class="education-details">
-                            <div class="degree-type">{user.degree}</div>
-                            <div class="school">{user.school}</div>
-                            <div class="year">{user.gradYear}</div>
+                    <div className="education-container">
+                        <div className="logo"><img src={require("./img/logo.jpeg")} alt="uw logo" /></div>
+                        <div className="education-details">
+                            <div className="degree-type">{user.degree}</div>
+                            <div className="school">{user.school}</div>
+                            <div className="year">{user.gradYear}</div>
                         </div>
                     </div>
                 </div>

@@ -111,32 +111,32 @@ export default function App(props) {
         return cleanup;
     }, [currentUser]);
 
+    // function for adding new profiles for first time users / people who just signed up
+    const addNewUserProfile = () => {
+        const newProfile = {
+            "bio": "",
+            "degree": "",
+            "email": currentUser.email,
+            "employer": "",
+            "firstName": currentUser.displayName.substring(0, currentUser.displayName.indexOf(' ')),    
+            "lastName": currentUser.displayName.substring(currentUser.displayName.indexOf(' ') + 1),
+            "gradYear": "",
+            "industry": "",
+            "jobTitle": "",
+            "languages": "",
+            "major": "",
+            "number": "",
+            "openContact": "",
+            "role": "",
+            "school": "",
+            "userID": currentUser.uid
+        }
+        const db = getDatabase();
+        const allProfilesRef = ref(db, 'users_data/')
+        firebasePush(allProfilesRef, newProfile).then(() => console.log("Successfully added new user profile")).catch((error) => setAlertMessage(error.message));
+    }
 
-    // testing some things
-    // if the users_data db does not contain the current users info, then add blank profile to db
-    // if (!Object.values(allUsers).includes(currentUser.uid)) {
-    //     const newProfile = {
-    //         "bio": "",
-    //         "degree": "",
-    //         "email": currentUser.email,
-    //         "employer": "",
-    //         "firstName": currentUser.displayName.substring(0, currentUser.displayName.indexOf(' ')),    
-    //         "lastName": currentUser.displayName.substring(currentUser.displayName.indexOf(' ') + 1),
-    //         "gradYear": "",
-    //         "industry": "",
-    //         "jobTitle": "",
-    //         "languages": "",
-    //         "major": "",
-    //         "number": "",
-    //         "openContact": "",
-    //         "role": "",
-    //         "school": "",
-    //         "userID": currentUser.uid
-    //     }
-    //     const db = getDatabase();
-    //     const allUserProfileRef = ref(db, 'users_data/');
-    //     firebasePush(allUserProfileRef, newProfile).then(() => console.log("Successfully added new post")).catch((error) => setAlertMessage(error.message));
-    // }
+
 
     const addPost = (post_title, tags, details) => {
         let postID = 0;
@@ -188,7 +188,7 @@ export default function App(props) {
                     <Route path="signin" element={<SignInPage />} />
 
                     <Route element={<ProtectedPage currentUser={currentUser} />}>
-                        <Route path='home' element={<HomePage />} />
+                        <Route path='home' element={<HomePage currentUser={currentUser} usersData={allUsers} addNewProfileCallback={addNewUserProfile} />} />
                         <Route path='community' element={<CommunityPage currentUser={currentUser} addPostCallback={addPost} postsData={allPosts} usersData={allUsers} />} />
                         <Route path=':postTitle' element={<PostPage currentUser={currentUser} addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} />} />
                         <Route path='people' element={<PeoplePage usersData={allUsers} />} />
