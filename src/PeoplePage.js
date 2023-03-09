@@ -44,7 +44,7 @@ export function PeoplePage(props) {
         return people.major.includes(selectedMajor);
     }
     const filterByTag = (people) => {
-        return people.contact.openContact === "Yes";
+        return people.openContact === "Yes";
     }
 
     let filteredByFiltersPeople = filteredPeople;
