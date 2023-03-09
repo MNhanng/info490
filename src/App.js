@@ -20,7 +20,7 @@ export default function App(props) {
     const [currentUser, setCurrentUser] = useState(nullUser)
     const [alertMessage, setAlertMessage] = useState(null);
     const navigateTo = useNavigate();
-    
+
     useEffect(() => {
         const auth = getAuth();
         onAuthStateChanged(auth, (firebaseUser) => {
@@ -60,7 +60,7 @@ export default function App(props) {
                 userObj.key = keyString;
                 return userObj;
             })
-            
+
             setAllUsers(objArray);
         })
 
@@ -72,24 +72,41 @@ export default function App(props) {
                 postObj.key = keyString;
                 return postObj;
             })
+
+            let commentsArray = [];
+            objArray.forEach((obj) => {
+                if (obj['comments']) {
+                    const commentKeys = Object.keys(obj['comments']);
+                    const commentArray = commentKeys.map((keyString) => {
+                        const commentObj = obj['comments'][keyString];
+                        commentObj.key = keyString;
+                        return commentObj;
+                    })
+                    commentArray.forEach((comment) => {
+                        commentsArray.push(comment);
+                    })
+                }
+            })
+            
+            setAllComments(commentsArray);
             setAllPosts(objArray);
         })
 
-        const commentsFunction = onValue(allCommentsRef, (snapshot) => {
-            const valueObj = snapshot.val();
-            const objKeys = Object.keys(valueObj);
-            const objArray = objKeys.map((keyString) => {
-                const commentObj = valueObj[keyString];
-                commentObj.key = keyString;
-                return commentObj;
-            })
-            setAllComments(objArray);
-        })
+        // const commentsFunction = onValue(allCommentsRef, (snapshot) => {
+        //     const valueObj = snapshot.val();
+        //     const objKeys = Object.keys(valueObj);
+        //     const objArray = objKeys.map((keyString) => {
+        //         const commentObj = valueObj[keyString];
+        //         commentObj.key = keyString;
+        //         return commentObj;
+        //     })
+        //     setAllComments(objArray);
+        // })
 
         function cleanup() {
             userFunction();
             postsFunction();
-            commentsFunction();
+            // commentsFunction();
         }
         return cleanup;
     }, [currentUser]);
@@ -122,9 +139,15 @@ export default function App(props) {
     // }
 
     const addPost = (post_title, tags, details) => {
+        let postID = 0;
+        if (allPosts.length === 0) {
+            postID = 0;
+        } else {
+            postID = allPosts[allPosts.length - 1].postID + 1;
+        }
         const newPost = {
             "userID": currentUser.uid,
-            "postID": allPosts.length + 1,
+            "postID": postID,
             "post_title": post_title,
             "tags": tags,
             "details": details,
@@ -137,7 +160,7 @@ export default function App(props) {
         firebasePush(allPostsRef, newPost).then(() => console.log("Successfully added new post")).catch((error) => setAlertMessage(error.message));
     }
 
-    const addComment = (comment, postID) => {
+    const addComment = (comment, postID, postKey) => {
         const newComment = {
             "userID": currentUser.uid,
             "postID": postID,
@@ -145,8 +168,9 @@ export default function App(props) {
             "comment": comment
         };
         const db = getDatabase();
-        const allPostsRef = ref(db, 'comments_data/')
-        firebasePush(allPostsRef, newComment).then(() => console.log("Successfully added new comment")).catch((error) => setAlertMessage(error.message));
+        // const allPostsRef = ref(db, 'comments_data/')
+        const allCommentsRef = ref(db, 'posts_data/' + postKey + '/comments');
+        firebasePush(allCommentsRef, newComment).then(() => console.log("Successfully added new comment")).catch((error) => setAlertMessage(error.message));
     }
 
     console.log(allPosts)

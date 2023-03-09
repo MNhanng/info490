@@ -18,7 +18,7 @@ export function PostPage(props) {
         <main>
             <div className="posts-page">
                 <PostHeader post={post} postOwner={postOwner} />
-                <CommentForm addCommentCallback={props.addCommentCallback} postID={postID} />
+                <CommentForm addCommentCallback={props.addCommentCallback} postID={postID} postKey={post.key}/>
                 <AllComments commentData={postComments} usersData={props.usersData} />
 
             </div>
@@ -60,7 +60,7 @@ function CommentForm(props) {
 
     const handleSubmit = (event) => {
         console.log("submitting", commentInput);
-        props.addCommentCallback(commentInput, props.postID);
+        props.addCommentCallback(commentInput, props.postID, props.postKey);
         setCommentInput('');
     }
 
