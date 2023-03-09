@@ -1,22 +1,22 @@
 import { useEffect } from "react";
 
 export function HomePage(props) {
-    const allUsers = props.usersData;
-    const currentUser = props.currentUser
+    // const allUsers = props.usersData;
+    // const currentUser = props.currentUser
 
     // check if currentuser info already exists in the db
     // if exists, profileMatch.length > 0
     // if does not exist, profileMatch = 0, so call addNewUserProfile to add empty profile
-    useEffect(() => {
-        const checkUserProfiles = (profiles) => {
-            return (profiles.userID.includes(currentUser.uid));
-        };
-        const profileMatch = allUsers.filter(checkUserProfiles)
-        console.log(profileMatch)
-        if (profileMatch === undefined || profileMatch.length === 0) {
-            props.addNewProfileCallback();
-        }
-    }, []);
+    // useEffect(() => {
+    //     const checkUserProfiles = (profiles) => {
+    //         return (profiles.userID.includes(currentUser.uid));
+    //     };
+    //     const profileMatch = allUsers.filter(checkUserProfiles)
+    //     console.log(profileMatch)
+    //     if (profileMatch === undefined || profileMatch.length === 0) {
+    //         props.addNewProfileCallback();
+    //     }
+    // }, []);
         
     return (
         <main>

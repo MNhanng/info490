@@ -26,6 +26,20 @@ export default function App(props) {
         onAuthStateChanged(auth, (firebaseUser) => {
             if (firebaseUser) { // logged in
                 console.log(firebaseUser)
+                firebaseUser.firstName = firebaseUser.displayName.substring(0, firebaseUser.displayName.indexOf(' '));
+                firebaseUser.lastName = firebaseUser.displayName.substring(firebaseUser.displayName.indexOf(' ') + 1);
+                firebaseUser.email = firebaseUser.email;
+
+                const db = getDatabase();
+                const firstNameRef = ref(db, 'users_data/' + firebaseUser.uid + '/firstName');
+                const lastNameRef = ref(db, 'users_data/' + firebaseUser.uid + '/lastName');
+                const emailRef = ref(db, 'users_data/' + firebaseUser.uid + '/email');
+                const userIDRef = ref(db, 'users_data/' + firebaseUser.uid + '/userID');
+
+                firebaseSet(firstNameRef, firebaseUser.firstName);
+                firebaseSet(lastNameRef, firebaseUser.lastName);
+                firebaseSet(emailRef, firebaseUser.email);
+                firebaseSet(userIDRef, firebaseUser.uid)
 
                 setCurrentUser(firebaseUser);
                 navigateTo('/home');
@@ -37,7 +51,7 @@ export default function App(props) {
             }
         })
     }, []);
-
+    console.log(currentUser);
     // const [allPosts, setAllPosts] = useState(posts);
     // const [allUsers, setAllUsers] = useState(users_data);
     // const [allComments, setAllComments] = useState(comments);
@@ -112,29 +126,29 @@ export default function App(props) {
     }, [currentUser]);
 
     // function for adding new profiles for first time users / people who just signed up
-    const addNewUserProfile = () => {
-        const newProfile = {
-            "bio": "",
-            "degree": "",
-            "email": currentUser.email,
-            "employer": "",
-            "firstName": currentUser.displayName.substring(0, currentUser.displayName.indexOf(' ')),    
-            "lastName": currentUser.displayName.substring(currentUser.displayName.indexOf(' ') + 1),
-            "gradYear": "",
-            "industry": "",
-            "jobTitle": "",
-            "languages": "",
-            "major": "",
-            "number": "",
-            "openContact": "",
-            "role": "",
-            "school": "",
-            "userID": currentUser.uid
-        }
-        const db = getDatabase();
-        const allProfilesRef = ref(db, 'users_data/')
-        firebasePush(allProfilesRef, newProfile).then(() => console.log("Successfully added new user profile")).catch((error) => setAlertMessage(error.message));
-    }
+    // const addNewUserProfile = () => {
+    //     const newProfile = {
+    //         "bio": "",
+    //         "degree": "",
+    //         "email": currentUser.email,
+    //         "employer": "",
+    //         "firstName": currentUser.displayName.substring(0, currentUser.displayName.indexOf(' ')),    
+    //         "lastName": currentUser.displayName.substring(currentUser.displayName.indexOf(' ') + 1),
+    //         "gradYear": "",
+    //         "industry": "",
+    //         "jobTitle": "",
+    //         "languages": "",
+    //         "major": "",
+    //         "number": "",
+    //         "openContact": "",
+    //         "role": "",
+    //         "school": "",
+    //         "userID": currentUser.uid
+    //     }
+    //     const db = getDatabase();
+    //     const allProfilesRef = ref(db, 'users_data/')
+    //     firebasePush(allProfilesRef, newProfile).then(() => console.log("Successfully added new user profile")).catch((error) => setAlertMessage(error.message));
+    // }
 
 
 
@@ -188,7 +202,7 @@ export default function App(props) {
                     <Route path="signin" element={<SignInPage />} />
 
                     <Route element={<ProtectedPage currentUser={currentUser} />}>
-                        <Route path='home' element={<HomePage currentUser={currentUser} usersData={allUsers} addNewProfileCallback={addNewUserProfile} />} />
+                        <Route path='home' element={<HomePage />} />
                         <Route path='community' element={<CommunityPage currentUser={currentUser} addPostCallback={addPost} postsData={allPosts} usersData={allUsers} />} />
                         <Route path=':postTitle' element={<PostPage currentUser={currentUser} addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} />} />
                         <Route path='people' element={<PeoplePage usersData={allUsers} />} />
