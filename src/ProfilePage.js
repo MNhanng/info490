@@ -370,7 +370,7 @@ export function UserProfilePage(props) {
     console.log(profileNameLink)
     let firstName = profileNameLink.split(' ')[0];
     let lastName = profileNameLink.split(' ')[1];
-    let user = _.find(props.usersData, { first_name: firstName, last_name: lastName });
+    let user = _.find(props.usersData, { firstName: firstName, lastName: lastName });
 
     return (
         <main>
@@ -380,7 +380,7 @@ export function UserProfilePage(props) {
                     <div class="profile-container">
                         <div class="profile-intro-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
                         <div class="profile-intro-details">
-                            <div class="profile-intro-name">{user.first_name + " " + user.last_name}</div>
+                            <div class="profile-intro-name">{user.firstName + " " + user.lastName}</div>
                             <div class="profile-intro-tags">[tags go here]</div>
                         </div>
                     </div>
@@ -398,7 +398,7 @@ export function UserProfilePage(props) {
                         <div class="education-details">
                             <div class="degree-type">{user.degree}</div>
                             <div class="school">{user.school}</div>
-                            <div class="year">{user.grad_year}</div>
+                            <div class="year">{user.gradYear}</div>
                         </div>
                     </div>
                 </div>
