@@ -142,6 +142,27 @@ function PeopleSearchFilter(props) {
                             <option value="Public Health">Public Health</option>
                             <option value="Nursing">Nursing</option>
                             <option value="Informatics">Informatics</option>
+                            <option value="Psychology">Psychology</option>
+                            <option value="Communication">Communication</option>
+                            <option value="Biochemistry">Biochemistry</option>
+                            <option value="Social Work">Social Work</option>
+                            <option value="Dance">Dance</option>
+                            <option value="Music">Music</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Film Studies">Film Studies</option>
+                            <option value="Geography">Geography</option>
+                            <option value="Anthropology">Anthropology</option>
+                            <option value="Political Science">Political Science</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Vietnamese">Vietnamese</option>
+                            <option value="Latin">Latin</option>
+                            <option value="Math">Math</option>
+                            <option value="Statistics">Statistics</option>
+                            <option value="Microbiology">Microbiology</option>
+                            <option value="Medical Lab Science">Medical Lab Science</option>
+                            <option value="Education">Education</option>
                         </select>
                     </div>
                     <div>
@@ -154,6 +175,15 @@ function PeopleSearchFilter(props) {
                             <option value="Entertainment">Entertainment</option>
                             <option value="Education">Education</option>
                             <option value="Real Estate">Real Estate</option>
+                            <option value="Public Services">Public Services</option>
+                            <option value="Government">Government</option>
+                            <option value="Law">Law</option>
+                            <option value="Commerce">Commerce</option>
+                            <option value="Construction">Construction</option>
+                            <option value="Food">Food</option>
+                            <option value="Education">Tourism</option>
+                            <option value="Art">Art</option>
+                            <option value="Fashion">Fashion</option>
                         </select>
                     </div>
                     <div>

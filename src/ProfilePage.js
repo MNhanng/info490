@@ -329,7 +329,41 @@ export function MyProfilePage(props) {
                 <input onChange={gradYearHandleChange} type="text" /> <br></br>
 
                 <label for="Major">Major</label>
-                <input onChange={majorHandleChange} type="text" /> <br></br>
+                {/* <input onChange={majorHandleChange} type="text" /> <br></br> */}
+                <select onChange={majorHandleChange} name="major" id="major">
+                    <option value="">Choose a Major:</option>
+                    <option value="Art">Art</option>
+                    <option value="Business">Business</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Chemisty">Chemistry</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Public Health">Public Health</option>
+                    <option value="Nursing">Nursing</option>
+                    <option value="Informatics">Informatics</option>
+                    <option value="Psychology">Psychology</option>
+                    <option value="Communication">Communication</option>
+                    <option value="Biochemistry">Biochemistry</option>
+                    <option value="Social Work">Social Work</option>
+                    <option value="Dance">Dance</option>
+                    <option value="Music">Music</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Film Studies">Film Studies</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Anthropology">Anthropology</option>
+                    <option value="Political Science">Political Science</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Vietnamese">Vietnamese</option>
+                    <option value="Latin">Latin</option>
+                    <option value="Math">Math</option>
+                    <option value="Statistics">Statistics</option>
+                    <option value="Microbiology">Microbiology</option>
+                    <option value="Medical Lab Science">Medical Lab Science</option>
+                    <option value="Education">Education</option>
+                </select>
+                <br></br>
             </div>
 
             <div>
@@ -339,11 +373,21 @@ export function MyProfilePage(props) {
                 <select onChange={industryHandleChange} id="industry" name="industry">
                     <option value="">Choose A Industry:</option>
                     <option value="Technology">Technology</option>
+                    <option value="Healthcare">Healthcare</option>
                     <option value="Business">Business</option>
-                    <option value="Health">Health</option>
+                    <option value="Engineering">Engineering</option>
                     <option value="Entertainment">Entertainment</option>
-                    <option value="Transportation">Transportation</option>
                     <option value="Education">Education</option>
+                    <option value="Real Estate">Real Estate</option>
+                    <option value="Public Services">Public Services</option>
+                    <option value="Government">Government</option>
+                    <option value="Law">Law</option>
+                    <option value="Commerce">Commerce</option>
+                    <option value="Construction">Construction</option>
+                    <option value="Food">Food</option>
+                    <option value="Education">Tourism</option>
+                    <option value="Art">Art</option>
+                    <option value="Fashion">Fashion</option>
                 </select>
 
                 <label for="employer">Employer</label>
