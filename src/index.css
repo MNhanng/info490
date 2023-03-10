@@ -32,14 +32,17 @@
 }
 
 .nav .logo {
-    padding-left: 0.5rem;
+    padding-left: 2rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
 .nav .logo a {
     text-decoration: none;
-    color: black;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #462E7E;
+
 }
 
 .nav-elems li {
@@ -58,12 +61,17 @@
     cursor: pointer;
     color: black;
 }
-
 /* end of nav code*/
 
 main h1 {
-    margin: 2em 1.875em;
-    font-size: 1.1em;
+    margin: 1em 1.3em;
+    font-size: 1.6rem;
+    color: #462E7E;
+}
+
+.post-header button {
+    border-radius: 5rem;
+    margin: 1rem 2rem;
 }
 
 .sign-in {
@@ -143,6 +151,30 @@ footer {
     gap: 1.5em;
 }
 
+.people-filters select {
+    background-color: #907AA8;
+    color: white;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    padding-left: 0.5rem;
+    border-radius: 5rem;
+}
+
+.open_contact {
+    border-radius: 5rem;
+    border: 0.09rem solid grey;
+    padding: 0.2rem 0.5em;
+}
+
+.open_contact:hover {
+    border: 0.1rem solid #462E7E;
+    color: #462E7E;
+    font-weight: 400;
+}
+
+.people-filters select:hover {
+    background-color: #462E7E;
+}
 /* End of Post Filters */
 
 /* Start of Profiles Page Code */
@@ -207,10 +239,21 @@ footer {
 
 .add-post h1 {
     margin: 0;
+    font-size: 1.6rem;
+    color: #462E7E;
 }
 
 .add-post button {
     margin-left: 1em;
+    border-radius: 0.4rem;
+    border: none;
+    background-color: #462E7E;
+    width: 3rem;
+    color: white;
+}
+
+.add-post button:hover {
+    background-color: #907AA8;
 }
 
 .posts-container {
@@ -239,7 +282,7 @@ footer {
     align-items: center;
 }
 
-.post-details div:nth-last-child(-n+4) {
+.post-details div:nth-last-child(-n+5) {
     font-size: 0.9rem;
     font-weight: 200;
     color: #462E7E;
@@ -282,6 +325,18 @@ footer {
     border: solid grey;
     padding: 0em 0.7em;
     border-radius: 0.6em;
+}
+
+.Academic, .Career, .Miscellaneous {
+    border-radius: 5rem;
+    border: 0.09rem solid grey;
+    padding: 0.2rem 0.5em;
+}
+
+.post-tags input:hover {
+    border: 0.1rem solid #462E7E;
+    color: #462E7E;
+    font-weight: 400;
 }
 
 /* End of Community Page Code */

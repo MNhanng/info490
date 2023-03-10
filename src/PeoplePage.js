@@ -35,13 +35,13 @@ export function PeoplePage(props) {
     }
 
     const filterByRole = (people) => {
-        return people.role.includes(selectedRole);
+        return people.role && people.role.includes(selectedRole);
     }
     const filterByIndustry = (people) => {
-        return people.industry.includes(selectedIndustry);
+        return people.industry && people.industry.includes(selectedIndustry);
     }
     const filterByMajor = (people) => {
-        return people.major.includes(selectedMajor);
+        return people.major && people.major.includes(selectedMajor);
     }
     const filterByTag = (people) => {
         return people.openContact === "Yes";
@@ -103,9 +103,9 @@ function ProfileCard(props) {
                 <div className="profile-card-details">
                     <div className="profile-card-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
                     <div className="profile-card-name">{user.firstName + " " + user.lastName}</div>
-                    {user.role !== "" && <div className="profile-card-role">{user.role}</div>}
-                    {user.industry !== "" && <div className="profile-card-industry">{user.industry}</div>}
-                    {user.major !== "" && <div className="profile-card-major">{user.major}</div>}
+                    {user.role && <div className="profile-card-role">{user.role}</div>}
+                    {user.industry && <div className="profile-card-industry">{user.industry}</div>}
+                    {user.major && <div className="profile-card-major">{user.major}</div>}
                     {openToContact(user.openContact)}
                 </div>
             </CardActionArea>

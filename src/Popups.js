@@ -63,7 +63,7 @@ export function NewPostPopup(props) {
                                     <input onClick={tagHandleClick} className="Career" type="button" value="Career" />
                                 </div>
                                 <div>
-                                    <input onClick={tagHandleClick} className="Micellaneous" type="button" value="Micellaneous" />
+                                    <input onClick={tagHandleClick} className="Miscellaneous" type="button" value="Miscellaneous" />
                                 </div>
                             </div>
                         </div>

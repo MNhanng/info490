@@ -30,8 +30,8 @@ function PostHeader(props) {
     const post = props.post
     const postOwner = props.postOwner
     return (
-        <div>
-            <Link to="/community"><CreateButton type="button" title="<-" label="Back to Community Page" /></Link>
+        <div className="post-header">
+            <Link to="/community"><CreateButton type="button" title="<<" label="Back to Community Page" /></Link>
             <div className="post">
                 <div className="post-info">
                     <div className="post-info-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
