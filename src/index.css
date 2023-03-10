@@ -849,6 +849,19 @@ form textarea, .edit_profile textarea {
     border: 0.2rem solid #F9F9FB;
 }
 
+.profile-intro-tags {
+    display: inline-block;
+}
+
+.profile-tag {
+    display: inline-block;
+    border: solid white;
+    background-color: white;
+    border-radius: 0.625em;
+    padding: 0.5em;
+    margin: 0.3em;
+}
+
 .profile-bio-container {
     background-color: #CEB2C8;
     padding: 2rem 1.5rem 2rem 1.5rem;
