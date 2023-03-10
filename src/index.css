@@ -2,6 +2,10 @@
     font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
+main {
+    min-height: 600px;
+}
+
 /* start of nav code */
 
 /* To fix nav at top of the page when scrolling */
@@ -79,10 +83,11 @@ main h1 {
 }
 
 footer {
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0.3em;
     font-size: 80%;
+    margin-top: 3em;
 }
 
 /* Start of Search Bar Code */
