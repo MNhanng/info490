@@ -18,7 +18,7 @@ export function PeoplePage(props) {
     const searchPeople = (people) => {
         return (people.firstName.toLowerCase().includes(searchString.toLowerCase()) || people.lastName.toLowerCase().includes(searchString.toLowerCase()));
     };
-    const filteredPeople = (allProfiles).filter(searchPeople);
+    let filteredPeople = (allProfiles).filter(searchPeople);
 
     // filter for people based selected filters and tags
     const handleRoleClick = (event) => {
@@ -44,28 +44,27 @@ export function PeoplePage(props) {
         return people.major && people.major.includes(selectedMajor);
     }
     const filterByTag = (people) => {
-        return people.openContact === "Yes";
+        return people.openContact && people.openContact.includes("Yes");
     }
 
-    let filteredByFiltersPeople = filteredPeople;
     if (selectedRole !== "all") {
-        filteredByFiltersPeople = filteredPeople.filter(filterByRole)
+        filteredPeople = filteredPeople.filter(filterByRole)
     }
     if (selectedIndustry !== "all") {
-        filteredByFiltersPeople = filteredPeople.filter(filterByIndustry)
+        filteredPeople = filteredPeople.filter(filterByIndustry)
     }
     if (selectedMajor !== "all") {
-        filteredByFiltersPeople = filteredPeople.filter(filterByMajor)
+        filteredPeople = filteredPeople.filter(filterByMajor)
     }
     if (selectedTag === true) {
-        filteredByFiltersPeople = filteredPeople.filter(filterByTag)
-    }
+        filteredPeople = filteredPeople.filter(filterByTag)
+    } 
 
     return (
         <main>
             <h1>Profiles</h1>
-            <PeopleSearchFilter onChange={onChange} handleRoleClick={handleRoleClick} handleIndustryClick={handleIndustryClick} handleMajorClick={handleMajorClick} handleTagClick={handleTagClick} />
-            <Profiles usersData={filteredByFiltersPeople} />
+            <PeopleSearchFilter onChange={onChange} handleRoleClick={handleRoleClick} handleIndustryClick={handleIndustryClick} handleMajorClick={handleMajorClick} handleTagClick={handleTagClick} selectedTag={selectedTag} />
+            <Profiles usersData={filteredPeople} />
         </main>
     )
 }
@@ -114,6 +113,10 @@ function ProfileCard(props) {
 }
 
 function PeopleSearchFilter(props) {
+    let tagClass = "open_contact";
+    if(props.selectedTag) {
+        tagClass = "open_contact-clicked"
+    }
     return (
         <div>
             <form className="search-bar" onChange={props.onChange} >
@@ -187,7 +190,7 @@ function PeopleSearchFilter(props) {
                         </select>
                     </div>
                     <div>
-                        <input className="open_contact" type="button" value="Open To Contact" onClick={props.handleTagClick} />
+                        <input className={tagClass} type="button" value="Open To Contact" onClick={props.handleTagClick} />
                     </div>
                 </div>
             </div>

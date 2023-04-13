@@ -171,7 +171,15 @@ footer {
     padding: 0.2rem 0.5em;
 }
 
-.open_contact:hover {
+.open_contact-clicked {
+    border-radius: 5rem;
+    border: none;
+    padding: 0.2rem 0.5em;
+    color: white;
+    background-color: #907AA8;
+}
+
+.open_contact:hover, .open_contact-clicked:hover {
     border: 0.1rem solid #462E7E;
     color: #462E7E;
     font-weight: 400;
@@ -338,7 +346,15 @@ footer {
     padding: 0.2rem 0.5em;
 }
 
-.post-tags input:hover {
+.clicked-academic, .clicked-career, .clicked-misc {
+    border-radius: 5rem;
+    border: none;
+    padding: 0.2rem 0.5em;
+    color: white;
+    background-color: #907AA8;
+}
+
+.post-tags input:hover, .tags input:hover {
     border: 0.1rem solid #462E7E;
     color: #462E7E;
     font-weight: 400;

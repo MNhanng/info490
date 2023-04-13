@@ -17,7 +17,7 @@ export function PostPage(props) {
     return (
         <main>
             <div className="posts-page">
-                <PostHeader post={post} postOwner={postOwner} />
+                <PostHeader post={post} postOwner={postOwner} likePostCallback={props.likePostCallback} currentUser={props.currentUser} />
                 <CommentForm addCommentCallback={props.addCommentCallback} postID={postID} postKey={post.key}/>
                 <AllComments commentData={postComments} usersData={props.usersData} />
 
@@ -29,6 +29,20 @@ export function PostPage(props) {
 function PostHeader(props) {
     const post = props.post
     const postOwner = props.postOwner
+    const [like, setLike] = useState(post.likes.includes(props.currentUser.uid));
+
+    const onLikeClick = () => {
+        props.likePostCallback(post.key);
+        setLike(!like);
+    }
+
+    let heartClass = "fa-regular fa-heart"
+    if (like) {
+        heartClass = "fa-solid fa-heart";
+    } else {
+        heartClass = "fa-regular fa-heart";
+    }
+
     return (
         <div className="post-header">
             <Link to="/community"><CreateButton type="button" title="<<" label="Back to Community Page" /></Link>
@@ -39,7 +53,7 @@ function PostHeader(props) {
                     <div className="post-info-divider">|</div>
                     <div className="post-info-date">{post.created_date}</div>
                     <div className="post-details-tag">{post.tags}</div>
-                    <div className="post-info-likes">{post.likes.length} <i className="fa-regular fa-heart"></i></div>
+                    <div className="post-info-likes">{post.likes.length} <i className={heartClass} onClick={onLikeClick} ></i></div>
                 </div>
                 <div className="post-title">{post.post_title}</div>
                 <div className="post-content">{post.details}</div>

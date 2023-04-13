@@ -3,6 +3,9 @@ import { CreateButton } from './ButtonsAndTags';
 import Modal from 'react-bootstrap/Modal';
 
 export function NewPostPopup(props) {
+    const [academicTagColor, setAcademicTagColor] = useState(false)
+    const [careerTagColor, setCareerTagColor] = useState(false)
+    const [miscTagColor, setMiscTagColor] = useState(false)
 
     const [showPopup, setShowPopup] = useState(false);
 
@@ -11,15 +14,37 @@ export function NewPostPopup(props) {
 
     const [titleInput, setTitleInput] = useState('');
     const titleHandleChange = (event) => {
-        let newValue = event.target.value;
-        setTitleInput(newValue);
+            let newValue = event.target.value;
+            setTitleInput(newValue);
     }
 
     const [tagInput, setTagInput] = useState('');
     const tagHandleClick = (event) => {
-      let newValue = event.target.value;
-      setTagInput(newValue);
+        let newValue = event.target.value;
+        setTagInput(newValue);
+
+        if (event.target.value == "Academic") {
+            setAcademicTagColor(!academicTagColor)
+        } else if (event.target.value == "Career") {
+            setCareerTagColor(!careerTagColor)
+        } else {
+            setMiscTagColor(!miscTagColor)
+        }
     }
+
+    let academicTagClass = "Academic";
+    let careerTagClass = "Career";
+    let miscTagClass = "Miscellaneous";
+    if (academicTagColor) {
+        academicTagClass = "clicked-academic"
+    }
+    if (careerTagColor) {
+        careerTagClass = "clicked-career"
+    }
+    if (miscTagColor) {
+        miscTagClass = "clicked-misc"
+    }
+
 
     const [detailsInput, setDetailsInput] = useState('');
     const detailsHandleChange = (event) => {
@@ -57,13 +82,13 @@ export function NewPostPopup(props) {
                             </div>
                             <div class="tags">
                                 <div>
-                                    <input onClick={tagHandleClick} className="Academic" type="button" value="Academic" />
+                                    <input onClick={tagHandleClick} className={academicTagClass} type="button" value="Academic" />
                                 </div>
                                 <div>
-                                    <input onClick={tagHandleClick} className="Career" type="button" value="Career" />
+                                    <input onClick={tagHandleClick} className={careerTagClass} type="button" value="Career" />
                                 </div>
                                 <div>
-                                    <input onClick={tagHandleClick} className="Miscellaneous" type="button" value="Miscellaneous" />
+                                    <input onClick={tagHandleClick} className={miscTagClass} type="button" value="Miscellaneous" />
                                 </div>
                             </div>
                         </div>

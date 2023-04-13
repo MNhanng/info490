@@ -7,6 +7,9 @@ import { useState } from "react";
 export function CommunityPage(props) {
     const [searchString, setSearchString] = useState("")
     const [selectedTags, setSelectedTags] = useState([])
+    const [academicTagColor, setAcademicTagColor] = useState(false)
+    const [careerTagColor, setCareerTagColor] = useState(false)
+    const [miscTagColor, setMiscTagColor] = useState(false)
     const allPosts = props.postsData
     console.log(allPosts)
 
@@ -33,6 +36,14 @@ export function CommunityPage(props) {
             // add it to array
             setSelectedTags([...selectedTags, event.target.value])
         }
+
+        if (event.target.value == "Academic") {
+            setAcademicTagColor(!academicTagColor)
+        } else if (event.target.value == "Career") {
+            setCareerTagColor(!careerTagColor)
+        } else {
+            setMiscTagColor(!miscTagColor)
+        }
     } 
     // if the array is empty or filled, then show all data
     let filterByTags = null;
@@ -47,8 +58,8 @@ export function CommunityPage(props) {
     return (
         <main>
             <CommunityPageHeader addPostCallback={props.addPostCallback}/>
-            <CommunityPageSearch onChange={onChange} onClick={onClick} />
-            <AllPosts postsData={filterByTags} usersData={props.usersData} />
+            <CommunityPageSearch onChange={onChange} onClick={onClick} academicTagColor={academicTagColor} careerTagColor={careerTagColor} miscTagColor={miscTagColor} />
+            <AllPosts postsData={filterByTags} usersData={props.usersData} currentUser={props.currentUser}/>
         </main>
     )
 }
@@ -65,6 +76,19 @@ function CommunityPageHeader(props) {
 }
 
 function CommunityPageSearch(props) {
+    let academicTagClass = "Academic";
+    let careerTagClass = "Career";
+    let miscTagClass = "Miscellaneous";
+    if (props.academicTagColor) {
+        academicTagClass = "clicked-academic"
+    }
+    if (props.careerTagColor) {
+        careerTagClass = "clicked-career"
+    }
+    if (props.miscTagColor) {
+        miscTagClass = "clicked-misc"
+    }
+
     return (
         <div>
             <form className="search-bar" onChange={props.onChange} >
@@ -75,13 +99,13 @@ function CommunityPageSearch(props) {
                 <h2>Filter</h2>
                 <div className="post-tags">
                     <div>
-                        <input className="Academic" type="button" value="Academic" onClick={props.onClick} />
+                        <input className={academicTagClass}type="button" value="Academic" onClick={props.onClick} />
                     </div>
                     <div>
-                        <input className="Career" type="button" value="Career" onClick={props.onClick} />
+                        <input className={careerTagClass} type="button" value="Career" onClick={props.onClick} />
                     </div>
                     <div>
-                        <input className="Miscellaneous" type="button" value="Miscellaneous" onClick={props.onClick} />
+                        <input className={miscTagClass} type="button" value="Miscellaneous" onClick={props.onClick} />
                     </div>
                 </div>
             </div>
@@ -91,7 +115,7 @@ function CommunityPageSearch(props) {
 
 function AllPosts(props) {
     const allPosts = props.postsData.map((post) => {
-        return <Post post={post} key={post.postID} postOwner={_.find(props.usersData, { userID: post.userID })} />
+        return <Post post={post} key={post.postID} postOwner={_.find(props.usersData, { userID: post.userID })} currentUser={props.currentUser}/>
     })
 
     return (
@@ -104,8 +128,15 @@ function AllPosts(props) {
 function Post(props) {
     const post = props.post;
     const owner = props.postOwner;
-
     const postLink = '/' + encodeURIComponent(post.post_title);
+
+    let heartClass;
+    if (post.likes.includes(props.currentUser.uid)) {
+        heartClass = "fa-solid fa-heart";
+    } else {
+        heartClass = "fa-regular fa-heart";
+    }
+
 
     return (
         <div className="card-post">
@@ -117,7 +148,7 @@ function Post(props) {
                         <div className="post-details-divider">|</div>
                         <div className="post-details-date">{post.created_date}</div>
                         <div className="post-details-tag">{post.tags}</div>
-                        <div className="post-details-likes">20 <i className="fa-regular fa-heart"></i></div>
+                        <div className="post-details-likes">{post.likes && post.likes.length} <i className={heartClass} ></i></div>
                     </div>
 
                     <div className="post-content-details">

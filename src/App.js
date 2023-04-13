@@ -10,10 +10,6 @@ import { Routes, Route, Outlet, Navigate, useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
 
-// import users_data from "./user_data.json";
-// import posts from "./posts_data.json";
-// import comments from "./comments_data.json";
-
 const nullUser = { uid: null };
 
 export default function App(props) {
@@ -52,9 +48,7 @@ export default function App(props) {
         })
     }, []);
     console.log(currentUser);
-    // const [allPosts, setAllPosts] = useState(posts);
-    // const [allUsers, setAllUsers] = useState(users_data);
-    // const [allComments, setAllComments] = useState(comments);
+
     const [allUsers, setAllUsers] = useState([]);
     const [allPosts, setAllPosts] = useState([]);
     const [allComments, setAllComments] = useState([]);
@@ -187,8 +181,18 @@ export default function App(props) {
         firebasePush(allCommentsRef, newComment).then(() => console.log("Successfully added new comment")).catch((error) => setAlertMessage(error.message));
     }
 
-    console.log(allPosts)
-    console.log(allComments)
+    const likePost = (postKey) => {
+        const post = allPosts.find(post => post.key === postKey);
+        if (post.likes.includes(currentUser.uid)) {
+            const index = post.likes.indexOf(currentUser.uid);
+            post.likes.splice(index, 1);
+        } else {
+            post.likes.push(currentUser.uid);
+        }
+        const db = getDatabase();
+        const postRef = ref(db, 'posts_data/' + postKey);
+        firebaseSet(postRef, post).then(() => console.log("Successfully liked/unliked post")).catch((error) => setAlertMessage(error.message));
+    }
 
     return (
         <>
@@ -204,7 +208,7 @@ export default function App(props) {
                     <Route element={<ProtectedPage currentUser={currentUser} />}>
                         <Route path='home' element={<HomePage />} />
                         <Route path='community' element={<CommunityPage currentUser={currentUser} addPostCallback={addPost} postsData={allPosts} usersData={allUsers} />} />
-                        <Route path=':postTitle' element={<PostPage currentUser={currentUser} addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} />} />
+                        <Route path=':postTitle' element={<PostPage currentUser={currentUser} addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} likePostCallback={likePost}/>} />
                         <Route path='people' element={<PeoplePage usersData={allUsers} />} />
                         <Route path='people/:profileName' element={<UserProfilePage usersData={allUsers} />} />
                         <Route path='profile' element={<MyProfilePage currentUser={currentUser} />} />
