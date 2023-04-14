@@ -138,6 +138,26 @@ footer {
 
 /* End of Post Filters */
 
+/* Start of Event Filters */
+
+.event-filter-container {
+    margin: 1.875em 1.875em 0 1.875em;
+    display: flex;
+    gap: 1em;
+}
+
+.event-filter-container h2 {
+    margin: 0.3em 0.5em;
+    font-size: 0.95em;
+}
+
+.event-filters {
+    display: flex;
+    gap: 1.5em;
+}
+
+/* End of Event Filters */
+
 /* Start of People Filters */
 
 .people-filter-container {
@@ -480,7 +500,105 @@ h3 a {
 
 /* end of posts code */
 
+/* Start of Event Page Code */
 
+.card-event {
+    border: 0.08rem solid gray;
+    padding: 0.5em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.events-container {
+    margin: 2rem;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.event-img img {
+    height: 10rem;
+    width: 10rem;
+}
+
+.event-details {
+    margin-left: 2rem;
+    margin-right: 1rem;
+    flex-basis: 100rem;
+}
+
+.event-time {
+    margin-bottom: 1rem;
+    margin-top: 0.2rem;
+    color: #919191;
+    font-size: 0.8rem;
+}
+
+.event-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #462E7E;
+}
+
+.learn-more-button {
+    border-radius: 0.7rem;
+    border: none;
+    background-color: #462E7E;
+    width: 100%;
+    height: 2.5rem;
+    color: white;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
+.event-button {
+    align-self: end;
+}
+
+.upcoming, .workshop, .in-person {
+    border-radius: 5rem;
+    border: 0.09rem solid grey;
+    padding: 0.2rem 0.5em;
+    height: 2rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.upcoming:hover, .workshop:hover, .in-person:hover {
+    border: 0.1rem solid #462E7E;
+    color: #462E7E;
+    font-weight: 400;
+}
+
+.event-filters select {
+    background-color: #907AA8;
+    color: white;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    padding-left: 0.5rem;
+    border-radius: 5rem;
+}
+
+.event-filter-container {
+    margin: 1.875em 1.875em 0 1.875em;
+    display: flex;
+    gap: 1em;
+}
+
+.event-filter-container h2 {
+    margin: 0.3em 0.5em;
+    font-size: 0.95em;
+}
+
+.event-filters {
+    display: flex;
+    gap: 1.5em;
+}
+
+/* End of Event Page Code */
 
 /* start of events code */
 /* .calendar-container .events-header {

@@ -4,6 +4,7 @@ import { SignInPage } from './SignInPage.js';
 import { HomePage } from "./HomePage.js";
 import { PostPage } from "./PostPage.js";
 import { CommunityPage } from "./Community.js";
+import { EventsPage } from './EventsPage.js';
 import { PeoplePage } from "./PeoplePage.js";
 import { MyProfilePage, UserProfilePage } from "./ProfilePage.js";
 import { Routes, Route, Outlet, Navigate, useNavigate } from 'react-router-dom';
@@ -207,7 +208,8 @@ export default function App(props) {
 
                     <Route element={<ProtectedPage currentUser={currentUser} />}>
                         <Route path='home' element={<HomePage />} />
-                        <Route path='community' element={<CommunityPage currentUser={currentUser} addPostCallback={addPost} postsData={allPosts} usersData={allUsers} />} />
+                        {/* <Route path='community' element={<CommunityPage currentUser={currentUser} addPostCallback={addPost} postsData={allPosts} usersData={allUsers} />} /> */}
+                        <Route path='community' element={<EventsPage />} />
                         <Route path=':postTitle' element={<PostPage currentUser={currentUser} addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} likePostCallback={likePost}/>} />
                         <Route path='people' element={<PeoplePage usersData={allUsers} />} />
                         <Route path='people/:profileName' element={<UserProfilePage usersData={allUsers} />} />
