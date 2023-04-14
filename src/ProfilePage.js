@@ -2,9 +2,88 @@ import { useState, useEffect } from "react";
 import { CreateButton } from "./ButtonsAndTags"
 import { Link, useParams } from "react-router-dom";
 import _ from 'lodash';
+import Modal from 'react-bootstrap/Modal';
 import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
 
 export function MyProfilePage(props) {
+    console.log(props.currentUser)
+    let user = _.find(props.usersData, { userID: props.currentUser.uid });
+    console.log(user)
+
+    return (
+        <div class="profile-popup">
+            <EditProfilePopup currentUser={props.currentUser} />
+            <div class="profile-popup-header">
+                {/* <div class="profile-popup-img"><img src="img/user-img.jpg" alt="user profile"></img></div> */}
+                <div class="profile-header-details">
+                    {/* <div class="profile-popup-name">Name: {user.firstName + " " + user.lastName}</div>
+                    <div class="profile-popup-contact">Email: {user.email}</div>
+                    <div class="profile-popup-contact">Phone Number: {user.number ? user.jobTitle : 'No job title information found'}</div>
+                    <div class="profile-popup-contact">Open to Contact? {user.openContact ? user.openContact : 'No contact preference information found'}</div> */}
+                </div>
+            </div>
+
+            <div class="profile-popup-details">
+                <div class="profile-popup-name">
+                    <div>Name</div> 
+                    <div>{user.firstName + " " + user.lastName}</div>
+                </div>
+                <div class="profile-popup-contact">
+                    <div>Email</div>
+                    <div>{user.email}</div>
+                </div>
+                <div class="profile-popup-contact">
+                    <div>Phone Number</div>
+                    <div>{user.number ? user.number : 'No phone number found'}</div>
+                </div>
+                <div class="profile-popup-contact">
+                    <div>Open to Contact?</div>
+                    <div>{user.openContact ? user.openContact : 'No contact preference information found'}</div>
+                </div>
+                <div class="profile-popup-job-title">
+                    <div>Job title</div>
+                    <div>{user.jobTitle ? user.jobTitle : 'No job title information found'}</div>
+                </div>
+                <div class="profile-popup-employer">
+                    <div>Employer</div>
+                    <div>{user.employer ? user.employer : 'No employer information found'}</div>
+                </div>
+                <div class="profile-popup-industry">
+                    <div>Industry</div>
+                    <div>{user.industry ? user.industry : 'No industry information found'}</div>
+                </div>
+                <div class="profile-popup-major">
+                    <div>Major</div>
+                    <div>{user.major ? user.major : 'No major information found'}</div>
+                </div>
+                <div class="profile-popup-school">
+                    <div>School</div>
+                    <div>{user.school ? user.school : 'No school information found'}</div>
+                </div>
+                <div class="profile-popup-degree-type">
+                    <div>Degree</div>
+                    <div>{user.school ? user.school : 'No school information found'}</div>
+                </div>
+                <div class="profile-popup-grad-year">
+                    <div>Graduation Year</div>
+                    <div>{user.gradYear ? user.gradYear : 'No graduation year information found'}</div>
+                </div>
+                <div class="profile-popup-language">
+                    <div>Language</div>
+                    <div>{user.languages ? user.languages : 'No language information found'}</div>
+                </div>
+            </div>
+        </div>
+
+    );
+}
+
+export function EditProfilePopup(props) {
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handleShow = () => setShowPopup(true);
+    const handleClose = () => setShowPopup(false);
+
     const userUID = props.currentUser.uid;
     console.log(userUID);
 
@@ -272,138 +351,156 @@ export function MyProfilePage(props) {
     }
 
     return (
-        <div className="edit_profile">
-            <h1>Edit Profile for {firstNameInput + " " + lastNameInput}</h1>
-            <div>
-                <label for="first_name">First Name</label>
-                <input onChange={firstNameHandleChange} type="text" /> <br></br>
+        // <div className="edit_profile">
+        <>
+            <CreateButton onClick={handleShow} type="button" title="Edit Profile" label="Edit profile" />
 
-                <label for="last_name">Last Name</label>
-                <input onChange={lastNameHandleChange} type="text" /> <br></br>
+            <Modal show={showPopup} onHide={handleClose} animation={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Edit Profile for {firstNameInput + " " + lastNameInput}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
 
-                <label for="role">Role</label>
-                <select onChange={roleHandleChange} id="role" name="role">
-                    <option value="">Choose A Role:</option>
-                    <option value="Alumni">Alumni</option>
-                    <option value="Student">Student</option>
-                </select> <br />
+                    {/* <h1>Edit Profile for {firstNameInput + " " + lastNameInput}</h1> */}
+                    <div className="edit_profile">
+                        <div>
+                            <label for="first_name">First Name</label>
+                            <input onChange={firstNameHandleChange} type="text" /> <br></br>
 
-                <label for="bio">Bio</label> <br />
-                <textarea onChange={bioHandleChange} id="bio" name="bio" rows="2"></textarea> <br />
+                            <label for="last_name">Last Name</label>
+                            <input onChange={lastNameHandleChange} type="text" /> <br></br>
 
-                <p><b>Contact Information</b></p>
+                            <label for="role">Role</label>
+                            <select onChange={roleHandleChange} id="role" name="role">
+                                <option value="">Choose A Role:</option>
+                                <option value="Alumni">Alumni</option>
+                                <option value="Student">Student</option>
+                            </select> <br />
 
-                <label for="open_contact">Open to Contact?</label>
-                <select onChange={openContactHandleChange} id="open_contact" name="open_contact">
-                    <option value="">Choose A Preference:</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                </select> <br></br>
+                            <label for="bio">Bio</label> <br />
+                            <textarea onChange={bioHandleChange} id="bio" name="bio" rows="2"></textarea> <br />
 
-                <label for="contact_number">Contact Number</label>
-                <input onChange={numberHandleChange} type="text" /> <br></br>
+                            <p><b>Contact Information</b></p>
 
-                <label for="contact_email">Email</label>
-                <input onChange={emailHandleChange} type="text" /> <br></br>
+                            <label for="open_contact">Open to Contact?</label>
+                            <select onChange={openContactHandleChange} id="open_contact" name="open_contact">
+                                <option value="">Choose A Preference:</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select> <br></br>
 
-            </div>
+                            <label for="contact_number">Contact Number</label>
+                            <input onChange={numberHandleChange} type="text" /> <br></br>
 
-            <div>
-                <p><b>Educational History</b></p>
+                            <label for="contact_email">Email</label>
+                            <input onChange={emailHandleChange} type="text" /> <br></br>
 
-                <label for="school">School</label>
-                <input onChange={schoolHandleChange} type="text" /> <br></br>
+                        </div>
 
-                <label for="degree">Degree</label>
-                <select onChange={degreeHandleChange} id="degree" name="degree">
-                    <option value="">Choose A Degree:</option>
-                    <option value="Associate Degree">Associate Degree</option>
-                    <option value="Bachelor's Degree">Bachelor's Degree</option>
-                    <option value="Master's Degree">Master's Degree</option>
-                    <option value="Doctorate Degree">Doctorate Degree</option>
-                    <option value="Professional Degree">Professional Degree</option>
-                    <option value="Other">Other</option>
-                </select>
+                        <div>
+                            <p><b>Educational History</b></p>
 
-                <label for="grad_year">Graduation Year</label>
-                <input onChange={gradYearHandleChange} type="text" /> <br></br>
+                            <label for="school">School</label>
+                            <input onChange={schoolHandleChange} type="text" /> <br></br>
 
-                <label for="Major">Major</label>
-                {/* <input onChange={majorHandleChange} type="text" /> <br></br> */}
-                <select onChange={majorHandleChange} name="major" id="major">
-                    <option value="">Choose a Major:</option>
-                    <option value="Art">Art</option>
-                    <option value="Business">Business</option>
-                    <option value="Biology">Biology</option>
-                    <option value="Chemisty">Chemistry</option>
-                    <option value="Economics">Economics</option>
-                    <option value="Computer Science">Computer Science</option>
-                    <option value="Public Health">Public Health</option>
-                    <option value="Nursing">Nursing</option>
-                    <option value="Informatics">Informatics</option>
-                    <option value="Psychology">Psychology</option>
-                    <option value="Communication">Communication</option>
-                    <option value="Biochemistry">Biochemistry</option>
-                    <option value="Social Work">Social Work</option>
-                    <option value="Dance">Dance</option>
-                    <option value="Music">Music</option>
-                    <option value="Finance">Finance</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="Film Studies">Film Studies</option>
-                    <option value="Geography">Geography</option>
-                    <option value="Anthropology">Anthropology</option>
-                    <option value="Political Science">Political Science</option>
-                    <option value="Chinese">Chinese</option>
-                    <option value="Korean">Korean</option>
-                    <option value="Vietnamese">Vietnamese</option>
-                    <option value="Latin">Latin</option>
-                    <option value="Math">Math</option>
-                    <option value="Statistics">Statistics</option>
-                    <option value="Microbiology">Microbiology</option>
-                    <option value="Medical Lab Science">Medical Lab Science</option>
-                    <option value="Education">Education</option>
-                </select>
-                <br></br>
-            </div>
+                            <label for="degree">Degree</label>
+                            <select onChange={degreeHandleChange} id="degree" name="degree">
+                                <option value="">Choose A Degree:</option>
+                                <option value="Associate Degree">Associate Degree</option>
+                                <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                <option value="Master's Degree">Master's Degree</option>
+                                <option value="Doctorate Degree">Doctorate Degree</option>
+                                <option value="Professional Degree">Professional Degree</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <br></br>
 
-            <div>
-                <p><b>Career</b></p>
+                            <label for="grad_year">Graduation Year</label>
+                            <input onChange={gradYearHandleChange} type="text" /> <br></br>
 
-                <label for="industry">Industry</label>
-                <select onChange={industryHandleChange} id="industry" name="industry">
-                    <option value="">Choose A Industry:</option>
-                    <option value="Technology">Technology</option>
-                    <option value="Healthcare">Healthcare</option>
-                    <option value="Business">Business</option>
-                    <option value="Engineering">Engineering</option>
-                    <option value="Entertainment">Entertainment</option>
-                    <option value="Education">Education</option>
-                    <option value="Real Estate">Real Estate</option>
-                    <option value="Public Services">Public Services</option>
-                    <option value="Government">Government</option>
-                    <option value="Law">Law</option>
-                    <option value="Commerce">Commerce</option>
-                    <option value="Construction">Construction</option>
-                    <option value="Food">Food</option>
-                    <option value="Education">Tourism</option>
-                    <option value="Art">Art</option>
-                    <option value="Fashion">Fashion</option>
-                </select>
+                            <label for="Major">Major</label>
+                            {/* <input onChange={majorHandleChange} type="text" /> <br></br> */}
+                            <select onChange={majorHandleChange} name="major" id="major">
+                                <option value="">Choose a Major:</option>
+                                <option value="Art">Art</option>
+                                <option value="Business">Business</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Chemisty">Chemistry</option>
+                                <option value="Economics">Economics</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Public Health">Public Health</option>
+                                <option value="Nursing">Nursing</option>
+                                <option value="Informatics">Informatics</option>
+                                <option value="Psychology">Psychology</option>
+                                <option value="Communication">Communication</option>
+                                <option value="Biochemistry">Biochemistry</option>
+                                <option value="Social Work">Social Work</option>
+                                <option value="Dance">Dance</option>
+                                <option value="Music">Music</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Film Studies">Film Studies</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Anthropology">Anthropology</option>
+                                <option value="Political Science">Political Science</option>
+                                <option value="Chinese">Chinese</option>
+                                <option value="Korean">Korean</option>
+                                <option value="Vietnamese">Vietnamese</option>
+                                <option value="Latin">Latin</option>
+                                <option value="Math">Math</option>
+                                <option value="Statistics">Statistics</option>
+                                <option value="Microbiology">Microbiology</option>
+                                <option value="Medical Lab Science">Medical Lab Science</option>
+                                <option value="Education">Education</option>
+                            </select>
+                            <br></br>
+                        </div>
 
-                <label for="employer">Employer</label>
-                <input onChange={employerHandleChange} type="text" /> <br></br>
+                        <div>
+                            <p><b>Career</b></p>
 
-                <label for="job_title">Job Title</label>
-                <input onChange={jobTitleHandleChange} type="text" /> <br></br>
+                            <label for="industry">Industry</label>
+                            <select onChange={industryHandleChange} id="industry" name="industry">
+                                <option value="">Choose A Industry:</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Business">Business</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Education">Education</option>
+                                <option value="Real Estate">Real Estate</option>
+                                <option value="Public Services">Public Services</option>
+                                <option value="Government">Government</option>
+                                <option value="Law">Law</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Construction">Construction</option>
+                                <option value="Food">Food</option>
+                                <option value="Education">Tourism</option>
+                                <option value="Art">Art</option>
+                                <option value="Fashion">Fashion</option>
+                            </select>
+                            <br></br>
 
-                <label for="languages">Languages</label>
-                <input onChange={languagesHandleChange} type="text" /> <br></br>
-            </div>
+                            <label for="employer">Employer</label>
+                            <input onChange={employerHandleChange} type="text" /> <br></br>
 
-            <div>
-                <CreateButton onClick={handleSubmit} type="submit" title="Save" label="Save profile information" />
-            </div>
-        </div>
+                            <label for="job_title">Job Title</label>
+                            <input onChange={jobTitleHandleChange} type="text" /> <br></br>
+
+                            <label for="languages">Languages</label>
+                            <input onChange={languagesHandleChange} type="text" /> <br></br>
+                        </div>
+                    </div>
+
+                </Modal.Body>
+                <Modal.Footer>
+                    <div className="popup-button">
+                        <CreateButton onClick={handleSubmit} type="submit" title="Save" label="Save profile information" />
+                    </div>
+                </Modal.Footer>
+            </Modal>
+            {/* </div> */}
+        </>
     )
 }
 

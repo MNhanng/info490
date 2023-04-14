@@ -757,11 +757,11 @@ select {
     padding-top: 0.5rem;
 }
 
-.profile-popup-name {
+/* .profile-popup-name {
     font-size: 1.5rem;
     font-weight: 500;
     color: #462E7E;
-}
+} */
 
 .profile-popup-details {
     padding-top: 2rem;
@@ -820,8 +820,13 @@ form input, .edit_profile input, .edit_profile select {
 .form-tags .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: 0.5em;
     margin-left: 0.3em;
+}
+
+.form-tags .tags input{
+    width: 7.5em;
+    font-size: 0.9em;
 }
 
 form textarea, .edit_profile textarea {
@@ -939,10 +944,9 @@ form textarea, .edit_profile textarea {
 
 
 .edit_profile {
-
-    border: solid black;
+    /* border: solid black;
     padding: 3rem;
-    width: 40%;
+    width: 40%; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -962,11 +966,13 @@ form textarea, .edit_profile textarea {
 .edit_profile input {
     margin-bottom: 0.5em;
     padding: .2em;
+    width: 65%;
 }
 
 .edit_profile select {
     margin-bottom: 0.5em;
     padding: .2em;
+    width: 65%;
 }
 
 
