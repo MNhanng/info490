@@ -219,14 +219,15 @@ footer {
     margin: 1.875em 1.875em 0 1.875em;
 }
 
-.card {
+.profiles-container .card {
     background-color: white;
-    border: #a1a1a1 solid 0.05em;
-    border-radius: 0.625em;
+    border: #462E7E solid 0.15rem;
+    border-radius: 0.625rem;
     cursor: pointer;
-    padding-bottom: 0.625em;
+    padding-bottom: 0.625rem;
     width: 31.5%;
     text-align: center;
+    box-shadow: 0.2rem 0.2rem 0.2rem #D3D3D3;
 }
 
 .profile-card-details {
@@ -241,25 +242,46 @@ footer {
 }
 
 .profile-card-name {
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-size: 1.3rem;
+    font-weight: 550;
     color: #462E7E;
     padding-top: 0.7rem;
 }
 
-.profile-card-industry,
-.profile-card-major,
-.profile-card-role,
-.profile-card-contact {
+.profile-card-role {
+    border-radius: 0.5rem;
+    margin: 0.2rem;
+    padding: 0.2rem 0.8rem;
     width: fit-content;
-    margin: 0.3rem;
-    padding: 0.3rem 0.5rem;
-    border-radius: 10rem;
-    border: 0.1rem solid grey;
-    font-size: 0.9rem;
-    font-weight: 200;
+    background-color: #EAE4EE;
+    font-size: 0.8rem;
+    font-weight: 150;
     display: inline-block;
 }
+
+.profile-card-contact {
+    border-radius: 0.5rem;
+    margin: 0.2rem;
+    padding: 0.2rem 0.8rem;
+    background-color: #462E7E;
+    font-size: 0.8rem;
+    font-weight: 150;
+    color: white;
+    width: fit-content;
+    display: inline-block;
+}
+
+.profile-card-major, .profile-card-industry {
+    margin-top: 0.5rem;
+    /* padding: 0.3rem 0.5rem; */
+    font-size: 0.9rem;
+    font-weight: 200;
+}
+
+.profile-card-major span, .profile-card-industry span {
+    font-weight: 600;
+}
+
 
 /* End of Profiles Page Code */
 

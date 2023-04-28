@@ -103,9 +103,11 @@ function ProfileCard(props) {
                     <div className="profile-card-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
                     <div className="profile-card-name">{user.firstName + " " + user.lastName}</div>
                     {user.role && <div className="profile-card-role">{user.role}</div>}
-                    {user.industry && <div className="profile-card-industry">{user.industry}</div>}
-                    {user.major && <div className="profile-card-major">{user.major}</div>}
                     {openToContact(user.openContact)}
+                    {/* {user.major && <div className="major-label">Major: </div>} */}
+                    {user.major && <div className="profile-card-major"><span>Major: </span>{user.major}</div>}
+                    {/* {user.industry && <div className="industry-label">Current Industry:  </div>} */}
+                    {user.industry && <div className="profile-card-industry"><span>Current Industry: </span>{user.industry}</div>}
                 </div>
             </CardActionArea>
         </div>
