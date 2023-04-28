@@ -600,6 +600,53 @@ h3 a {
 
 /* End of Event Page Code */
 
+/* Event Form Page */
+
+.event-form-page button:first-child {
+    padding: 0 1rem;
+    border-radius: 5rem;
+    margin: 1rem 2rem;
+}
+
+.event-form {
+    margin-left: 10em;
+    margin-right: 10em;
+}
+
+.event-form label {
+    width: fit-content;
+}
+
+.event-form input {
+    width: 75%;
+    margin-bottom: 2rem;
+}
+
+.In-Person, .Virtual {
+    border-radius: 5rem;
+    border: 0.09rem solid grey;
+    padding: 0.2rem 0.5em;
+}
+
+.clicked-in-person, .clicked-virtual {
+    border-radius: 5rem;
+    border: none;
+    padding: 0.2rem 0.5em;
+    color: white;
+    background-color: #907AA8;
+}
+
+.event-form textarea {
+    width: 75%;
+    margin-bottom: 2rem;
+}
+
+.event-form .popup-button button {
+    margin-left: 750px;
+}
+
+/* End of Event Form Page */
+
 /* start of events code */
 /* .calendar-container .events-header {
     font-weight: 300;

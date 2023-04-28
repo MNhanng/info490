@@ -4,7 +4,7 @@ import { SignInPage } from './SignInPage.js';
 import { HomePage } from "./HomePage.js";
 import { PostPage } from "./PostPage.js";
 import { CommunityPage } from "./Community.js";
-import { EventsPage } from './EventsPage.js';
+import { EventsPage, EventForm } from './EventsPage.js';
 import { PeoplePage } from "./PeoplePage.js";
 import { MyProfilePage, UserProfilePage } from "./ProfilePage.js";
 import { Routes, Route, Outlet, Navigate, useNavigate } from 'react-router-dom';
@@ -53,13 +53,16 @@ export default function App(props) {
     const [allUsers, setAllUsers] = useState([]);
     const [allPosts, setAllPosts] = useState([]);
     const [allComments, setAllComments] = useState([]);
+    const [allEvents, setAllEvents] = useState([]);
+
 
     // read data from firebase
     useEffect(() => {
         const db = getDatabase();
         const allUserProfileRef = ref(db, 'users_data/');
-        const allPostsRef = ref(db, 'posts_data/')
-        const allCommentsRef = ref(db, 'comments_data/')
+        const allPostsRef = ref(db, 'posts_data/');
+        const allCommentsRef = ref(db, 'comments_data/');
+        const allEventsRef = ref(db, 'events_data');
 
         const userFunction = onValue(allUserProfileRef, (snapshot) => {
             const valueObj = snapshot.val();
@@ -112,10 +115,23 @@ export default function App(props) {
         //     setAllComments(objArray);
         // })
 
+        const eventsFunction = onValue(allEventsRef, (snapshot) => {
+            const valueObj = snapshot.val();
+            const objKeys = Object.keys(valueObj);
+            const objArray = objKeys.map((keyString) => {
+                const eventObj = valueObj[keyString];
+                eventObj.key = keyString;
+                return eventObj;
+            })
+
+            setAllEvents(objArray);
+        })
+
         function cleanup() {
             userFunction();
             postsFunction();
             // commentsFunction();
+            eventsFunction();
         }
         return cleanup;
     }, [currentUser]);
@@ -195,6 +211,30 @@ export default function App(props) {
         firebaseSet(postRef, post).then(() => console.log("Successfully liked/unliked post")).catch((error) => setAlertMessage(error.message));
     }
 
+    const addEvent = (name, dateTime, location, tags, description, specifications) => {
+        let eventID = 0;
+        if (allEvents.length === 0) {
+            eventID = 0;
+        } else {
+            eventID = allEvents[allEvents.length - 1].eventID + 1;
+        }
+        const newEvent = {
+            "userID": currentUser.uid,
+            "eventID": eventID,
+            "name": name,
+            "dateTime": new Date(dateTime).toLocaleString('en-us'),
+            "location": location,
+            "tags": tags,
+            "description": description,
+            "specifications": specifications,
+            "likes": ["placeholder"],
+            "created_date": new Date().toLocaleDateString('en-us', { year: "numeric", month: "short", day: "numeric" })
+        };
+        const db = getDatabase();
+        const allEventsRef = ref(db, 'events_data/')
+        firebasePush(allEventsRef, newEvent).then(() => console.log("Successfully added new event")).catch((error) => setAlertMessage(error.message));
+    }
+
     return (
         <>
             <header>
@@ -208,12 +248,13 @@ export default function App(props) {
 
                     <Route element={<ProtectedPage currentUser={currentUser} />}>
                         <Route path='home' element={<HomePage />} />
-                        {/* <Route path='community' element={<CommunityPage currentUser={currentUser} addPostCallback={addPost} postsData={allPosts} usersData={allUsers} />} /> */}
-                        <Route path='community' element={<EventsPage />} />
+                        <Route path='community' element={<CommunityPage currentUser={currentUser} addPostCallback={addPost} postsData={allPosts} usersData={allUsers} />} />
                         <Route path=':postTitle' element={<PostPage currentUser={currentUser} addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} likePostCallback={likePost}/>} />
                         <Route path='people' element={<PeoplePage usersData={allUsers} />} />
+                        <Route path='events' element={<EventsPage eventsData={allEvents} />} />
+                        <Route path=':event-form' element={<EventForm addEventCallback={addEvent} />} />
                         <Route path='people/:profileName' element={<UserProfilePage usersData={allUsers} />} />
-                        <Route path='profile' element={<MyProfilePage currentUser={currentUser} usersData={allUsers}/>} />
+                        <Route path='my-profile' element={<MyProfilePage currentUser={currentUser} usersData={allUsers}/>} />
                     </Route>
                 </Routes>
             </main>
