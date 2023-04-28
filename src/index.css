@@ -825,6 +825,16 @@ select {
     border-radius: 1rem;
 }
 
+.home-event-container .event-details {
+    border: 0.08rem solid gray;
+    padding: 0.5em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    margin-right: 1rem;
+    flex-basis: 100rem;
+}
+
 /* end of home page code */
 
 

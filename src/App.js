@@ -247,7 +247,7 @@ export default function App(props) {
                     <Route path="signin" element={<SignInPage />} />
 
                     <Route element={<ProtectedPage currentUser={currentUser} />}>
-                        <Route path='home' element={<HomePage />} />
+                        <Route path='home' element={<HomePage eventsData={allEvents} />} />
                         <Route path='community' element={<CommunityPage currentUser={currentUser} addPostCallback={addPost} postsData={allPosts} usersData={allUsers} />} />
                         <Route path=':postTitle' element={<PostPage currentUser={currentUser} addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} likePostCallback={likePost}/>} />
                         <Route path='people' element={<PeoplePage usersData={allUsers} />} />

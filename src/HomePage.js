@@ -17,20 +17,23 @@ export function HomePage(props) {
     //         props.addNewProfileCallback();
     //     }
     // }, []);
-        
+
     return (
         <main>
             <div className="home-page">
-            <div className="home-content">
-                <div className="home-header">Connect With Our Networking Team</div>
-                <div className="home-button"><a href="CommunityPage.html"><button type="button">Start Exploring</button></a></div>
-            </div>
+                <div className="home-content">
+                    <div className="home-header">Connect With Our Networking Team</div>
+                    <div className="home-button"><a href="CommunityPage.html"><button type="button">Start Exploring</button></a></div>
+                </div>
 
-            <div className="home-image">
-                <img src={require("./img/home-image.png")} alt="Home page" />
-            </div> 
-        </div>
-        {/* <HomeBoard/> */}
+                <div className="home-image">
+                    <img src={require("./img/home-image.png")} alt="Home page" />
+                </div>
+            </div>
+            {/* <HomeBoard/> */}
+            <div className="home-event-container">
+                <UpcomingEvents eventsData={props.eventsData} />
+            </div>
         </main>
     )
 }
@@ -45,8 +48,33 @@ export function HomePage(props) {
 //                 <div className="recently-viewed-item"></div>
 //                 <div className="recently-viewed-item"></div>
 //             </div> 
-            
+
 //         </div>
 //     )
 // }
+
+function UpcomingEvents(props) {
+    const events = props.eventsData;
+
+    const upcomingEvents = events.sort((event1, event2) => {
+        return new Date(event1.dateTime) - new Date(event2.dateTime);
+    })
+    .slice(0, 5)
+    .map((event) => {
+        return (
+            <div className="event-details">
+                <div className="event-name">{event.name}</div>
+                <div className="event-tag">{event.tags}</div>
+                <div className="event-time"><i className="fa-regular fa-calendar-days"></i> {event.dateTime}</div>
+                <div className="event-location">Location: {event.location} </div>
+                <div className="event-desc">{event.description}</div>
+                <div className="event-spec">{event.specifications}</div>
+            </div>
+        )
+    })
+
+    return (
+        upcomingEvents
+    );
+}
 
