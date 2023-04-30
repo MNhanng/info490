@@ -10,6 +10,7 @@ export function CommunityPage(props) {
     const [academicTagColor, setAcademicTagColor] = useState(false)
     const [careerTagColor, setCareerTagColor] = useState(false)
     const [miscTagColor, setMiscTagColor] = useState(false)
+    const [sort, setSort] = useState("newest");
     const allPosts = props.postsData
     console.log(allPosts)
 
@@ -37,9 +38,9 @@ export function CommunityPage(props) {
             setSelectedTags([...selectedTags, event.target.value])
         }
 
-        if (event.target.value == "Academic") {
+        if (event.target.value === "Academic") {
             setAcademicTagColor(!academicTagColor)
-        } else if (event.target.value == "Career") {
+        } else if (event.target.value === "Career") {
             setCareerTagColor(!careerTagColor)
         } else {
             setMiscTagColor(!miscTagColor)
@@ -53,13 +54,40 @@ export function CommunityPage(props) {
         filterByTags = filterPosts(filteredPosts, selectedTags)
     }
 
+    // sort posts
     
+    const handleSort = (event) => {
+        setSort(event.target.value);
+    }
+
+    let sortedPosts = null;
+    if (sort === "newest") {
+        sortedPosts = filterByTags.sort((post1, post2) => {
+            return new Date(post1.created_date) - new Date(post2.created_date);
+        })
+    } else if (sort === "oldest") {
+        sortedPosts = filterByTags.sort((post1, post2) => {
+            return new Date(post2.created_date) - new Date(post1.created_date);
+        })
+    } else if (sort === "popular") {
+        sortedPosts = filterByTags.sort((post1, post2) => {
+            let numLikes1 = 0;
+            let numLikes2 = 0;
+            if (post1.likes && post1.likes.length > 0) {
+                numLikes1 = post1.likes.length;
+            }
+            if (post2.likes && post2.likes.length > 0) {
+                numLikes2 = post2.likes.length;
+            }
+            return numLikes2 - numLikes1;
+        })
+    }
 
     return (
         <main>
             <CommunityPageHeader addPostCallback={props.addPostCallback}/>
-            <CommunityPageSearch onChange={onChange} onClick={onClick} academicTagColor={academicTagColor} careerTagColor={careerTagColor} miscTagColor={miscTagColor} />
-            <AllPosts postsData={filterByTags} usersData={props.usersData} currentUser={props.currentUser}/>
+            <CommunityPageSearch onChange={onChange} onClick={onClick} academicTagColor={academicTagColor} careerTagColor={careerTagColor} miscTagColor={miscTagColor} handleSort={handleSort} />
+            <AllPosts postsData={sortedPosts} usersData={props.usersData} currentUser={props.currentUser}/>
         </main>
     )
 }
@@ -92,7 +120,7 @@ function CommunityPageSearch(props) {
     return (
         <div>
             <form className="search-bar" onChange={props.onChange} >
-                <input type="search" placeholder="Search..." />
+                <input type="search" placeholder="Search for posts" />
             </form>
 
             <div className="post-filter-container">
@@ -107,6 +135,13 @@ function CommunityPageSearch(props) {
                     <div>
                         <input className={miscTagClass} type="button" value="Miscellaneous" onClick={props.onClick} />
                     </div>
+                </div>
+                <div className="post-sort">
+                    <select name="post-sort" id="post-sort" onChange={props.handleSort} >
+                        <option value="newest" defaultValue>Sort By Date (Most Recent)</option>
+                        <option value="oldest">Sort By Date (Oldest)</option>
+                        <option value="popular">Sort By Most Popular</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -131,7 +166,7 @@ function Post(props) {
     const postLink = '/' + encodeURIComponent(post.post_title);
 
     let heartClass;
-    if (post.likes.includes(props.currentUser.uid)) {
+    if (post.likes && post.likes.length !== 0 && post.likes.includes(props.currentUser.uid)) {
         heartClass = "fa-solid fa-heart";
     } else {
         heartClass = "fa-regular fa-heart";
@@ -148,7 +183,7 @@ function Post(props) {
                         <div className="post-details-divider">|</div>
                         <div className="post-details-date">{post.created_date}</div>
                         <div className="post-details-tag">{post.tags}</div>
-                        <div className="post-details-likes">{post.likes && post.likes.length} <i className={heartClass} ></i></div>
+                        <div className="post-details-likes">{post.likes && post.likes.length}{(!post.likes || post.likes.length === 0) && "0"} <i className={heartClass} ></i></div>
                     </div>
 
                     <div className="post-content-details">

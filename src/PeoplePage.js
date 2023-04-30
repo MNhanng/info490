@@ -104,10 +104,9 @@ function ProfileCard(props) {
                     <div className="profile-card-name">{user.firstName + " " + user.lastName}</div>
                     {user.role && <div className="profile-card-role">{user.role}</div>}
                     {openToContact(user.openContact)}
-                    {/* {user.major && <div className="major-label">Major: </div>} */}
                     {user.major && <div className="profile-card-major"><span>Major: </span>{user.major}</div>}
-                    {/* {user.industry && <div className="industry-label">Current Industry:  </div>} */}
                     {user.industry && <div className="profile-card-industry"><span>Current Industry: </span>{user.industry}</div>}
+                    {user.jobTitle && <div className="profile-card-job"><span>Current Occupation: </span>{user.jobTitle}</div>}
                 </div>
             </CardActionArea>
         </div>
@@ -122,7 +121,7 @@ function PeopleSearchFilter(props) {
     return (
         <div>
             <form className="search-bar" onChange={props.onChange} >
-                <input type="search" placeholder="Search..." />
+                <input type="search" placeholder="Search for people (ex: 'John Doe' or 'Project Manager')" />
             </form>
 
             <div className="people-filter-container">

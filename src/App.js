@@ -176,7 +176,7 @@ export default function App(props) {
             "post_title": post_title,
             "tags": tags,
             "details": details,
-            "likes": ["placeholder"],
+            "likes": [],
             "created_date": new Date().toLocaleDateString('en-us', { year: "numeric", month: "short", day: "numeric" }),
             "comments": []
         };

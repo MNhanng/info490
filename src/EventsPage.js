@@ -9,6 +9,7 @@ export function EventsPage(props) {
     const [selectedTags, setSelectedTags] = useState([])
     const [inPersonTagColor, setInPersonTagColor] = useState(false)
     const [virtualTagColor, setVirtualTagColor] = useState(false)
+    const [sort, setSort] = useState("newest");
 
     const allEvents = props.eventsData
     console.log(allEvents)
@@ -51,11 +52,27 @@ export function EventsPage(props) {
         filterByTags = filterEvents(filteredEvents, selectedTags)
     }
 
+    // sorted events
+    const handleSort = (event) => {
+        setSort(event.target.value);
+    }
+
+    let sortedEvents = null;
+    if (sort === "newest") {
+        sortedEvents = filterByTags.sort((event1, event2) => {
+            return new Date(event1.dateTime) - new Date(event2.dateTime);
+        })
+    } else if (sort === "oldest") {
+        sortedEvents = filterByTags.sort((event1, event2) => {
+            return new Date(event2.dateTime) - new Date(event1.dateTime);
+        })
+    }
+
     return (
         <main>
             <EventPageHeader />
-            <EventPageSearch onChange={onChange} onClick={onClick} inPersonTagColor={inPersonTagColor} virtualTagColor={virtualTagColor} />
-            <AllEvents eventsData={filterByTags} />
+            <EventPageSearch onChange={onChange} onClick={onClick} inPersonTagColor={inPersonTagColor} virtualTagColor={virtualTagColor} handleSort={handleSort}/>
+            <AllEvents eventsData={sortedEvents} />
         </main>
     )
 }
@@ -84,7 +101,7 @@ function EventPageSearch(props) {
     return (
         <div>
             <form className="search-bar" onChange={props.onChange} >
-                <input type="search" placeholder="Search..." />
+                <input type="search" placeholder="Search for events" />
             </form>
 
             <div className="event-filter-container">
@@ -96,6 +113,12 @@ function EventPageSearch(props) {
                     <div>
                         <input className={virtualTagClass} type="button" value="Virtual" onClick={props.onClick} />
                     </div>
+                </div>
+                <div className="event-sort">
+                    <select name="event-sort" id="event-sort" onChange={props.handleSort} >
+                        <option value="newest" defaultValue>Sort By Event Date (Newest)</option>
+                        <option value="oldest">Sort By Event Date (Oldest)</option>
+                    </select>
                 </div>
             </div>
         </div>

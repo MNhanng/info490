@@ -22,7 +22,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
     padding-bottom: 1rem;
     margin-left: auto;
 }
@@ -37,16 +37,19 @@ main {
 
 .nav .logo {
     padding-left: 2rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
     padding-bottom: 1rem;
 }
 
 .nav .logo a {
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #462E7E;
+}
 
+.nav li:not(:last-child) {
+    margin-top: 0.6rem;
 }
 
 .nav-elems li {
@@ -55,15 +58,31 @@ main {
 
 .nav-elems a {
     text-decoration: none;
-    color: black;
-    padding: 1em;
-    border-radius: 0.625em;
+    color: #462E7E;
+    padding: 1rem;
+    border-radius: 0.625rem;
+    font-size: 1.1rem;
 }
 
-.nav-elems a:hover {
+.nav-elems li:not(:last-child) a:hover {
     background-color: #987aa875;
     cursor: pointer;
     color: black;
+}
+
+.nav-elems li:last-child a {
+    color: white;
+    font-weight: 200;
+}
+
+.nav-elems li:last-child:hover {
+    background-color: #907AA8;
+}
+
+.nav-elems li:last-child {
+    background-color: #462E7E;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.3rem;
 }
 /* end of nav code*/
 
@@ -85,9 +104,9 @@ main h1 {
 footer {
     position: relative;
     bottom: 0;
-    left: 0.3em;
     font-size: 80%;
     margin-top: 3em;
+    margin-left: 2rem;
 }
 
 /* Start of Search Bar Code */
@@ -104,11 +123,12 @@ footer {
 .search-bar input[type=search] {
     background-color: white;
     color: #919191;
-    border: #a1a1a1 solid 0.05em;
+    border: #a1a1a1 solid 0.08rem;
     border-radius: 0.625em;
     width: 100%;
     padding: 0.5em;
     margin-bottom: 0;
+    font-style: italic;
 }
 
 .filters h2 {
@@ -133,7 +153,7 @@ footer {
 
 .post-tags {
     display: flex;
-    gap: 1.5em;
+    gap: 1rem;
 }
 
 /* End of Post Filters */
@@ -156,6 +176,25 @@ footer {
     gap: 1.5em;
 }
 
+.event-sort select {
+    background-color: #907AA8;
+    color: white;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    padding-left: 0.5rem;
+    border-radius: 5rem;
+    font-size: 0.95rem;
+    border: none;
+}
+
+.event-sort select:hover {
+    background-color: #462E7E;
+}
+
+.event-sort {
+    margin-left: auto;
+}
+
 /* End of Event Filters */
 
 /* Start of People Filters */
@@ -173,7 +212,7 @@ footer {
 
 .people-filters {
     display: flex;
-    gap: 1.5em;
+    gap: 1rem;
 }
 
 .people-filters select {
@@ -183,26 +222,36 @@ footer {
     padding-bottom: 0.4rem;
     padding-left: 0.5rem;
     border-radius: 5rem;
+    font-size: 0.95rem;
+    border: none;
+    width: 7rem;
 }
 
 .open_contact {
     border-radius: 5rem;
     border: 0.09rem solid grey;
     padding: 0.2rem 0.5em;
+    font-size: 0.95rem;
 }
 
 .open_contact-clicked {
     border-radius: 5rem;
     border: none;
-    padding: 0.2rem 0.5em;
+    padding: 0.2rem 0.9em;
     color: white;
     background-color: #907AA8;
+    font-size: 0.95rem;
 }
 
-.open_contact:hover, .open_contact-clicked:hover {
-    border: 0.1rem solid #462E7E;
+.open_contact:hover {
+    border: 0.09rem solid #462E7E;
     color: #462E7E;
-    font-weight: 400;
+    font-size: 0.95rem;
+}
+
+.open_contact-clicked:hover {
+    background-color: #462E7E;
+    font-size: 0.95rem;
 }
 
 .people-filters select:hover {
@@ -216,7 +265,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5em;
-    margin: 1.875em 1.875em 0 1.875em;
+    margin: 1.875em 0 0 1.875em;
 }
 
 .profiles-container .card {
@@ -231,7 +280,6 @@ footer {
 }
 
 .profile-card-details {
-    /* margin: 0 0.75em; */
     margin: 1rem;
 }
 
@@ -250,18 +298,19 @@ footer {
 
 .profile-card-role {
     border-radius: 0.5rem;
-    margin: 0.2rem;
+    margin: 1rem 0.2rem;
     padding: 0.2rem 0.8rem;
     width: fit-content;
     background-color: #EAE4EE;
     font-size: 0.8rem;
     font-weight: 150;
     display: inline-block;
+    color: #462E7E;
 }
 
 .profile-card-contact {
     border-radius: 0.5rem;
-    margin: 0.2rem;
+    margin: 1rem 0.2rem;
     padding: 0.2rem 0.8rem;
     background-color: #462E7E;
     font-size: 0.8rem;
@@ -271,14 +320,17 @@ footer {
     display: inline-block;
 }
 
-.profile-card-major, .profile-card-industry {
-    margin-top: 0.5rem;
-    /* padding: 0.3rem 0.5rem; */
+.profile-card-major, 
+.profile-card-industry, 
+.profile-card-job {
+    margin-top: 0.2rem;
     font-size: 0.9rem;
     font-weight: 200;
 }
 
-.profile-card-major span, .profile-card-industry span {
+.profile-card-major span, 
+.profile-card-industry span, 
+.profile-card-job span {
     font-weight: 600;
 }
 
@@ -320,15 +372,16 @@ footer {
 }
 
 .card-post {
-    height: 8rem;
+    max-height: 20rem;
     border: 0.08rem solid gray;
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #D3D3D3;
 }
 
 .post-card-details {
-    margin: 1rem;
+    margin: 1.5rem;
 }
 
 .post-details {
@@ -365,9 +418,10 @@ footer {
 .post-content-text {
     font-size: 0.9rem;
     font-weight: 200;
-    height: 2rem;
     overflow: hidden;
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
     text-overflow: ellipsis;
 }
 
@@ -377,15 +431,16 @@ footer {
 
 .post-details-tag {
     margin-left: 2em;
-    border: solid grey;
+    background-color: #EAE4EE;
     padding: 0em 0.7em;
-    border-radius: 0.6em;
+    border-radius: 1rem;
 }
 
 .Academic, .Career, .Miscellaneous {
     border-radius: 5rem;
     border: 0.09rem solid grey;
     padding: 0.2rem 0.5em;
+    font-size: 0.95rem;
 }
 
 .clicked-academic, .clicked-career, .clicked-misc {
@@ -394,14 +449,40 @@ footer {
     padding: 0.2rem 0.5em;
     color: white;
     background-color: #907AA8;
+    font-size: 0.95rem;
 }
 
-.post-tags input:hover, .tags input:hover {
-    border: 0.1rem solid #462E7E;
+.clicked-academic:hover, 
+.clicked-career:hover, 
+.clicked-misc:hover {
+    background-color: #462E7E;
+}
+
+.Academic:hover, 
+.Career:hover, 
+.Miscellaneous:hover {
+    border: 0.09rem solid #462E7E;
     color: #462E7E;
-    font-weight: 400;
 }
 
+.post-sort select {
+    background-color: #907AA8;
+    color: white;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    padding-left: 0.5rem;
+    border-radius: 5rem;
+    font-size: 0.95rem;
+    border: none;
+}
+
+.post-sort select:hover {
+    background-color: #462E7E;
+}
+
+.post-filter-container .post-sort {
+    margin-left: auto;
+}
 /* End of Community Page Code */
 
 
@@ -529,6 +610,7 @@ h3 a {
     padding: 0.5em;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #D3D3D3
 }
 
 .events-container {
@@ -648,6 +730,12 @@ h3 a {
     border-radius: 5rem;
     border: 0.09rem solid grey;
     padding: 0.2rem 0.5em;
+    font-size: 0.95rem;
+}
+
+.In-Person:hover, .Virtual:hover {
+    border: 0.09rem solid #462E7E;
+    color: #462E7E;
 }
 
 .clicked-in-person, .clicked-virtual {
@@ -656,6 +744,11 @@ h3 a {
     padding: 0.2rem 0.5em;
     color: white;
     background-color: #907AA8;
+    font-size: 0.95rem;
+}
+
+.clicked-in-person:hover, .clicked-virtual:hover {
+    background-color: #462E7E;
 }
 
 .event-form textarea {
@@ -1058,11 +1151,20 @@ form textarea, .edit_profile textarea {
 }
 
 .profile-container {
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
-    background-color: #907AA8;
+    background-color: #EAE4EE;
     padding: 2rem 1.5rem 2rem 1.5rem;
     border-radius: 1rem 1rem 0 0;
+    background-image: url('./img/purple.jpg');
+    box-shadow: 0.2rem 0 0.4rem #D3D3D3;
+    height: 10rem;
+}
+
+.profile-intro-img {
+    margin-bottom: -6rem;
+    align-self: flex-end;
 }
 
 .profile-intro-img img {
@@ -1070,25 +1172,29 @@ form textarea, .edit_profile textarea {
     height: 9rem;
     width: 9rem;
     border: 0.2rem solid #F9F9FB;
+    
 }
 
-.profile-intro-tags {
+/* .profile-intro-tags {
     display: inline-block;
-}
+} */
 
 .profile-tag {
     display: inline-block;
-    border: solid white;
-    background-color: white;
-    border-radius: 0.625em;
-    padding: 0.5em;
-    margin: 0.3em;
+    border: none;
+    background-color: #EAE4EE;
+    color: #462E7E;
+    font-size: 0.95rem;
+    border-radius: 5rem;
+    padding: 0.3rem 0.5rem;
+    margin: 0.3rem;
 }
 
 .profile-bio-container {
-    background-color: #CEB2C8;
-    padding: 2rem 1.5rem 2rem 1.5rem;
+    background-color: #FBFBFD;
+    padding: 1rem 1.5rem 2rem 1.5rem;
     border-radius: 0 0 1rem 1rem;
+    box-shadow: 0.2rem 0.2rem 0.4rem #D3D3D3;
 }
 
 .education-hist {
@@ -1114,18 +1220,21 @@ form textarea, .edit_profile textarea {
 
 .profile-intro-details {
     margin-left: 2rem;
+    margin-bottom: -1rem;
+    align-self: flex-end;
 }
 
 .profile-intro-name {
     font-size: 2rem;
     font-weight: 500;
-    color: white;
+    color: #462E7E;
 }
 
 .profile-intro-bio {
     font-size: 1.2rem;
-    font-weight: 500;
-    padding-bottom: 0.75rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    padding-bottom: 0.3rem;
 }
 
 .profile-intro-bio-text,
@@ -1170,6 +1279,10 @@ form textarea, .edit_profile textarea {
     margin-bottom: 0.5em;
     padding: .2em;
     width: 65%;
+}
+
+.profile-intro-tags {
+    margin-left: 10rem;
 }
 
 

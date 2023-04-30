@@ -3,10 +3,6 @@ import { CreateButton } from './ButtonsAndTags';
 import Modal from 'react-bootstrap/Modal';
 
 export function NewPostPopup(props) {
-    const [academicTagColor, setAcademicTagColor] = useState(false)
-    const [careerTagColor, setCareerTagColor] = useState(false)
-    const [miscTagColor, setMiscTagColor] = useState(false)
-
     const [showPopup, setShowPopup] = useState(false);
 
     const handleShow = () => setShowPopup(true);
@@ -21,28 +17,22 @@ export function NewPostPopup(props) {
     const [tagInput, setTagInput] = useState('');
     const tagHandleClick = (event) => {
         let newValue = event.target.value;
-        setTagInput(newValue);
-
-        if (event.target.value == "Academic") {
-            setAcademicTagColor(!academicTagColor)
-        } else if (event.target.value == "Career") {
-            setCareerTagColor(!careerTagColor)
+        if (tagInput === newValue) {
+            setTagInput('');
         } else {
-            setMiscTagColor(!miscTagColor)
+            setTagInput(newValue);
         }
     }
 
     let academicTagClass = "Academic";
     let careerTagClass = "Career";
     let miscTagClass = "Miscellaneous";
-    if (academicTagColor) {
-        academicTagClass = "clicked-academic"
-    }
-    if (careerTagColor) {
-        careerTagClass = "clicked-career"
-    }
-    if (miscTagColor) {
-        miscTagClass = "clicked-misc"
+    if (tagInput === "Academic") {
+        academicTagClass = "clicked-academic";
+    } else if (tagInput === "Career") {
+        careerTagClass = "clicked-career";
+    } else if (tagInput === "Miscellaneous") {
+        miscTagClass = "clicked-misc";
     }
 
 

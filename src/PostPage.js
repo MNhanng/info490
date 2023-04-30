@@ -29,7 +29,7 @@ export function PostPage(props) {
 function PostHeader(props) {
     const post = props.post
     const postOwner = props.postOwner
-    const [like, setLike] = useState(post.likes.includes(props.currentUser.uid));
+    const [like, setLike] = useState(post.likes && post.likes.includes(props.currentUser.uid));
 
     const onLikeClick = () => {
         props.likePostCallback(post.key);
@@ -53,7 +53,7 @@ function PostHeader(props) {
                     <div className="post-info-divider">|</div>
                     <div className="post-info-date">{post.created_date}</div>
                     <div className="post-details-tag">{post.tags}</div>
-                    <div className="post-info-likes">{post.likes.length} <i className={heartClass} onClick={onLikeClick} ></i></div>
+                    <div className="post-info-likes">{post.likes && post.likes.length}{(!post.likes || post.likes.length == 0) && "0"} <i className={heartClass} onClick={onLikeClick} ></i></div>
                 </div>
                 <div className="post-title">{post.post_title}</div>
                 <div className="post-content">{post.details}</div>
