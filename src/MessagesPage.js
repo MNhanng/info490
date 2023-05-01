@@ -1,14 +1,12 @@
 export function MessagesPage(props) {
     return (
         <main>
+            <h1>Messages</h1>
             <div class="chat-container">
                 <div class="messages">
-                    <div>Messages</div>
                     <form class="message-search-bar">
                         <input type="search" placeholder="Search..." />
                     </form>
-                    
-                    <hr />
 
                     <div class="message-preview">
                         <div class="message-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
@@ -48,7 +46,7 @@ export function MessagesPage(props) {
                 
                 <div class="message-content">
                     <div class="message-content-name">Name</div>
-                
+                    <hr />
 
                     <div class="received-message">
                         <img src={require("./img/user-img.jpg")} alt="user profile" />
