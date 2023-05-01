@@ -163,9 +163,6 @@ function Event(props) {
 
 
 export function EventForm(props) {
-    const [inPersonTagColor, setInPersonTagColor] = useState(false)
-    const [virtualTagColor, setVirtualTagColor] = useState(false)
-
     const [nameInput, setNameInput] = useState('');
     const nameHandleChange = (event) => {
         let newValue = event.target.value;
@@ -185,26 +182,23 @@ export function EventForm(props) {
     }
 
     const [tagInput, setTagInput] = useState('');
+
     const tagHandleClick = (event) => {
         let newValue = event.target.value;
-        setTagInput(newValue);
-
-        if (event.target.value == "In-Person") {
-            setInPersonTagColor(!inPersonTagColor)
+        if (tagInput === newValue) {
+            setTagInput('');
         } else {
-            setVirtualTagColor(!virtualTagColor)
+            setTagInput(newValue);
         }
-
     }
 
     let inPersonTagClass = "In-Person";
     let virtualTagClass = "Virtual";
-    if (inPersonTagColor) {
-        inPersonTagClass = "clicked-in-person"
-    }
-    if (virtualTagColor) {
-        virtualTagClass = "clicked-virtual"
-    }
+    if (tagInput === "In-Person") {
+        inPersonTagClass = "clicked-in-person";
+    } else if (tagInput === "Virtual") {
+        virtualTagClass = "clicked-virtual";
+    }  
 
 
     const [descriptionInput, setDescriptionInput] = useState('');

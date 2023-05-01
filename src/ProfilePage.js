@@ -12,67 +12,67 @@ export function MyProfilePage(props) {
 
     return (
         <div class="profile-popup">
-            <EditProfilePopup currentUser={props.currentUser} />
             <div class="profile-popup-header">
-                {/* <div class="profile-popup-img"><img src="img/user-img.jpg" alt="user profile"></img></div> */}
-                <div class="profile-header-details">
-                    {/* <div class="profile-popup-name">Name: {user.firstName + " " + user.lastName}</div>
-                    <div class="profile-popup-contact">Email: {user.email}</div>
-                    <div class="profile-popup-contact">Phone Number: {user.number ? user.jobTitle : 'No job title information found'}</div>
-                    <div class="profile-popup-contact">Open to Contact? {user.openContact ? user.openContact : 'No contact preference information found'}</div> */}
+                <div>
+                    <div class="profile-popup-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                    <div class="edit-button"><EditProfilePopup currentUser={props.currentUser} /></div>
                 </div>
+                {/* <div class="profile-header-details">
+                </div> */}
+
+                <div class="profile-popup-details">
+                    <div class="profile-popup-name">
+                        <div>{user.firstName + " " + user.lastName}</div>
+                    </div>
+                    <div class="profile-popup-contact">
+                        <div>Email</div>
+                        <div>{user.email}</div>
+                    </div>
+                    <div class="profile-popup-contact">
+                        <div>Phone Number</div>
+                        <div>{user.number ? user.number : 'No phone number found'}</div>
+                    </div>
+                    <div class="profile-popup-contact">
+                        <div>Open to Contact?</div>
+                        <div>{user.openContact ? user.openContact : 'No contact preference information found'}</div>
+                    </div>
+                    <div class="profile-popup-job-title">
+                        <div>Job title</div>
+                        <div>{user.jobTitle ? user.jobTitle : 'No job title information found'}</div>
+                    </div>
+                    <div class="profile-popup-employer">
+                        <div>Employer</div>
+                        <div>{user.employer ? user.employer : 'No employer information found'}</div>
+                    </div>
+                    <div class="profile-popup-industry">
+                        <div>Industry</div>
+                        <div>{user.industry ? user.industry : 'No industry information found'}</div>
+                    </div>
+                    <div class="profile-popup-major">
+                        <div>Major</div>
+                        <div>{user.major ? user.major : 'No major information found'}</div>
+                    </div>
+                    <div class="profile-popup-school">
+                        <div>School</div>
+                        <div>{user.school ? user.school : 'No school information found'}</div>
+                    </div>
+                    <div class="profile-popup-degree-type">
+                        <div>Degree</div>
+                        <div>{user.school ? user.school : 'No school information found'}</div>
+                    </div>
+                    <div class="profile-popup-grad-year">
+                        <div>Graduation Year</div>
+                        <div>{user.gradYear ? user.gradYear : 'No graduation year information found'}</div>
+                    </div>
+                    <div class="profile-popup-language">
+                        <div>Language</div>
+                        <div>{user.languages ? user.languages : 'No language information found'}</div>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="profile-popup-details">
-                <div class="profile-popup-name">
-                    <div>Name</div> 
-                    <div>{user.firstName + " " + user.lastName}</div>
-                </div>
-                <div class="profile-popup-contact">
-                    <div>Email</div>
-                    <div>{user.email}</div>
-                </div>
-                <div class="profile-popup-contact">
-                    <div>Phone Number</div>
-                    <div>{user.number ? user.number : 'No phone number found'}</div>
-                </div>
-                <div class="profile-popup-contact">
-                    <div>Open to Contact?</div>
-                    <div>{user.openContact ? user.openContact : 'No contact preference information found'}</div>
-                </div>
-                <div class="profile-popup-job-title">
-                    <div>Job title</div>
-                    <div>{user.jobTitle ? user.jobTitle : 'No job title information found'}</div>
-                </div>
-                <div class="profile-popup-employer">
-                    <div>Employer</div>
-                    <div>{user.employer ? user.employer : 'No employer information found'}</div>
-                </div>
-                <div class="profile-popup-industry">
-                    <div>Industry</div>
-                    <div>{user.industry ? user.industry : 'No industry information found'}</div>
-                </div>
-                <div class="profile-popup-major">
-                    <div>Major</div>
-                    <div>{user.major ? user.major : 'No major information found'}</div>
-                </div>
-                <div class="profile-popup-school">
-                    <div>School</div>
-                    <div>{user.school ? user.school : 'No school information found'}</div>
-                </div>
-                <div class="profile-popup-degree-type">
-                    <div>Degree</div>
-                    <div>{user.school ? user.school : 'No school information found'}</div>
-                </div>
-                <div class="profile-popup-grad-year">
-                    <div>Graduation Year</div>
-                    <div>{user.gradYear ? user.gradYear : 'No graduation year information found'}</div>
-                </div>
-                <div class="profile-popup-language">
-                    <div>Language</div>
-                    <div>{user.languages ? user.languages : 'No language information found'}</div>
-                </div>
-            </div>
+            
         </div>
 
     );
@@ -353,7 +353,7 @@ export function EditProfilePopup(props) {
     return (
         // <div className="edit_profile">
         <>
-            <CreateButton onClick={handleShow} type="button" title="Edit Profile" label="Edit profile" />
+            <CreateButton onClick={handleShow} type="button" title={<div><i class="fa-regular fa-pen-to-square"></i> Edit Profile</div>} label="Edit profile" />
 
             <Modal show={showPopup} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
