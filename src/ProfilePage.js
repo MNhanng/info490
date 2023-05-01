@@ -516,23 +516,12 @@ export function UserProfilePage(props) {
     return (
         <main>
             <div className="profile-page">
-                <Link to="/people"><CreateButton type="button" title="<-" label="Back to People Page" /></Link>
+                <Link to="/people"><CreateButton type="button" title={<i class="fa-solid fa-arrow-left"></i>} label="Back to People Page" /></Link>
                 <div className="profile-intro">
                     <div className="profile-container">
                         <div className="profile-intro-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
                         <div className="profile-intro-details">
                             <div className="profile-intro-name">{user.firstName + " " + user.lastName}</div>
-                            {/* <div className="profile-intro-tags">
-                                {user.openContact === "Yes" ? <div className="profile-tag contact">Contact Me!</div> : <div className="profile-tag contact">Not Open to Contact</div>}
-                                {user.openContact === "Yes" ? <div className="profile-tag email">{user.email}</div> : <div className="profile-tag email">No email found</div>}
-                                {user.openContact === "Yes" ? <div className="profile-tag number">{user.number}</div> : <div className="profile-tag number">No number found</div>}
-                                <br />
-                                {user.role ? <div className="profile-tag role">{user.role}</div> : <div className="profile-tag role">No role found</div>}
-                                {user.jobTitle ? <div className="profile-tag jobTitle">{user.jobTitle}</div> : <div className="profile-tag jobTitle">No job title found</div>}
-                                {user.employer ? <div className="profile-tag employer">{user.employer}</div> : <div className="profile-tag employer">No employer found</div>}
-                                {user.industry ? <div className="profile-tag industry">{user.industry}</div> : <div className="profile-tag industry">No industry found</div>}
-                                {user.languages ? <div className="profile-tag industry">{user.languages}</div> : <div className="profile-tag languages">No languages found</div>}
-                            </div> */}
                         </div>
                     </div>
                     <div className="profile-bio-container">
@@ -546,25 +535,26 @@ export function UserProfilePage(props) {
                             {user.industry ? <div className="profile-tag industry">{user.industry}</div> : <div className="profile-tag industry">No industry found</div>}
                             {user.languages ? <div className="profile-tag industry">{user.languages}</div> : <div className="profile-tag languages">No languages found</div>}
                         </div>
+
                         <div className="profile-intro-bio">Bio</div>
                         <div className="profile-intro-bio-text">{user.bio ? user.bio : 'No bio found'}</div>
-                    </div>
-                </div>
 
-                <div className="education-hist">
-                    <div className="education-header">Education History</div>
-                    <hr />
-                    <div className="education-container">
-                        <div className="logo"><img src={require("./img/logo.jpeg")} alt="uw logo" /></div>
-                        <div className="education-details">
-                            <div className="degree-type">{user.degree ? user.degree : 'No degree found'}</div>
-                            <div className="major">{user.major ? user.major : 'No major found'}</div>
-                            <div className="school">{user.school ? user.school : 'No school found'}</div>
-                            <div className="year">{user.gradYear ? user.gradYear : 'No graduation year found'}</div>
-
+                        <div className="education-hist">
+                            <div className="education-header">Education History</div>
+                            {/* <div className="education-container"> */}
+                                {/* <div className="logo"><img src={require("./img/logo.jpeg")} alt="uw logo" /></div> */}
+                                <div className="education-details">
+                                    <div className="degree-type">{user.degree ? user.degree : 'No degree found'} – {user.major ? user.major : 'No major found'}</div>
+                                    {/* <div className="major">{user.major ? user.major : 'No major found'}</div> */}
+                                    <div className="school">{user.school ? user.school : 'No school found'}</div>
+                                    <div className="year">{user.gradYear ? user.gradYear : 'No graduation year found'}</div>
+                                </div>
+                            {/* </div> */}
                         </div>
                     </div>
                 </div>
+
+                
             </div>
         </main>
     )

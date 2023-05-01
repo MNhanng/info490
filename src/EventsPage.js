@@ -147,10 +147,10 @@ function Event(props) {
                     {/* <div className="event-img"><img src={require("./img/user-img.jpg")} alt="event" /></div> */}
                     <div className="event-details">
                         <div className="event-name">{event.name}</div>
-                        <div className="event-tag">{event.tags}</div>
+                        {event.tags && <div className="event-tag">{event.tags}</div>}
                         <div className="event-time"><i className="fa-regular fa-calendar-days"></i> {event.dateTime}</div>
-                        <div className="event-location">Location: {event.location} </div>
-                        <div className="event-desc">{event.description}</div>
+                        <div className="event-location"><span>Location: </span>{event.location} </div>
+                        <div className="event-desc"><span>Description: </span>{event.description}</div>
                         <div className="event-spec">{event.specifications}</div>
                     </div>
                     {/* <div className="event-button"><input className="learn-more-button" type="button" value="Learn More" /></div> */}
@@ -234,7 +234,7 @@ export function EventForm(props) {
         <main>
             <div className="event-form-page">
 
-                <Link to="/events"><CreateButton type="button" title="<<" label="Back to Events Page" /></Link>
+                <Link to="/events"><CreateButton type="button" title={<i class="fa-solid fa-arrow-left"></i>} label="Back to Events Page" /></Link>
                 
                 <form className='event-form'>
                     <div>

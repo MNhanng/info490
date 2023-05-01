@@ -58,7 +58,7 @@ main {
 
 .nav-elems a {
     text-decoration: none;
-    color: #462E7E;
+    color: black;
     padding: 1rem;
     border-radius: 0.625rem;
     font-size: 1.1rem;
@@ -94,7 +94,16 @@ main h1 {
 
 .post-header button {
     border-radius: 5rem;
-    margin: 1rem 2rem;
+    margin: 1rem 2rem 0.1rem 2rem;
+    border: 0.1rem solid #462E7E;
+    background-color: white;
+    color: #462E7E;
+}
+ 
+.post-header button:hover {
+    background-color: #907AA8;
+    border: 0.1rem solid #907AA8;
+    color: white;
 }
 
 .sign-in {
@@ -493,21 +502,19 @@ h3 a {
 
 .comment-content,
 .post-content {
-    /* border: 0.08rem solid gray; */
-    /* margin: 1rem; */
     margin-left: 1rem;
     margin-right: 1rem;
-    /* padding-top: 0; */
     padding-right: 0.2rem;
     padding-left: 0.2rem;
-    /* padding-bottom: 1rem; */
-    /* border-radius: 0.2rem; */
+}
+
+.comment-content {
+    padding-top: 1rem;
 }
 
 .comment-info,
 .post-info {
     margin-left: 1rem;
-    /* margin-bottom: 0; */
     display: flex;
     flex-direction: row;
     color: #462E7E;
@@ -516,28 +523,22 @@ h3 a {
 
 .comment,
 .post {
-    /* padding-bottom: 2rem; */
+    margin: 2rem 2rem 1.5rem 2rem;
+    padding: 1.2rem 0.7rem 1.7rem 0.7rem;
+    border: 0.08rem solid gray;
     border-radius: 1rem;
-    background-color: #F9F9FB;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    margin-right: 2rem;
-    margin-left: 2rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #D3D3D3;
 }
 
 .add-comment-box {
-    /* display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap; */
+    flex-wrap: wrap;
+    align-items: flex-end;
     margin-left: 2rem;
     margin-right: 2rem;
     margin-bottom: 2rem;
-}
-
-.add-comment-box form {
-    display: flex;
 }
 
 .add-comment-box textarea {
@@ -545,7 +546,11 @@ h3 a {
     width: 90%;
     height: 2.5rem;
     resize: none;
-    /* color: #907AA8; */
+    border-radius: 5rem;
+    padding-left: 1rem;
+    padding-top: 0.4rem;
+    color: #919191;
+    border: #a1a1a1 solid 0.08rem;
 }
 
 .add-comment-box button {
@@ -553,16 +558,16 @@ h3 a {
     margin-top: 0.3rem;
     font-size: 0.8rem;
     background-color: #462E7E;
-    border-radius: 0.4rem;
+    border-radius: 5rem;
     border: 0.08rem solid #462E7E;
     color: white;
 }
 
 .post-title {
-    font-weight: 400;
-    font-size: 2rem;
+    font-weight: 500;
+    font-size: 1.5rem;
     margin: 0.5rem 1rem;
-    color: #462E7E;
+
 }
 
 .post-info img {
@@ -606,7 +611,8 @@ h3 a {
 /* Start of Event Page Code */
 
 .card-event {
-    border: 0.08rem solid gray;
+    border: 0.05rem solid gray;
+    border-left: 0.8rem solid #462E7E;
     padding: 0.5em;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -622,9 +628,15 @@ h3 a {
     flex-direction: row;
 }
 
-.event-img img {
-    height: 10rem;
-    width: 10rem;
+.event-tag {
+    background-color: #EAE4EE;
+    border-radius: 5rem;
+    width: fit-content;
+    padding: 0rem 0.7rem;
+    color: #462E7E;
+    font-size: 0.9rem;
+    font-weight: 200;
+    display: inline-block;
 }
 
 .event-details {
@@ -644,6 +656,8 @@ h3 a {
     font-size: 1.2rem;
     font-weight: 500;
     color: #462E7E;
+    display: inline-block;
+    margin-right: 1rem;
 }
 
 .learn-more-button {
@@ -699,17 +713,25 @@ h3 a {
 
 .event-filters {
     display: flex;
-    gap: 1.5em;
+    gap: 1rem;
 }
 
 /* End of Event Page Code */
 
 /* Event Form Page */
-
 .event-form-page button:first-child {
-    padding: 0 1rem;
     border-radius: 5rem;
-    margin: 1rem 2rem;
+    margin: 1rem 2rem 2rem 10rem;
+    border: 0.1rem solid #462E7E;
+    background-color: white;
+    color: #462E7E;
+    width: 3rem;
+}
+ 
+.event-form-page button:first-child:hover {
+    background-color: #907AA8;
+    border: 0.1rem solid #907AA8;
+    color: white;
 }
 
 .event-form {
@@ -758,6 +780,16 @@ h3 a {
 
 .event-form .popup-button button {
     margin-left: 750px;
+}
+
+.event-location span ,
+.event-desc span {
+    font-weight: 700;
+}
+
+.event-spec {
+    font-style: italic;
+    color: #907AA8;
 }
 
 /* End of Event Form Page */
@@ -904,7 +936,8 @@ select {
     font-size: 3.5rem;
     font-weight: 300;
     color: #462E7E;
-    padding-right: 1rem;
+    padding-right: 4rem;
+    margin-left: 5rem;
 }
 
 .home-button a button {
@@ -916,11 +949,16 @@ select {
     border-radius: 0.4rem;
     border: none;
     color: white;
+    margin-left: 5rem;
 }
 
 .home-image img {
     height: 40rem;
     width: 37rem;
+}
+
+.home-image {
+    margin-right: 5rem;
 }
 
 .home-activities {
@@ -946,8 +984,14 @@ select {
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 2rem;
-    margin-right: 1rem;
+    margin-right: 2rem;
     flex-basis: 100rem;
+    border: 0.05rem solid gray;
+    border-left: 0.8rem solid #462E7E;
+    padding: 0.5em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #D3D3D3
 }
 
 /* end of home page code */
@@ -1175,9 +1219,20 @@ form textarea, .edit_profile textarea {
     
 }
 
-/* .profile-intro-tags {
-    display: inline-block;
-} */
+.profile-page button:first-child {
+    border-radius: 5rem;
+    margin-bottom: 1rem;
+    border: 0.1rem solid #462E7E;
+    background-color: white;
+    color: #462E7E;
+    width: 3rem;
+}
+ 
+.profile-page button:first-child:hover {
+    background-color: #907AA8;
+    border: 0.1rem solid #907AA8;
+    color: white;
+}
 
 .profile-tag {
     display: inline-block;
@@ -1201,12 +1256,12 @@ form textarea, .edit_profile textarea {
     margin-top: 3rem;
 }
 
-.education-container {
+/* .education-container {
     display: flex;
     flex-direction: row;
-    margin-top: 2rem;
+    margin-top: 0.2rem;
     align-items: center;
-}
+} */
 
 .logo img {
     border-radius: 50%;
@@ -1214,9 +1269,9 @@ form textarea, .edit_profile textarea {
     width: 4rem;
 }
 
-.education-details {
+/* .education-details {
     margin-left: 1.5rem;
-}
+} */
 
 .profile-intro-details {
     margin-left: 2rem;
@@ -1230,7 +1285,7 @@ form textarea, .edit_profile textarea {
     color: #462E7E;
 }
 
-.profile-intro-bio {
+.profile-intro-bio, .education-header {
     font-size: 1.2rem;
     font-weight: 600;
     margin-top: 2rem;
@@ -1242,12 +1297,6 @@ form textarea, .edit_profile textarea {
     font-size: 0.9rem;
     font-weight: 300;
 }
-
-.education-header {
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
 
 .edit_profile {
     /* border: solid black;

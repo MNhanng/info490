@@ -22,7 +22,7 @@ export function HomePage(props) {
         <main>
             <div className="home-page">
                 <div className="home-content">
-                    <div className="home-header">Connect With Our Networking Team</div>
+                    <div className="home-header">Welcome to iConnect!</div>
                     <div className="home-button"><a href="CommunityPage.html"><button type="button">Start Exploring</button></a></div>
                 </div>
 
@@ -64,10 +64,10 @@ function UpcomingEvents(props) {
         return (
             <div className="event-details">
                 <div className="event-name">{event.name}</div>
-                <div className="event-tag">{event.tags}</div>
+                {event.tags && <div className="event-tag">{event.tags}</div>}
                 <div className="event-time"><i className="fa-regular fa-calendar-days"></i> {event.dateTime}</div>
-                <div className="event-location">Location: {event.location} </div>
-                <div className="event-desc">{event.description}</div>
+                <div className="event-location"><span>Location: </span>{event.location} </div>
+                <div className="event-desc"><span>Description: </span>{event.description}</div>
                 <div className="event-spec">{event.specifications}</div>
             </div>
         )

@@ -16,7 +16,9 @@ export function PeoplePage(props) {
         setSearchString(event.target.value);
     }
     const searchPeople = (people) => {
-        return (people.firstName.toLowerCase().includes(searchString.toLowerCase()) || people.lastName.toLowerCase().includes(searchString.toLowerCase()));
+        return (people.firstName.toLowerCase().includes(searchString.toLowerCase()) || people.lastName.toLowerCase().includes(searchString.toLowerCase()) 
+                || ((people.firstName).toLowerCase() + ' ' + (people.lastName).toLowerCase()).includes(searchString.toLowerCase())
+                || (people.jobTitle && people.jobTitle.toLowerCase().includes(searchString.toLowerCase())));
     };
     let filteredPeople = (allProfiles).filter(searchPeople);
 

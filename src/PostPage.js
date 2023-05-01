@@ -45,7 +45,7 @@ function PostHeader(props) {
 
     return (
         <div className="post-header">
-            <Link to="/community"><CreateButton type="button" title="<<" label="Back to Community Page" /></Link>
+            <Link to="/community"><CreateButton type="button" title={<i class="fa-solid fa-arrow-left"></i>} label="Back to Community Page" /></Link>
             <div className="post">
                 <div className="post-info">
                     <div className="post-info-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
@@ -59,7 +59,7 @@ function PostHeader(props) {
                 <div className="post-content">{post.details}</div>
             </div>
 
-            <hr />
+            {/* <hr /> */}
         </div>
     )
 }
