@@ -721,7 +721,7 @@ h3 a {
 /* Event Form Page */
 .event-form-page button:first-child {
     border-radius: 5rem;
-    margin: 1rem 2rem 2rem 10rem;
+    margin: 1rem 2rem 0rem 5rem;
     border: 0.1rem solid #462E7E;
     background-color: white;
     color: #462E7E;
@@ -732,6 +732,10 @@ h3 a {
     background-color: #907AA8;
     border: 0.1rem solid #907AA8;
     color: white;
+}
+
+h1.event-form-heading {
+    margin: 1em 1.3em 1em 10rem;
 }
 
 .event-form {
@@ -780,6 +784,7 @@ h3 a {
 
 .event-form .popup-button button {
     margin-left: 750px;
+    width: 6rem;
 }
 
 .event-location span ,
