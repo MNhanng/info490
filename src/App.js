@@ -5,6 +5,7 @@ import { HomePage } from "./HomePage.js";
 import { PostPage } from "./PostPage.js";
 import { CommunityPage } from "./Community.js";
 import { EventsPage, EventForm } from './EventsPage.js';
+import { MessagesPage } from './MessagesPage.js';
 import { PeoplePage } from "./PeoplePage.js";
 import { MyProfilePage, UserProfilePage } from "./ProfilePage.js";
 import { Routes, Route, Outlet, Navigate, useNavigate } from 'react-router-dom';
@@ -253,6 +254,7 @@ export default function App(props) {
                         <Route path='people' element={<PeoplePage usersData={allUsers} />} />
                         <Route path='events' element={<EventsPage eventsData={allEvents} />} />
                         <Route path=':event-form' element={<EventForm addEventCallback={addEvent} />} />
+                        <Route path='messages' element={<MessagesPage />} />
                         <Route path='people/:profileName' element={<UserProfilePage usersData={allUsers} />} />
                         <Route path='my-profile' element={<MyProfilePage currentUser={currentUser} usersData={allUsers}/>} />
                     </Route>

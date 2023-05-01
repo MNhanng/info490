@@ -18,6 +18,7 @@ export function NavBar(props) {
                     <li><Link to='/people'><span className="community-icon"><i className="fa-solid fa-users"></i> People</span></Link></li>
                     <li><Link to='/events'><span className="event-icon"><i className="fa-regular fa-calendar-days"></i> Events</span></Link></li>
                     <li><Link to='/my-profile'><span className="profile-icon"><i className="fa-solid fa-user"></i> My Profile</span></Link></li>
+                    <li><Link to='/messages'><span className="messages-icon"><i class="fa-solid fa-comments"></i> Messages</span></Link></li>
                     <li><a href="/signin" onClick={handleSignOut}><span className="settings-icon"><i className="fa-solid fa-arrow-right-from-bracket"></i> Logout</span></a></li>
                 </div>
             </div>

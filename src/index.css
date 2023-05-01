@@ -31,7 +31,7 @@ main {
     /* width: 70%; */
     display: flex;
     justify-content: space-evenly;
-    gap: 3em;
+    gap: 1.7em;
     padding-right: 2.5em
 }
 
@@ -1385,3 +1385,106 @@ form textarea, .edit_profile textarea {
 
 
 /* end of profile page */
+
+
+/* start of messages page */
+.chat-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0rem 2rem 0rem 2rem;
+    min-height: 85vh;
+}
+
+.messages {
+    flex-basis: 22rem;
+    border-right: 0.1rem solid #919191;
+}
+
+.messages hr, .message-preview {
+    margin-right: 2rem;
+}
+
+.message-preview {
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    align-items: center;
+}
+
+.message-img {
+    margin-right: 1rem;
+}
+
+.message-preview img {
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+}
+
+.message-name {
+    color: #462E7E;
+    padding-bottom: 0rem;
+}
+
+.message-time {
+    color: #919191;
+    font-size: 0.8rem;
+}
+
+.message-desc {
+    color: #919191;
+    font-size: 0.8rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    width: 15rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.add-message-container textarea {
+    margin-left: 0;
+    height: 2rem;
+    resize: none;
+    color: #907AA8;
+    width: 90%;
+}
+
+.add-message-container {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.message-content-name {
+    margin-bottom: 3rem;
+}
+
+.message-content {
+    padding: 0 2rem 2rem 2rem;
+    position: relative;
+    width: 100%;
+}
+
+.received-message img, .sent-message img {
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 1rem;
+}
+
+.received-message, .sent-message {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.message {
+    border: #919191 solid 0.09rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+/* end of messages page */
