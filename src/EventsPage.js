@@ -46,7 +46,7 @@ export function EventsPage(props) {
     }
     // if the array is empty or filled, then show all data
     let filterByTags = null;
-    if (selectedTags.length === 3 || selectedTags.length === 0) {
+    if (selectedTags.length === 2 || selectedTags.length === 0) {
         filterByTags = filteredEvents
     } else {
         filterByTags = filterEvents(filteredEvents, selectedTags)
@@ -58,11 +58,11 @@ export function EventsPage(props) {
     }
 
     let sortedEvents = null;
-    if (sort === "newest") {
+    if (sort === "oldest") {
         sortedEvents = filterByTags.sort((event1, event2) => {
             return new Date(event1.dateTime) - new Date(event2.dateTime);
         })
-    } else if (sort === "oldest") {
+    } else if (sort === "newest") {
         sortedEvents = filterByTags.sort((event1, event2) => {
             return new Date(event2.dateTime) - new Date(event1.dateTime);
         })
@@ -229,7 +229,9 @@ export function EventForm(props) {
             <div className="event-form-page">
 
                 <Link to="/events"><CreateButton type="button" title={<i class="fa-solid fa-arrow-left"></i>} label="Back to Events Page" /></Link>
-                
+
+                <h1 className="event-form-heading">Create a New Event</h1>
+
                 <form className='event-form'>
                     <div>
                         <label for="title">Event Name</label> <br />
@@ -248,7 +250,7 @@ export function EventForm(props) {
 
                     <div className="form-tags">
                         <div>
-                            <label for="tags">Tags</label> <br />
+                            <label htmlFor="tags">Tags</label> <br />
                         </div>
                         <div class="tags">
                             <div>
@@ -261,12 +263,12 @@ export function EventForm(props) {
                     </div>
 
                     <div>
-                        <label for="description">Description</label> <br />
+                        <label htmlFor="description">Description</label> <br />
                         <textarea onChange={descriptionHandleChange} value={descriptionInput} id="event_description" name="description" rows="5"></textarea> <br />
                     </div>
 
                     <div>
-                        <label for="event_specifications">Please specify any additional requirements for event participants.</label> <br />
+                        <label htmlFor="event_specifications">Please specify any additional requirements for event participants.</label> <br />
                         <textarea onChange={specificationsHandleChange} value={specificationsInput} id="event_specifications" name="specifications" rows="5"></textarea> <br />
                     </div>
 
