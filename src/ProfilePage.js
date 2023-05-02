@@ -559,7 +559,7 @@ export function UserProfilePage(props) {
                         <div className="profile-intro-details">
                             <div className="profile-intro-name">{user.firstName + " " + user.lastName}</div>
                         </div>
-                        <div className="profile-intro-message-button"><Link to="/messages"><CreateButton type="button" title="Message" label="message" /></Link></div>
+                        {user.openContact === "Yes" && <div className="profile-intro-message-button"><Link to="/messages"><CreateButton type="button" title="Message" label="message" /></Link></div>}
                     </div>
                     <div className="profile-bio-container">
                         <div className="profile-intro-tags">

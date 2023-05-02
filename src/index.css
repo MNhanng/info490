@@ -16,14 +16,15 @@ main {
 } */
 .nav {
     margin-bottom: 2rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #EAE4EE;
 }
 
 .nav-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 1.5rem;
-    padding-bottom: 1rem;
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
     margin-left: auto;
 }
 
@@ -44,8 +45,9 @@ main {
 .nav .logo a {
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #462E7E;
+    font-family: "Sahitya";
 }
 
 .nav li:not(:last-child) {
@@ -61,7 +63,7 @@ main {
     color: black;
     padding: 1rem;
     border-radius: 0.625rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .nav-elems li:not(:last-child) a:hover {
@@ -973,6 +975,7 @@ select {
 }
 
 .home-image {
+    padding-top: 1rem;
     margin-right: 2rem;
 }
 
@@ -1500,17 +1503,15 @@ form textarea, .edit_profile textarea {
 }
 
 .message-content-name {
-    margin: 1rem 0;
+    margin: 1rem 0 0.2rem 0;
     color: #462E7E;
     font-size: 1.2rem;
 }
 
 .message-content {
-    /* margin-top: -2rem; */
     padding: 0 2rem 2rem 2rem;
     position: relative;
     width: 100%;
-    /* background-color: #EAE4EE; */
     margin-left: 1rem;
     margin-right: 1rem;
     border-radius: 0.5rem;
@@ -1518,10 +1519,15 @@ form textarea, .edit_profile textarea {
     border: 0.05rem solid #919191;
 }
 
+.message-content hr {
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+}
+
 .received-message img, .sent-message img {
     border-radius: 50%;
-    height: 2rem;
-    width: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
     margin-right: 1rem;
 }
 
@@ -1530,11 +1536,13 @@ form textarea, .edit_profile textarea {
     flex-direction: row;
     align-items: center;
     margin-bottom: 2rem;
+
 }
 
 .message {
     background-color: #EAE4EE;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 1rem 1rem 1rem 0;
 }
+
 /* end of messages page */
