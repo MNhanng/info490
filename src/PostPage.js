@@ -48,7 +48,7 @@ function PostHeader(props) {
             <Link to="/community"><CreateButton type="button" title={<i class="fa-solid fa-arrow-left"></i>} label="Back to Community Page" /></Link>
             <div className="post">
                 <div className="post-info">
-                    <div className="post-info-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                    <div className="post-info-img"><img src={postOwner.profileImage ? postOwner.profileImage : require("./img/user-img.jpg")} alt="user profile" /></div>
                     <div className="post-info-name">{postOwner.firstName + " " + postOwner.lastName}</div>
                     <div className="post-info-divider">|</div>
                     <div className="post-info-date">{post.created_date}</div>
@@ -105,7 +105,7 @@ function Comment(props) {
     return (
         <div className="comment">
             <div className="comment-info">
-                <div className="comment-info-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                <div className="comment-info-img"><img src={commentOwner.profileImage ? commentOwner.profileImage : require("./img/user-img.jpg")} alt="user profile" /></div>
                 <div className="comment-info-name">{commentOwner.firstName + " " + commentOwner.lastName}</div>
                 <div className="comment-info-divider">|</div>
                 <div className="comment-info-date">{comment.created_date}</div>

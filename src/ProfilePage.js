@@ -4,67 +4,103 @@ import { Link, useParams } from "react-router-dom";
 import _ from 'lodash';
 import Modal from 'react-bootstrap/Modal';
 import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export function MyProfilePage(props) {
     console.log(props.currentUser)
     let user = _.find(props.usersData, { userID: props.currentUser.uid });
     console.log(user)
 
+    const [image, setImage] = useState(undefined);
+    const [imageUrl, setImageUrl] = useState(user.profileImage || "./img/user-img.jpg");
+    console.log(imageUrl)
+
+    const imageHandleChange = (event) => {
+        if (event.target.files.length > 0 && event.target.files[0]) {
+            const image = event.target.files[0]
+            setImage(image);
+            setImageUrl(URL.createObjectURL(image));
+        }
+    }
+
+    const handleImageUpload = async (event) => {
+        const storage = getStorage();
+        const imageRef = storageRef(storage, "profileImages/" + user.userID + ".png");
+        
+        await uploadBytes(imageRef, image)
+        const downloadUrlString = await getDownloadURL(imageRef);
+
+        const db = getDatabase();
+        const profileImageRef = ref(db, "users_data/" + user.userID + "/profileImage")
+        firebaseSet(profileImageRef, downloadUrlString);
+    }
+
     return (
-        <div class="profile-popup">
-            <div class="profile-popup-header">
+        <div className="profile-popup">
+            <div className="profile-popup-header">
                 <div>
-                    <div class="profile-popup-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
-                    <div class="edit-button"><EditProfilePopup currentUser={props.currentUser} /></div>
+                    <div className="profile-popup-img"><img src={imageUrl === "./img/user-img.jpg" ? require("./img/user-img.jpg") : imageUrl} alt="user profile" /></div>
+
+                    <div className="image-upload">
+                        <div>
+                            <label htmlFor="profile_img" className="btn">Upload Image</label>
+                            <input onChange={imageHandleChange} id="profile_img" type="file" className="d-none" />
+                        </div>
+                        <div>
+                            <CreateButton onClick={handleImageUpload} type="button" title="Set Profile Image" label="Set Profile Image" />
+                        </div>
+                    </div>
+
+                    <div className="edit-button"><EditProfilePopup currentUser={props.currentUser} /></div>
                 </div>
-                {/* <div class="profile-header-details">
+                {/* <div className="profile-header-details">
                 </div> */}
 
-                <div class="profile-popup-details">
-                    <div class="profile-popup-name">
+                <div className="profile-popup-details">
+                    <div className="profile-popup-name">
                         <div>{user.firstName + " " + user.lastName}</div>
                     </div>
-                    <div class="profile-popup-contact">
+                    <div className="profile-popup-contact">
                         <div>Email</div>
                         <div>{user.email}</div>
                     </div>
-                    <div class="profile-popup-contact">
+                    <div className="profile-popup-contact">
                         <div>Phone Number</div>
                         <div>{user.number ? user.number : 'No phone number found'}</div>
                     </div>
-                    <div class="profile-popup-contact">
+                    <div className="profile-popup-contact">
                         <div>Open to Contact?</div>
                         <div>{user.openContact ? user.openContact : 'No contact preference information found'}</div>
                     </div>
-                    <div class="profile-popup-job-title">
+                    <div className="profile-popup-job-title">
                         <div>Job title</div>
                         <div>{user.jobTitle ? user.jobTitle : 'No job title information found'}</div>
                     </div>
-                    <div class="profile-popup-employer">
+                    <div className="profile-popup-employer">
                         <div>Employer</div>
                         <div>{user.employer ? user.employer : 'No employer information found'}</div>
                     </div>
-                    <div class="profile-popup-industry">
+                    <div className="profile-popup-industry">
                         <div>Industry</div>
                         <div>{user.industry ? user.industry : 'No industry information found'}</div>
                     </div>
-                    <div class="profile-popup-major">
+                    <div className="profile-popup-major">
                         <div>Major</div>
                         <div>{user.major ? user.major : 'No major information found'}</div>
                     </div>
-                    <div class="profile-popup-school">
+                    <div className="profile-popup-school">
                         <div>School</div>
                         <div>{user.school ? user.school : 'No school information found'}</div>
                     </div>
-                    <div class="profile-popup-degree-type">
+                    <div className="profile-popup-degree-type">
                         <div>Degree</div>
                         <div>{user.school ? user.school : 'No school information found'}</div>
                     </div>
-                    <div class="profile-popup-grad-year">
+                    <div className="profile-popup-grad-year">
                         <div>Graduation Year</div>
                         <div>{user.gradYear ? user.gradYear : 'No graduation year information found'}</div>
                     </div>
-                    <div class="profile-popup-language">
+                    <div className="profile-popup-language">
                         <div>Language</div>
                         <div>{user.languages ? user.languages : 'No language information found'}</div>
                     </div>
@@ -72,7 +108,7 @@ export function MyProfilePage(props) {
 
             </div>
 
-            
+
         </div>
 
     );
@@ -353,7 +389,7 @@ export function EditProfilePopup(props) {
     return (
         // <div className="edit_profile">
         <>
-            <CreateButton onClick={handleShow} type="button" title={<div><i class="fa-regular fa-pen-to-square"></i> Edit Profile</div>} label="Edit profile" />
+            <CreateButton onClick={handleShow} type="button" title={<div><i className="fa-regular fa-pen-to-square"></i> Edit Profile</div>} label="Edit profile" />
 
             <Modal show={showPopup} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
@@ -516,10 +552,10 @@ export function UserProfilePage(props) {
     return (
         <main>
             <div className="profile-page">
-                <Link to="/people"><CreateButton type="button" title={<i class="fa-solid fa-arrow-left"></i>} label="Back to People Page" /></Link>
+                <Link to="/people"><CreateButton type="button" title={<i className="fa-solid fa-arrow-left"></i>} label="Back to People Page" /></Link>
                 <div className="profile-intro">
                     <div className="profile-container">
-                        <div className="profile-intro-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                        <div className="profile-intro-img"><img src={user.profileImage ? user.profileImage : require("./img/user-img.jpg")} alt="user profile" /></div>
                         <div className="profile-intro-details">
                             <div className="profile-intro-name">{user.firstName + " " + user.lastName}</div>
                         </div>
@@ -543,19 +579,19 @@ export function UserProfilePage(props) {
                         <div className="education-hist">
                             <div className="education-header">Education History</div>
                             {/* <div className="education-container"> */}
-                                {/* <div className="logo"><img src={require("./img/logo.jpeg")} alt="uw logo" /></div> */}
-                                <div className="education-details">
-                                    <div className="degree-type">{user.degree ? user.degree : 'No degree found'} – {user.major ? user.major : 'No major found'}</div>
-                                    {/* <div className="major">{user.major ? user.major : 'No major found'}</div> */}
-                                    <div className="school">{user.school ? user.school : 'No school found'}</div>
-                                    <div className="year">{user.gradYear ? user.gradYear : 'No graduation year found'}</div>
-                                </div>
+                            {/* <div className="logo"><img src={require("./img/logo.jpeg")} alt="uw logo" /></div> */}
+                            <div className="education-details">
+                                <div className="degree-type">{user.degree ? user.degree : 'No degree found'} – {user.major ? user.major : 'No major found'}</div>
+                                {/* <div className="major">{user.major ? user.major : 'No major found'}</div> */}
+                                <div className="school">{user.school ? user.school : 'No school found'}</div>
+                                <div className="year">{user.gradYear ? user.gradYear : 'No graduation year found'}</div>
+                            </div>
                             {/* </div> */}
                         </div>
                     </div>
                 </div>
 
-                
+
             </div>
         </main>
     )
