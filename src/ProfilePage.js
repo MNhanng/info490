@@ -565,7 +565,7 @@ export function UserProfilePage(props) {
                         <div className="profile-intro-tags">
                             {user.openContact === "Yes" ? <div className="profile-tag contact">Contact Me!</div> : <div className="profile-tag contact">Not Open to Contact</div>}
                             {user.openContact === "Yes" ? <div className="profile-tag email">{user.email}</div> : <div className="profile-tag email">No email found</div>}
-                            {user.openContact === "Yes" ? <div className="profile-tag number">{user.number}</div> : <div className="profile-tag number">No number found</div>}
+                            {(user.openContact === "Yes" && user.number) ? <div className="profile-tag number">{user.number}</div> : <div className="profile-tag number">No number found</div>}
                             {user.role ? <div className="profile-tag role">{user.role}</div> : <div className="profile-tag role">No role found</div>}
                             {user.jobTitle ? <div className="profile-tag jobTitle">{user.jobTitle}</div> : <div className="profile-tag jobTitle">No job title found</div>}
                             {user.employer ? <div className="profile-tag employer">{user.employer}</div> : <div className="profile-tag employer">No employer found</div>}
