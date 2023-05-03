@@ -1131,8 +1131,10 @@ select {
     color: #462E7E;
 }
 
-.image-upload label:hover {
+.image-upload button:hover, .image-upload label:hover {
     cursor: pointer;
+    background-color: #907AA8;
+    color: white;
 }
 
 .image-upload button {
@@ -1530,6 +1532,7 @@ form textarea, .edit_profile textarea {
     flex-direction: row;
     width: 100%;
     padding-bottom: 2rem;
+    justify-content: flex-start;
 }
 
 .add-message-container button {
@@ -1537,7 +1540,11 @@ form textarea, .edit_profile textarea {
     border: none;
     background-color: #462E7E;
     color: white;
-    width: 4.2rem;
+    width: 6%;
+}
+
+.add-message-container button:hover {
+    background-color: #907AA8;
 }
 
 .message-content-name {
@@ -1566,21 +1573,20 @@ form textarea, .edit_profile textarea {
     border-radius: 50%;
     height: 2.5rem;
     width: 2.5rem;
-    margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 .received-message, .sent-message {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: center;
     margin-bottom: 2rem;
-
 }
 
 .message {
     background-color: #EAE4EE;
     padding: 0.5rem 1rem;
-    border-radius: 1rem 1rem 1rem 0;
+    border-radius: 1rem 1rem 0 1rem ;
 }
 
 /* end of messages page */

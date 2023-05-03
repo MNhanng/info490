@@ -9,7 +9,7 @@ export function MessagesPage(props) {
                     </form>
 
                     <div class="message-preview">
-                        <div class="message-img"><img src={require("./img/ava.jpg")} alt="user profile" /></div>
+                        <div class="message-img"><img src={require("./img/ava.png")} alt="user profile" /></div>
                         <div>
                             <div class="message-name">Ava Brown</div>
                             <div class="message-time">May 1, 2023 | 2:00pm</div>
@@ -20,7 +20,7 @@ export function MessagesPage(props) {
                     <hr />
 
                     <div class="message-preview">
-                        <div class="message-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                        <div class="message-img"><img src={require("./img/david.png")} alt="user profile" /></div>
                         <div>
                             <div class="message-name">David Smith</div>
                             <div class="message-time">May 1, 2023 | 2:00pm</div>
@@ -31,7 +31,7 @@ export function MessagesPage(props) {
                     <hr />
 
                     <div class="message-preview">
-                        <div class="message-img"><img src={require("./img/user-img.jpg")} alt="user profile" /></div>
+                        <div class="message-img"><img src={require("./img/linda.png")} alt="user profile" /></div>
                         <div>
                             <div class="message-name">Linda Johnson</div>
                             <div class="message-time">May 1, 2023 | 2:00pm</div>
@@ -49,14 +49,14 @@ export function MessagesPage(props) {
                     <hr />
 
                     <div class="received-message">
-                        <img src={require("./img/user-img.jpg")} alt="user profile" />
+                        <img src={require("./img/jane.png")} alt="user profile" />
                         <div class="message">Hello, I would like to learn more about the internship that you posted about!</div>
                     </div>
 
-                    <div class="sent-message">
+                    {/* <div class="sent-message">
                         <img src={require("./img/user-img.jpg")} alt="user profile" />
                         <div class="message">Hi there, I will send you additional details about the internship requirements</div>
-                    </div>
+                    </div> */}
 
                     <div class="add-message-container">
                         <textarea id="freeform" name="freeform">Type new message here...</textarea>
