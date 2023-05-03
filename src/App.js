@@ -200,6 +200,9 @@ export default function App(props) {
 
     const likePost = (postKey) => {
         const post = allPosts.find(post => post.key === postKey);
+        if (!post.likes) {
+            post.likes = []
+        }
         if (post.likes.includes(currentUser.uid)) {
             const index = post.likes.indexOf(currentUser.uid);
             post.likes.splice(index, 1);
