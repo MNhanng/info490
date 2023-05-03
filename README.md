@@ -11,7 +11,9 @@ iConnect helps UW students gain better networking and access to information by c
 
 ## Open Sourcing Links
 Presentation Deck: https://docs.google.com/presentation/d/1rZ8elPl4QYzRjDx55vVbt47wEkE65cc7Yms1LwHP75s/edit?usp=sharing 
+
 Final Product: https://iconnect-23.web.app/signin 
+
 Github: https://github.com/MNhanng/info490
 
 ## License
@@ -23,28 +25,30 @@ If you want to learn more about this project or are interested in continuing thi
 ## Design Details
 For the design of this project, we created an interactive prototype by using Figma. To validate concepts and test our prototype features, we conducted three rounds of user interviews. The main takeaway was that students need a way to better network with responsive alumni. Therefore, we iterated through our design to incorporate search and filtering options that would enable seamless networking between students and alumni. We also intentionally designed our interfaces to be simple for easy and intuitive navigation.
 
-##### After iterations, we decided to include the following must-have features: 
+#### After iterations, we decided to include the following must-have features: 
 * A Community page for accessing current users’ posts and adding new posts
 * A People page for searching for alumni or students
 A My Profile page for editing a user’s information to display on profiles that other users will see
 
-##### Nice-to-have features: 
+#### Nice-to-have features: 
 * An Events page for accessing information on ongoing networking events 
 * A Message page for direct communication between users
 
 ## Development Details
 For the development of this project, we developed a React application by using Create React App. We used Firebase for the backend and to host our React application.
 
-##### To run this application locally, follow these steps:
+#### To run this application locally, follow these steps:
 * Clone this repository
 * Run npm install to install all required dependencies
 * Run npm start to to run this application on localhost:3000
 
 Reference https://info340.github.io/react.html to learn more about how to set up React JS. 
+
 Reference https://info340.github.io/firebase.html to learn more about how to set up Firebase.
+
 Reference https://www.geeksforgeeks.org/how-to-deploy-react-project-on-firebase/ to learn more about how to deploy a React project on Firebase.
 
-##### Main files exists within the src/component/ folder
+#### Main files exists within the src/component/ folder
 * App.js: Handles routing between pages and loading data.
 * NavBar.js: Creates the nav bar that appears on all pages and handles routing between tabs. 
 * Community.js: Creates a page for users to access, search, filter, and sort posts. When users click on a post, they will be directed to the Post Page.
