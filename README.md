@@ -11,7 +11,7 @@ iConnect helps UW students gain better networking and access to information by c
 
 ## Open Sourcing Links
 Presentation Deck: https://docs.google.com/presentation/d/1rZ8elPl4QYzRjDx55vVbt47wEkE65cc7Yms1LwHP75s/edit?usp=sharing 
-Final Product: https://iconnect-23.web.app/signin
+Final Product: https://iconnect-23.web.app/signin 
 Github: https://github.com/MNhanng/info490
 
 ## License
