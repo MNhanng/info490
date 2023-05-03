@@ -24,19 +24,18 @@ export default function App(props) {
         onAuthStateChanged(auth, (firebaseUser) => {
             if (firebaseUser) { // logged in
                 console.log(firebaseUser)
-                firebaseUser.firstName = firebaseUser.displayName.substring(0, firebaseUser.displayName.indexOf(' '));
-                firebaseUser.lastName = firebaseUser.displayName.substring(firebaseUser.displayName.indexOf(' ') + 1);
-                firebaseUser.email = firebaseUser.email;
+                firebaseUser.firstName = firebaseUser.firstName || firebaseUser.displayName.substring(0, firebaseUser.displayName.indexOf(' '));
+                firebaseUser.lastName = firebaseUser.lastName || firebaseUser.displayName.substring(firebaseUser.displayName.indexOf(' ') + 1);
 
                 const db = getDatabase();
                 const firstNameRef = ref(db, 'users_data/' + firebaseUser.uid + '/firstName');
                 const lastNameRef = ref(db, 'users_data/' + firebaseUser.uid + '/lastName');
-                const emailRef = ref(db, 'users_data/' + firebaseUser.uid + '/email');
+                // const emailRef = ref(db, 'users_data/' + firebaseUser.uid + '/email');
                 const userIDRef = ref(db, 'users_data/' + firebaseUser.uid + '/userID');
 
                 firebaseSet(firstNameRef, firebaseUser.firstName);
                 firebaseSet(lastNameRef, firebaseUser.lastName);
-                firebaseSet(emailRef, firebaseUser.email);
+                // firebaseSet(emailRef, firebaseUser.email);
                 firebaseSet(userIDRef, firebaseUser.uid)
 
                 setCurrentUser(firebaseUser);
