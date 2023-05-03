@@ -1111,6 +1111,44 @@ select {
     justify-content: center;
 }
 
+.profile-sidebar {
+    text-align: center;
+}
+
+.image-upload {
+    display: flex;
+}
+
+.image-upload label {
+    border-radius: 0.5rem;
+    margin: 1rem 0.2rem;
+    padding: 0.2rem 0.8rem;
+    width: fit-content;
+    background-color: #EAE4EE;
+    font-size: 0.8rem;
+    font-weight: 150;
+    display: inline-block;
+    color: #462E7E;
+}
+
+.image-upload label:hover {
+    cursor: pointer;
+}
+
+.image-upload button {
+    border: none;
+    border-radius: 0.5rem;
+    margin: 1rem 0.2rem;
+    padding: 0.2rem 0.8rem;
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: #EAE4EE;
+    font-size: 0.8rem;
+    font-weight: 150;
+    display: inline-block;
+    color: #462E7E;
+}
+
 .profile-popup-img img {
     border-radius: 50%;
     height: 12rem;

@@ -38,12 +38,12 @@ export function MyProfilePage(props) {
     return (
         <div className="profile-popup">
             <div className="profile-popup-header">
-                <div>
+                <div className="profile-sidebar">
                     <div className="profile-popup-img"><img src={imageUrl === "./img/user-img.jpg" ? require("./img/user-img.jpg") : imageUrl} alt="user profile" /></div>
 
                     <div className="image-upload">
                         <div>
-                            <label htmlFor="profile_img" className="btn">Upload Image</label>
+                            <label htmlFor="profile_img"><i className="fa-solid fa-upload"></i> Upload</label>
                             <input onChange={imageHandleChange} id="profile_img" type="file" className="d-none" />
                         </div>
                         <div>
