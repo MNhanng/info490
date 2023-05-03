@@ -1,6 +1,5 @@
 import { CardActionArea } from '@mui/material';
 import { Link } from "react-router-dom";
-import _ from 'lodash';
 import { useState } from "react";
 import { CreateButton } from './ButtonsAndTags';
 
@@ -38,7 +37,7 @@ export function EventsPage(props) {
             setSelectedTags([...selectedTags, event.target.value])
         }
 
-        if (event.target.value == "In-Person") {
+        if (event.target.value === "In-Person") {
             setInPersonTagColor(!inPersonTagColor)
         } else {
             setVirtualTagColor(!virtualTagColor)

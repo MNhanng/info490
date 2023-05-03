@@ -13,7 +13,7 @@ export function MyProfilePage(props) {
     console.log(user)
 
     const [image, setImage] = useState(undefined);
-    const [imageUrl, setImageUrl] = useState(user.profileImage || "./img/user-img.jpg");
+    const [imageUrl, setImageUrl] = useState(user.profileImage || "../img/user-img.jpg");
     console.log(imageUrl)
 
     const imageHandleChange = (event) => {
@@ -40,7 +40,7 @@ export function MyProfilePage(props) {
         <div className="profile-popup">
             <div className="profile-popup-header">
                 <div className="profile-sidebar">
-                    <div className="profile-popup-img"><img src={imageUrl === "./img/user-img.jpg" ? require("./img/user-img.jpg") : imageUrl} alt="user profile" /></div>
+                    <div className="profile-popup-img"><img src={imageUrl === "../img/user-img.jpg" ? require("../img/user-img.jpg") : imageUrl} alt="user profile" /></div>
 
                     <div className="image-upload">
                         <div>
@@ -559,7 +559,7 @@ export function UserProfilePage(props) {
                 <Link to="/people"><CreateButton type="button" title={<i className="fa-solid fa-arrow-left"></i>} label="Back to People Page" /></Link>
                 <div className="profile-intro">
                     <div className="profile-container">
-                        <div className="profile-intro-img"><img src={user.profileImage ? user.profileImage : require("./img/user-img.jpg")} alt="user profile" /></div>
+                        <div className="profile-intro-img"><img src={user.profileImage ? user.profileImage : require("../img/user-img.jpg")} alt="user profile" /></div>
                         <div className="profile-intro-details">
                             <div className="profile-intro-name">{user.firstName + " " + user.lastName}</div>
                         </div>

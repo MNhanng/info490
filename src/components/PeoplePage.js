@@ -102,7 +102,7 @@ function ProfileCard(props) {
         <div className="card profile">
             <CardActionArea component={Link} to={profileLink}>
                 <div className="profile-card-details">
-                    <div className="profile-card-img"><img src={user.profileImage ? user.profileImage : require("./img/user-img.jpg")} alt="user profile" /></div>
+                    <div className="profile-card-img"><img src={user.profileImage ? user.profileImage : require("../img/user-img.jpg")} alt="user profile" /></div>
                     <div className="profile-card-name">{user.firstName + " " + user.lastName}</div>
                     {user.role && <div className="profile-card-role">{user.role}</div>}
                     {openToContact(user.openContact)}

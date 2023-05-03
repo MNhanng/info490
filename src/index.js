@@ -7,7 +7,7 @@ import { initializeApp } from "firebase/app";
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import App from './App.js';
+import App from './components/App.js';
 
 // import reportWebVitals from './reportWebVitals';
 

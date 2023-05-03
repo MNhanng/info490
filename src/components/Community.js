@@ -178,7 +178,7 @@ function Post(props) {
             <CardActionArea component={Link} to={postLink}>
                 <div className="post-card-details">
                     <div className="post-details">
-                        <div className="post-details-img"><img src={owner.profileImage ? owner.profileImage : require("./img/user-img.jpg")} alt="user profile" /></div>
+                        <div className="post-details-img"><img src={owner.profileImage ? owner.profileImage : require("../img/user-img.jpg")} alt="user profile" /></div>
                         <div className="post-details-name">{owner.firstName + " " + owner.lastName}</div>
                         <div className="post-details-divider">|</div>
                         <div className="post-details-date">{post.created_date}</div>

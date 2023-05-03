@@ -48,12 +48,12 @@ function PostHeader(props) {
             <Link to="/community"><CreateButton type="button" title={<i class="fa-solid fa-arrow-left"></i>} label="Back to Community Page" /></Link>
             <div className="post">
                 <div className="post-info">
-                    <div className="post-info-img"><img src={postOwner.profileImage ? postOwner.profileImage : require("./img/user-img.jpg")} alt="user profile" /></div>
+                    <div className="post-info-img"><img src={postOwner.profileImage ? postOwner.profileImage : require("../img/user-img.jpg")} alt="user profile" /></div>
                     <div className="post-info-name">{postOwner.firstName + " " + postOwner.lastName}</div>
                     <div className="post-info-divider">|</div>
                     <div className="post-info-date">{post.created_date}</div>
                     <div className="post-details-tag">{post.tags}</div>
-                    <div className="post-info-likes">{post.likes && post.likes.length}{(!post.likes || post.likes.length == 0) && "0"} <i className={heartClass} onClick={onLikeClick} ></i></div>
+                    <div className="post-info-likes">{post.likes && post.likes.length}{(!post.likes || post.likes.length === 0) && "0"} <i className={heartClass} onClick={onLikeClick} ></i></div>
                 </div>
                 <div className="post-title">{post.post_title}</div>
                 <div className="post-content">{post.details}</div>
@@ -105,7 +105,7 @@ function Comment(props) {
     return (
         <div className="comment">
             <div className="comment-info">
-                <div className="comment-info-img"><img src={commentOwner.profileImage ? commentOwner.profileImage : require("./img/user-img.jpg")} alt="user profile" /></div>
+                <div className="comment-info-img"><img src={commentOwner.profileImage ? commentOwner.profileImage : require("../img/user-img.jpg")} alt="user profile" /></div>
                 <div className="comment-info-name">{commentOwner.firstName + " " + commentOwner.lastName}</div>
                 <div className="comment-info-divider">|</div>
                 <div className="comment-info-date">{comment.created_date}</div>

@@ -1,0 +1,56 @@
+[
+    {
+        "eventID": 1,
+        "name": "Test Event", 
+        "dateTime": "June 01, 2023 5:00pm",
+        "location": "Classroom A",
+        "tags": "Virtual",
+        "description": "This is for testing",
+        "specifications": "N/A",
+        "created_date": "2/20/2023"
+    },
+    {
+        "eventID": 2,
+        "name": "Test Event", 
+        "dateTime": "June 01, 2023",
+        "location": "Classroom A",
+        "tags": "In-Person",
+        "description": "This is for testing",
+        "specifications": "N/A",
+        "created_date": "2/20/2023"
+    },
+
+    {
+        "eventID": 3,
+        "name": "Test Event", 
+        "dateTime": "June 01, 2023 5:00pm",
+        "location": "Classroom A",
+        "tags": "Virtual",
+        "description": "This is for testing",
+        "specifications": "N/A",
+        "created_date": "2/20/2023"
+    },
+
+    {
+        "eventID": 4,
+        "name": "Test Event", 
+        "dateTime": "June 01, 2023 5:00pm",
+        "location": "Classroom A",
+        "tags": "Virtual",
+        "description": "This is for testing",
+        "specifications": "N/A",
+        "created_date": "2/20/2023"
+    },
+
+    {
+        "eventID": 5,
+        "name": "Test Event", 
+        "dateTime": "June 01, 2023 5:00pm",
+        "location": "Classroom A",
+        "tags": "In-Person",
+        "description": "This is for testing",
+        "specifications": "N/A",
+        "created_date": "2/20/2023"
+    }
+    
+]

@@ -27,7 +27,7 @@ export function HomePage(props) {
                 </div>
 
                 <div className="home-image">
-                    <img src={require("./img/home-image.png")} alt="Home page" />
+                    <img src={require("../img/home-image.png")} alt="Home page" />
                 </div>
             </div>
             {/* <HomeBoard/> */}
