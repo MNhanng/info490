@@ -74,12 +74,12 @@ Main files exists within the src/component/ folder:
 * PeoplePage.js: Creates the page where users can access all profiles currently on the app. Handles searching, filtering, and sorting functionalities. 
 * Popups.js: Responsible for all popup interfaces that allow users to add/change some content on the app. 
 * PostPage.js: Creates the page that users see when they click on a community post card. Handles adding comments and liking post activities.
-* ProiflePage.js: Handles the interfaces for the My Profile page, the Edit Profile Popup page, and the individual User Profile page that users see after clicking on a profile card on the People page.
+* ProfilePage.js: Handles the interfaces for the My Profile page, the Edit Profile Popup page, and the individual User Profile page that users see after clicking on a profile card on the People page.
 * SignInPage.js: Uses the ‘firebase/auth’ library for configuring user authentication.
 
 ## User Data
 
-All stakeholders (our interviewees) will be notified of the project’s transition to open source by May 31, 2023. We do not have any systems that automatically collect user data, so there will not be any shutdown of such systems. The web application will continue to operate with all accounts under the ownership of our team until June 30, 2023.  As of June 30, 2023, we will shut down Firebase which means the current site/link will no longer be active.
+All stakeholders (our interviewees) will be notified of the project’s transition to open source by May 31, 2023. We do not have any systems that automatically collect user data, so there will not be any shutdown of such systems. The web application will continue to operate with all accounts under the ownership of our team until June 30, 2023, which is when this project will officially be transitioned to open source.  As of June 30, 2023, we will shut down Firebase which means the current site/link will no longer be active.
 
 ## Future Steps
 
@@ -89,3 +89,10 @@ All stakeholders (our interviewees) will be notified of the project’s transiti
 * Implement a fully functional chat feature, including the ability to be notified when there is a new message and to send attachments
 * Build a system for verifying users’ information regarding schooling, occupation, and experience
 * Integrate security measures for data exchange among users
+
+## References
+
+1. Adler, L. (2016, February 28). New survey reveals 85% of all jobs are filled via networking. LinkedIn. Retrieved January 25, 2023, from https://www.linkedin.com/pulse/new-survey-reveals-85-all-jobs-filled-via-networking-lou-adler/?src=aff-ref&trk=aff-ir_progid.8005_partid.196318_sid._adid.449670&clickid=RBe1NlRYHxyNWFcSqx2h30cTUkA1CdXpTWZT3E0&mcid=6851962469594763264&irgwc=1
+2. Belli, G. (2017, April 10). At least 70% of jobs are not even listed - here's how to up your chances of getting a great New gig. Business  Insider. Retrieved January 25, 2023, from https://www.businessinsider.com/at-least-70-of-jobs-are-not-even-listed-heres-  how-to-up-your-chances-of-getting-a-great-new-gig-2017-4
+3. Intercell. (2021, September 9). Reasons why mentoring is beneficial for college students. LinkedIn. Retrieved January 25, 2023, from https://www.linkedin.com/pulse/reasons-why-mentoring-beneficial-college-students-/?trk=organization-update-content_share-article
+4. Maroe, F. (2020, January 21). Do students really want to be mentored? LinkedIn. Retrieved January 25, 2023, from https://www.linkedin.com/pulse/do-students-really-want-mentored-fredrik-mar%C3%B8/
