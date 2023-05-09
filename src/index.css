@@ -611,6 +611,76 @@ h3 a {
 /* end of posts code */
 
 /* Start of Event Page Code */
+.single-event-container {
+    margin: 2rem;
+}
+
+.single-event-header {
+    height: 10rem;
+    background-color: #EAE4EE;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 1rem 2rem;
+    gap: 2rem;
+    border-bottom: 0.15rem solid #462E7E;
+}
+
+.single-event-details {
+    min-height: 20rem;
+    background-color: #FBFBFD;
+    box-shadow: 0 0.2rem 0.2rem #D3D3D3;
+    padding: 2rem;
+}
+
+.single-event-container button {
+    border-radius: 5rem;
+    margin-bottom: 1rem;
+    border: 0.1rem solid #462E7E;
+    background-color: white;
+    color: #462E7E;
+    width: 3rem;
+}
+
+.single-event-container button:hover {
+    background-color: #907AA8;
+    color: white;
+    border: 0.1rem solid #907AA8;
+}
+
+.single-event-date {
+    color: #462E7E;
+    padding-bottom: 2rem;
+}
+
+.single-event-location, .single-event-description {
+    padding-bottom: 0.5rem;
+}
+
+.single-event-spec {
+    font-style: italic;
+    color: #462E7E;
+    padding-top: 2rem;
+}
+
+.single-event-details span {
+    font-weight: 700;
+}
+
+.single-event-title {
+    font-size: 1.7rem;
+    color: #462E7E;
+}
+
+.single-event-tag {
+    border-radius: 7rem;
+    background-color: #907AA8;
+    width: fit-content;
+    color: white;
+    padding: 0.2rem 1rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+}
 
 .card-event {
     border: 0.05rem solid gray;
@@ -618,7 +688,7 @@ h3 a {
     padding: 0.5em;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    box-shadow: 0.2rem 0.2rem 0.2rem #D3D3D3
+    box-shadow: 0.2rem 0.2rem 0.2rem #D3D3D3;
 }
 
 .events-container {
@@ -1331,7 +1401,7 @@ form textarea, .edit_profile textarea {
     background-color: #EAE4EE;
     color: #462E7E;
     font-size: 0.95rem;
-    border-radius: 5rem;
+    border-radius: 0.5rem;
     padding: 0.3rem 0.5rem;
     margin: 0.3rem;
 }

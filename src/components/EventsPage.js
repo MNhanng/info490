@@ -1,7 +1,8 @@
 import { CardActionArea } from '@mui/material';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { CreateButton } from './ButtonsAndTags';
+import _ from 'lodash';
 
 export function EventsPage(props) {
     const [searchString, setSearchString] = useState("")
@@ -138,10 +139,10 @@ function AllEvents(props) {
 
 function Event(props) {
     const event = props.event;
-
+    const eventLink = '/events/' + encodeURIComponent(event.key);
     return (
         <div className="card-event">
-            <CardActionArea component={Link} to={''}>
+            <CardActionArea component={Link} to={eventLink}>
                 <div className="event-container">
                     {/* <div className="event-img"><img src={require("./img/user-img.jpg")} alt="event" /></div> */}
                     <div className="event-details">
@@ -281,4 +282,25 @@ export function EventForm(props) {
 
         </main>
     );
+}
+
+export function SingleEventPage(props) {
+    let eventKey = decodeURI(useParams().key);
+    let event = _.find(props.eventsData, { key : eventKey });
+    console.log(eventKey)
+    return (
+        <div className="single-event-container">
+            <Link to="/events"><CreateButton type="button" title={<i className="fa-solid fa-arrow-left"></i>} label="Back to Events Page" /></Link>
+            <div className="single-event-header">
+                <div className="single-event-title">{event.name}</div>
+                {event.tags && <div className="single-event-tag">{event.tags}</div>}
+            </div>
+            <div className="single-event-details">
+                <div className="single-event-date"><i class="fa-regular fa-calendar-days"></i> {event.dateTime}</div>
+                {event.location && <div className="single-event-location"><span>Location: </span>{event.location}</div>}
+                {event.description && <div className="single-event-description"><span>Description: </span>{event.description}</div>}
+                <div className="single-event-spec">{event.specifications}</div>
+            </div>
+        </div>
+    )
 }
