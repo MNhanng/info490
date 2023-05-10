@@ -580,6 +580,14 @@ export function UserProfilePage(props) {
                         <div className="profile-intro-bio">Bio</div>
                         <div className="profile-intro-bio-text">{user.bio ? user.bio : 'No bio found'}</div>
 
+                        <div className="work-experience">
+                            <div className="work-header">Work Experience</div>
+                            <div className="work-details">
+                                <div className="job">{user.jobTitle ? user.jobTitle : 'No job title found'}</div>
+                                <div className="employer">{user.employer ? user.employer : 'No employer found'}</div>
+                            </div>
+                        </div>
+
                         <div className="education-hist">
                             <div className="education-header">Education History</div>
                             {/* <div className="education-container"> */}

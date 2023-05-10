@@ -1401,7 +1401,7 @@ form textarea, .edit_profile textarea {
     background-color: #EAE4EE;
     color: #462E7E;
     font-size: 0.95rem;
-    border-radius: 0.5rem;
+    /* border-radius: 0.5rem; */
     padding: 0.3rem 0.5rem;
     margin: 0.3rem;
 }
@@ -1413,7 +1413,7 @@ form textarea, .edit_profile textarea {
     box-shadow: 0.2rem 0.2rem 0.4rem #D3D3D3;
 }
 
-.education-hist {
+.education-hist, .work-experience {
     margin-top: 3rem;
 }
 
@@ -1458,7 +1458,7 @@ form textarea, .edit_profile textarea {
     color: #462E7E;
 }
 
-.profile-intro-bio, .education-header {
+.profile-intro-bio, .education-header, .work-header {
     font-size: 1.2rem;
     font-weight: 600;
     margin-top: 2rem;
@@ -1466,7 +1466,8 @@ form textarea, .edit_profile textarea {
 }
 
 .profile-intro-bio-text,
-.education-details {
+.education-details,
+.work-details {
     font-size: 0.9rem;
     font-weight: 300;
 }

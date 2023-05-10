@@ -32,6 +32,7 @@ export function HomePage(props) {
             </div>
             {/* <HomeBoard/> */}
             <div className="home-event-container">
+                <h1>Upcoming Events</h1>
                 <UpcomingEvents eventsData={props.eventsData} />
             </div>
         </main>
