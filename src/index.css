@@ -47,7 +47,7 @@ main {
     font-weight: 600;
     font-size: 1.3rem;
     color: #462E7E;
-    font-family: "Sahitya";
+    font-family: "Inter";
 }
 
 .nav li:not(:last-child) {
@@ -438,6 +438,10 @@ footer {
 
 .post-details-likes {
     margin-left: auto;
+}
+
+i.fa-solid.fa-heart {
+    cursor: pointer;
 }
 
 .post-details-tag {
@@ -888,6 +892,7 @@ h1.event-form-heading {
 
 /* End of Event Form Page */
 
+
 /* start of home page code */
 .home-page {
     display: flex;
@@ -1178,6 +1183,10 @@ form h1 {
     text-align: center;
 } */
 
+form label, .edit_profile label {
+    display: inline-block;
+    width: 6em;
+}
 
 form input, .edit_profile input, .edit_profile select {
     margin-bottom: 0.5em;
@@ -1186,7 +1195,7 @@ form input, .edit_profile input, .edit_profile select {
 }
 
 .form-tags {
-    display: inline-block;
+    display: flex;
 }
 
 .form-tags .tags {

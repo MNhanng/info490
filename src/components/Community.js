@@ -163,7 +163,7 @@ function AllPosts(props) {
 function Post(props) {
     const post = props.post;
     const owner = props.postOwner;
-    const postLink = '/' + encodeURIComponent(post.post_title);
+    const postLink = '/community/' + encodeURIComponent(post.key);
 
     let heartClass;
     if (post.likes && post.likes.length !== 0 && post.likes.includes(props.currentUser.uid)) {

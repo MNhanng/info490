@@ -61,7 +61,7 @@ export default function App(props) {
         const db = getDatabase();
         const allUserProfileRef = ref(db, 'users_data/');
         const allPostsRef = ref(db, 'posts_data/');
-        const allCommentsRef = ref(db, 'comments_data/');
+        // const allCommentsRef = ref(db, 'comments_data/');
         const allEventsRef = ref(db, 'events_data');
 
         const userFunction = onValue(allUserProfileRef, (snapshot) => {
@@ -225,13 +225,13 @@ export default function App(props) {
                     <Route element={<ProtectedPage currentUser={currentUser} />}>
                         <Route path='home' element={<HomePage eventsData={allEvents} />} />
                         <Route path='community' element={<CommunityPage currentUser={currentUser} addPostCallback={addPost} postsData={allPosts} usersData={allUsers} />} />
-                        <Route path=':postTitle' element={<PostPage currentUser={currentUser} addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} likePostCallback={likePost}/>} />
+                        <Route path='community/:key' element={<PostPage currentUser={currentUser} addCommentCallback={addComment} postsData={allPosts} usersData={allUsers} commentData={allComments} likePostCallback={likePost}/>} />
                         <Route path='people' element={<PeoplePage usersData={allUsers} />} />
                         <Route path='events' element={<EventsPage eventsData={allEvents} />} />
                         <Route path=':event-form' element={<EventForm addEventCallback={addEvent} />} />
                         <Route path='events/:key' element={<SingleEventPage eventsData={allEvents} />} />
                         <Route path='messages' element={<MessagesPage />} />
-                        <Route path='people/:profileName' element={<UserProfilePage usersData={allUsers} />} />
+                        <Route path='people/:key' element={<UserProfilePage usersData={allUsers} />} />
                         <Route path='my-profile' element={<MyProfilePage currentUser={currentUser} usersData={allUsers}/>} />
                     </Route>
                 </Routes>

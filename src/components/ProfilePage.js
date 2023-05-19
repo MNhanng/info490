@@ -95,7 +95,7 @@ export function MyProfilePage(props) {
                     </div>
                     <div className="profile-popup-degree-type">
                         <div>Degree</div>
-                        <div>{user.school ? user.school : 'No school information found'}</div>
+                        <div>{user.degree ? user.degree : 'No school information found'}</div>
                     </div>
                     <div className="profile-popup-grad-year">
                         <div>Graduation Year</div>
@@ -412,7 +412,7 @@ export function EditProfilePopup(props) {
 
                             <label for="role">Role</label>
                             <select onChange={roleHandleChange} id="role" name="role">
-                                <option value="">Choose A Role:</option>
+                                <option value="">Choose a Role:</option>
                                 <option value="Alumni">Alumni</option>
                                 <option value="Student">Student</option>
                             </select> <br />
@@ -424,7 +424,7 @@ export function EditProfilePopup(props) {
 
                             <label for="open_contact">Open to Contact?</label>
                             <select onChange={openContactHandleChange} id="open_contact" name="open_contact">
-                                <option value="">Choose A Preference:</option>
+                                <option value="">Choose a Preference:</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select> <br></br>
@@ -445,7 +445,7 @@ export function EditProfilePopup(props) {
 
                             <label for="degree">Degree</label>
                             <select onChange={degreeHandleChange} id="degree" name="degree">
-                                <option value="">Choose A Degree:</option>
+                                <option value="">Choose a Degree:</option>
                                 <option value="Associate Degree">Associate Degree</option>
                                 <option value="Bachelor's Degree">Bachelor's Degree</option>
                                 <option value="Master's Degree">Master's Degree</option>
@@ -459,39 +459,88 @@ export function EditProfilePopup(props) {
                             <input onChange={gradYearHandleChange} type="text" /> <br></br>
 
                             <label for="Major">Major</label>
-                            {/* <input onChange={majorHandleChange} type="text" /> <br></br> */}
                             <select onChange={majorHandleChange} name="major" id="major">
                                 <option value="">Choose a Major:</option>
-                                <option value="Art">Art</option>
+                                <option value="American Ethnic Studies">American Ethnic Studies</option>
+                                <option value="Anthropology">Anthropology</option>
+                                <option value="Applied Mathematics">Applied Mathematics</option>
+                                <option value="Aquatic and Fishery Sciences">Aquatic and Fishery Sciences</option>
+                                <option value="Architecture">Architecture</option>
+                                <option value="Art">Art</option> 
+                                <option value="Asian Languages and Culture">Asian Languages and Culture</option>
+                                <option value="Asian Studies">Asian Studies</option> 
+                                <option value="Astronomy">Astronomy</option>
+                                <option value="Atmospheric Sciences">Atmospheric Sciences</option>
                                 <option value="Business">Business</option>
+                                <option value="Biochemistry">Biochemistry</option>
+                                <option value="Bioengineering">Bioengineering</option>
                                 <option value="Biology">Biology</option>
                                 <option value="Chemisty">Chemistry</option>
-                                <option value="Economics">Economics</option>
-                                <option value="Computer Science">Computer Science</option>
-                                <option value="Public Health">Public Health</option>
-                                <option value="Nursing">Nursing</option>
-                                <option value="Informatics">Informatics</option>
-                                <option value="Psychology">Psychology</option>
-                                <option value="Communication">Communication</option>
-                                <option value="Biochemistry">Biochemistry</option>
-                                <option value="Social Work">Social Work</option>
-                                <option value="Dance">Dance</option>
-                                <option value="Music">Music</option>
-                                <option value="Finance">Finance</option>
-                                <option value="Marketing">Marketing</option>
-                                <option value="Film Studies">Film Studies</option>
-                                <option value="Geography">Geography</option>
-                                <option value="Anthropology">Anthropology</option>
-                                <option value="Political Science">Political Science</option>
+                                <option value="Chemical Engineering">Chemical Engineering</option>
                                 <option value="Chinese">Chinese</option>
-                                <option value="Korean">Korean</option>
-                                <option value="Vietnamese">Vietnamese</option>
-                                <option value="Latin">Latin</option>
-                                <option value="Math">Math</option>
-                                <option value="Statistics">Statistics</option>
-                                <option value="Microbiology">Microbiology</option>
-                                <option value="Medical Lab Science">Medical Lab Science</option>
+                                <option value="Cinema & Media Studies">Cinema & Media Studies</option>
+                                <option value="Civil Engineering">Civil Engineering</option>
+                                <option value="Classics">Classics</option>
+                                <option value="Communication">Communication</option>
+                                <option value="Community, Environment, and Planning">Community, Environment, and Planning</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Dance">Dance</option>
+                                <option value="Design">Design</option> 
+                                <option value="Drama">Drama</option> 
+                                <option value="Early Childhood and Family Studies">Early Childhood and Family Studies</option>
+                                <option value="Earth and Space Sciences">Earth and Space Sciences</option>                                
+                                <option value="Economics">Economics</option>                                
                                 <option value="Education">Education</option>
+                                <option value="Electrical Engineering">Electrical Engineering</option>
+                                <option value="Environmental Engineering">Environmental Engineering</option>
+                                <option value="Environmental Health">Environmental Health</option>
+                                <option value="European Studies">European Studies</option> 
+                                <option value="Finance">Finance</option>
+                                <option value="Film Studies">Film Studies</option>
+                                <option value="Food Systems, Nutrition, and Health">Food Systems, Nutrition, and Health</option>
+                                <option value="French">French</option>
+                                <option value="Geography">Gender, Women, and Sexuality Studies</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Health Informatics and Health Information Management">Health Informatics and Health Information Management</option>
+                                <option value="History">History</option>
+                                <option value="Human Centered Design and Engineering">Human Centered Design and Engineering</option>
+                                <option value="Industrial Engineering">Industrial Engineering</option>
+                                <option value="Informatics">Informatics</option>
+                                <option value="Japanese">Japanese</option>
+                                <option value="Jazz Studies">Jazz Studies</option>
+                                <option value="Jewish Studies">Jewish Studies</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Korean">Korean</option>
+                                <option value="Latin">Latin</option>
+                                <option value="Latin American and Caribbean Studies">Latin American and Caribbean Studies</option> 
+                                <option value="Linguistics">Linguistics</option>
+                                <option value="Materials Science Engineering">Materials Science Engineering</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Marine Biology">Marine Biology</option>
+                                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                <option value="Medical Laboratory Science">Medical Laboratory Science</option>
+                                <option value="Microbiology">Microbiology</option>
+                                <option value="Music">Music</option>
+                                <option value="Neuroscience">Neuroscience</option>
+                                <option value="Nursing">Nursing</option>
+                                <option value="Oceanography">Oceanography</option>
+                                <option value="Orchestral Instruments">Orchestral Instruments</option>
+                                <option value="Philosophy">Philosophy</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Political Science">Political Science</option>
+                                <option value="Psychology">Psychology</option>
+                                <option value="Public Health - Global Health">Public Health - Global Health</option>
+                                <option value="Real Estate">Real Estate</option>
+                                <option value="Scandinavian Studies">Scandinavian Studies</option>
+                                <option value="Social Welfare">Social Welfare</option>
+                                <option value="Sociology">Sociology</option>
+                                <option value="South Asian Languages and Literature (Hindi and Sanskrit)">South Asian Languages and Literature (Hindi and Sanskrit)</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="Speech and Hearing Sciences">Speech and Hearing Sciences</option>
+                                <option value="Statistics">Statistics</option>
+                                <option value="Swedish">Swedish</option>
+                                <option value="Vietnamese">Vietnamese</option>
+                                <option value="Voice (Music)">Voice (Music)</option>
                             </select>
                             <br></br>
                         </div>
@@ -501,23 +550,41 @@ export function EditProfilePopup(props) {
 
                             <label for="industry">Industry</label>
                             <select onChange={industryHandleChange} id="industry" name="industry">
-                                <option value="">Choose A Industry:</option>
-                                <option value="Technology">Technology</option>
-                                <option value="Healthcare">Healthcare</option>
+                                <option value="">Choose an Industry:</option>
+                                <option value="Aerospace">Aerospace</option>
+                                <option value="Art">Art</option>
+                                <option value="Agriculture">Agriculture</option>
+                                <option value="Architecture">Architecture</option>
+                                <option value="Automotive">Automotive</option>
+                                <option value="Biotechnology">Biotechnology</option>
                                 <option value="Business">Business</option>
-                                <option value="Engineering">Engineering</option>
-                                <option value="Entertainment">Entertainment</option>
-                                <option value="Education">Education</option>
-                                <option value="Real Estate">Real Estate</option>
-                                <option value="Public Services">Public Services</option>
-                                <option value="Government">Government</option>
-                                <option value="Law">Law</option>
                                 <option value="Commerce">Commerce</option>
                                 <option value="Construction">Construction</option>
-                                <option value="Food">Food</option>
-                                <option value="Education">Tourism</option>
-                                <option value="Art">Art</option>
+                                <option value="Cybersecurity">Cybersecurity</option>
+                                <option value="Education">Education</option>
+                                <option value="Energy">Energy</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Entertainment">Entertainment</option>
                                 <option value="Fashion">Fashion</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Food">Food</option>
+                                <option value="Government">Government</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Hospitality">Hospitality</option>
+                                <option value="Information Technology">Information Technology</option>
+                                <option value="Law">Law</option>
+                                <option value="Nonprofit">Nonprofit</option>
+                                <option value="Media">Media</option>
+                                <option value="Pharmaceutical">Pharmaceutical</option>
+                                <option value="Politics">Politics</option>
+                                <option value="Public Services">Public Services</option>
+                                <option value="Real Estate">Real Estate</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Tourism">Tourism</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Utilities">Utilities</option>
                             </select>
                             <br></br>
 
@@ -547,11 +614,8 @@ export function EditProfilePopup(props) {
 
 
 export function UserProfilePage(props) {
-    const profileNameLink = decodeURI(useParams().profileName);
-    console.log(profileNameLink)
-    let firstName = profileNameLink.split(' ')[0];
-    let lastName = profileNameLink.split(' ')[1];
-    let user = _.find(props.usersData, { firstName: firstName, lastName: lastName });
+    const userKey = decodeURI(useParams().key);
+    let user = _.find(props.usersData, { key: userKey });
 
     return (
         <main>

@@ -3,8 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import _ from 'lodash';
 
 export function PostPage(props) {
-    const postTitleLink = decodeURI(useParams().postTitle);
-    let post = _.find(props.postsData, { post_title: postTitleLink });
+    const postKey = decodeURI(useParams().key);
+    let post = _.find(props.postsData, { key: postKey });
     let postOwner = _.find(props.usersData, { userID: post.userID });
 
     const postID = post.postID;
