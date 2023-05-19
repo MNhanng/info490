@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { CreateButton } from './ButtonsAndTags';
 import Modal from 'react-bootstrap/Modal';
 
 export function NewPostPopup(props) {
@@ -10,8 +9,8 @@ export function NewPostPopup(props) {
 
     const [titleInput, setTitleInput] = useState('');
     const titleHandleChange = (event) => {
-            let newValue = event.target.value;
-            setTitleInput(newValue);
+        let newValue = event.target.value;
+        setTitleInput(newValue);
     }
 
     const [tagInput, setTagInput] = useState('');
@@ -53,14 +52,14 @@ export function NewPostPopup(props) {
 
     return (
         <>
-            <CreateButton onClick={handleShow} type="button" title="+" label="Create new post" />
-
+            <button onClick={handleShow} type="button" label="Create new post">+</button>
             <Modal show={showPopup} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Create New Post</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form>
+                        <p><em>Please fill out all fields before submitting this form.</em></p>
                         <div>
                             <label for="title">Post Title</label>
                             <input onChange={titleHandleChange} value={titleInput} type="text" id="post_title" /> <br />
@@ -91,7 +90,7 @@ export function NewPostPopup(props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <div className="popup-button">
-                        <CreateButton onClick={handleSubmit} type="submit" title="Create" label="Create new post" />
+                        <button onClick={handleSubmit} type="submit" label="Create new post">Create</button>
                     </div>
                 </Modal.Footer>
             </Modal>
@@ -108,7 +107,7 @@ export function ProfilePopup(props) {
 
     return (
         <>
-            <CreateButton onClick={handleShow} type="button" title="New Project" label="Create new project" />
+            {/* <CreateButton onClick={handleShow} type="button" title="New Project" label="Create new project" /> */}
 
             <Modal show={showPopup} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>

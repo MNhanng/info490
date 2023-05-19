@@ -1332,10 +1332,17 @@ form textarea, .edit_profile textarea {
 .popup-button button {
     padding: 0.5em 1.25em;
     margin-top: 0.5em;
-    color: black;
+    background-color: #907AA8;
+    border: 0.1rem solid #907AA8;
+    color: white;
     border-radius: 0.5em;
     cursor: pointer;
     margin-left: 445px;
+    border: 0.1rem solid
+}
+
+.popup-button button:hover {
+    background-color: #462E7E;;
 }
 
 .edit_profile button {

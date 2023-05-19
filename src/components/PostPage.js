@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import _ from 'lodash';
-import { CreateButton } from './ButtonsAndTags';
 
 export function PostPage(props) {
     const postTitleLink = decodeURI(useParams().postTitle);
@@ -45,7 +44,7 @@ function PostHeader(props) {
 
     return (
         <div className="post-header">
-            <Link to="/community"><CreateButton type="button" title={<i className="fa-solid fa-arrow-left"></i>} label="Back to Community Page" /></Link>
+            <Link to="/community"><button type="button" aria-label="Back to Community Page"><i className="fa-solid fa-arrow-left"></i></button></Link>
             <div className="post">
                 <div className="post-info">
                     <div className="post-info-img"><img src={postOwner.profileImage ? postOwner.profileImage : require("../img/user-img.jpg")} alt="user profile" /></div>
@@ -82,8 +81,7 @@ function CommentForm(props) {
         <div className="add-comment-box">
             {/* <form > */}
                 <textarea onChange={commentHandleChange} value={commentInput} id="comment_details" name="comment_details" row="1" placeholder="Type new comment here..."></textarea>
-                {/* <button onClick={handleSubmit} type="submit" title="Add Comment" label="Add Comment">Add Comment</button> */}
-                <CreateButton onClick={handleSubmit} type="submit" title="Add Comment" label="Add Comment"/>
+                <button onClick={handleSubmit} type="submit" label="Add Comment">Add Comment</button>
 
             {/* </form> */}
         </div>

@@ -1,7 +1,6 @@
 import { CardActionArea } from '@mui/material';
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
-import { CreateButton } from './ButtonsAndTags';
 import _ from 'lodash';
 
 export function EventsPage(props) {
@@ -71,7 +70,7 @@ export function EventsPage(props) {
     return (
         <main>
             <EventPageHeader />
-            <EventPageSearch onChange={onChange} onClick={onClick} inPersonTagColor={inPersonTagColor} virtualTagColor={virtualTagColor} handleSort={handleSort}/>
+            <EventPageSearch onChange={onChange} onClick={onClick} inPersonTagColor={inPersonTagColor} virtualTagColor={virtualTagColor} handleSort={handleSort} />
             <AllEvents eventsData={sortedEvents} />
         </main>
     )
@@ -198,7 +197,7 @@ export function EventForm(props) {
         inPersonTagClass = "clicked-in-person";
     } else if (tagInput === "Virtual") {
         virtualTagClass = "clicked-virtual";
-    }  
+    }
 
 
     const [descriptionInput, setDescriptionInput] = useState('');
@@ -228,11 +227,13 @@ export function EventForm(props) {
         <main>
             <div className="event-form-page">
 
-                <Link to="/events"><CreateButton type="button" title={<i className="fa-solid fa-arrow-left"></i>} label="Back to Events Page" /></Link>
+                <Link to="/events"><button type="button" aria-label="Back to Events Page"><i className="fa-solid fa-arrow-left"></i></button></Link>
 
                 <h1 className="event-form-heading">Create a New Event</h1>
 
                 <form className='event-form'>
+                    <p><em>Please fill out all fields before submitting this form.</em></p>
+                    
                     <div>
                         <label for="title">Event Name</label> <br />
                         <input onChange={nameHandleChange} value={nameInput} type="text" id="post_title" /> <br />
@@ -273,7 +274,7 @@ export function EventForm(props) {
                     </div>
 
                     <div className="popup-button">
-                        <Link to="/events"><CreateButton onClick={handleSubmit} type="submit" title="Create" label="Create new event" /></Link>
+                        <Link to="/events"><button onClick={handleSubmit} type="submit" label="Create new event">Create</button></Link>
                     </div>
 
                 </form>
@@ -286,11 +287,11 @@ export function EventForm(props) {
 
 export function SingleEventPage(props) {
     let eventKey = decodeURI(useParams().key);
-    let event = _.find(props.eventsData, { key : eventKey });
+    let event = _.find(props.eventsData, { key: eventKey });
     console.log(eventKey)
     return (
         <div className="single-event-container">
-            <Link to="/events"><CreateButton type="button" title={<i className="fa-solid fa-arrow-left"></i>} label="Back to Events Page" /></Link>
+            <Link to="/events"><button type="button" aria-label="Back to Events Page"><i className="fa-solid fa-arrow-left"></i></button></Link>
             <div className="single-event-header">
                 <div className="single-event-title">{event.name}</div>
                 {event.tags && <div className="single-event-tag">{event.tags}</div>}

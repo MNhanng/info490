@@ -2,7 +2,7 @@ export function MessagesPage(props) {
     return (
         <main>
             <h1>Messages</h1>
-            <div className="notice">* This is a static page. The chat feature is currently incomplete.</div>
+            <div className="notice">* The chat feature is currently incomplete and not functional. This is a static page that shows what it would look like if implemented.</div>
             <div className="chat-container">
                 <div className="messages">
                     <form className="message-search-bar">

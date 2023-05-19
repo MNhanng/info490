@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { CreateButton } from "./ButtonsAndTags"
 import { Link, useParams } from "react-router-dom";
 import _ from 'lodash';
 import Modal from 'react-bootstrap/Modal';
@@ -48,7 +47,7 @@ export function MyProfilePage(props) {
                             <input onChange={imageHandleChange} id="profile_img" type="file" className="d-none" />
                         </div>
                         <div>
-                            <CreateButton onClick={handleImageUpload} type="button" title="Set Profile Image" label="Set Profile Image" />
+                            <button onClick={handleImageUpload} type="button" aria-label="Set Profile Image">Set Profile Image</button>
                         </div>
                     </div>
 
@@ -59,6 +58,7 @@ export function MyProfilePage(props) {
 
                 <div className="profile-popup-details">
                     <div className="profile-popup-name">
+                        <div className="notice">* The information here will be used for your public user profile that can be found in the 'People' page.</div>
                         <div>{user.firstName + " " + user.lastName}</div>
                     </div>
                     <div className="profile-popup-contact">
@@ -393,7 +393,7 @@ export function EditProfilePopup(props) {
     return (
         // <div className="edit_profile">
         <>
-            <CreateButton onClick={handleShow} type="button" title={<div><i className="fa-regular fa-pen-to-square"></i> Edit Profile</div>} label="Edit profile" />
+            <button onClick={handleShow} type="button" aria-label="Edit profile"><div><i className="fa-regular fa-pen-to-square"></i> Edit Profile</div></button>
 
             <Modal show={showPopup} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
@@ -535,7 +535,7 @@ export function EditProfilePopup(props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <div className="popup-button">
-                        <CreateButton onClick={handleSubmit} type="submit" title="Save" label="Save profile information" />
+                        <button onClick={handleSubmit} type="submit" aria-label="Save profile information">Save</button>
                     </div>
                 </Modal.Footer>
             </Modal>
@@ -556,14 +556,14 @@ export function UserProfilePage(props) {
     return (
         <main>
             <div className="profile-page">
-                <Link to="/people"><CreateButton type="button" title={<i className="fa-solid fa-arrow-left"></i>} label="Back to People Page" /></Link>
+                <Link to="/people"><button type="button" aria-label="Back to People Page"><i className="fa-solid fa-arrow-left"></i></button></Link>
                 <div className="profile-intro">
                     <div className="profile-container">
                         <div className="profile-intro-img"><img src={user.profileImage ? user.profileImage : require("../img/user-img.jpg")} alt="user profile" /></div>
                         <div className="profile-intro-details">
                             <div className="profile-intro-name">{user.firstName + " " + user.lastName}</div>
                         </div>
-                        {user.openContact === "Yes" && <div className="profile-intro-message-button"><Link to="/messages"><CreateButton type="button" title="Message" label="message" /></Link></div>}
+                        {user.openContact === "Yes" && <div className="profile-intro-message-button"><Link to="/messages"><button type="button" aria-label="message">Message</button></Link></div>}
                     </div>
                     <div className="profile-bio-container">
                         <div className="profile-intro-tags">
