@@ -250,10 +250,8 @@ export function EventForm(props) {
                     </div>
 
                     <div className="form-tags">
-                        <div>
-                            <label htmlFor="tags">Tags</label> <br />
-                        </div>
                         <div className="tags">
+                            <div>Tags</div>
                             <div>
                                 <input onClick={tagHandleClick} className={inPersonTagClass} type="button" value="In-Person" />
                             </div>

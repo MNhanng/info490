@@ -809,10 +809,17 @@ h3 a {
 h1.event-form-heading {
     margin: 1em 1.3em 1em 10rem;
 }
+/* 
+.event-form div:not(.form-tags) {
+    display: flex;
+    flex-direction: column;
+} */
+
 
 .event-form {
     margin-left: 10em;
     margin-right: 10em;
+    /* align-self: center; */
 }
 
 .event-form label {
@@ -1037,6 +1044,10 @@ select {
     border: none;
     color: white;
     margin-left: 3rem;
+}
+
+.home-button a button:hover {
+    background-color: #907AA8;
 }
 
 .home-image img {
@@ -1296,10 +1307,6 @@ form h1 {
     text-align: center;
 } */
 
-form label, .edit_profile label {
-    display: inline-block;
-    width: 6em;
-}
 
 form input, .edit_profile input, .edit_profile select {
     margin-bottom: 0.5em;
@@ -1308,20 +1315,20 @@ form input, .edit_profile input, .edit_profile select {
 }
 
 .form-tags {
-    display: flex;
+    display: inline-block;
 }
 
 .form-tags .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5em;
-    margin-left: 0.3em;
+    gap: 1rem;
 }
 
 .form-tags .tags input{
     width: 7.5em;
     font-size: 0.9em;
 }
+
 
 form textarea, .edit_profile textarea {
     margin: .5em 0;

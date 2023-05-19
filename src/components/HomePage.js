@@ -24,7 +24,7 @@ export function HomePage(props) {
             <div className="home-page">
                 <div className="home-content">
                     <div className="home-header">Welcome to iConnect!</div>
-                    <div className="home-button"><a href="CommunityPage.html"><button type="button">Start Exploring</button></a></div>
+                    <div className="home-button"><Link to='/people'><button type="button">Start Exploring</button></Link></div>
                 </div>
 
                 <div className="home-image">
