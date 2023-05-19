@@ -131,7 +131,7 @@ function AllEvents(props) {
     })
 
     return (
-        <div class="events-container">
+        <div className="events-container">
             {allEvents}
         </div>
     )
@@ -228,7 +228,7 @@ export function EventForm(props) {
         <main>
             <div className="event-form-page">
 
-                <Link to="/events"><CreateButton type="button" title={<i class="fa-solid fa-arrow-left"></i>} label="Back to Events Page" /></Link>
+                <Link to="/events"><CreateButton type="button" title={<i className="fa-solid fa-arrow-left"></i>} label="Back to Events Page" /></Link>
 
                 <h1 className="event-form-heading">Create a New Event</h1>
 
@@ -252,7 +252,7 @@ export function EventForm(props) {
                         <div>
                             <label htmlFor="tags">Tags</label> <br />
                         </div>
-                        <div class="tags">
+                        <div className="tags">
                             <div>
                                 <input onClick={tagHandleClick} className={inPersonTagClass} type="button" value="In-Person" />
                             </div>
@@ -296,7 +296,7 @@ export function SingleEventPage(props) {
                 {event.tags && <div className="single-event-tag">{event.tags}</div>}
             </div>
             <div className="single-event-details">
-                <div className="single-event-date"><i class="fa-regular fa-calendar-days"></i> {event.dateTime}</div>
+                <div className="single-event-date"><i className="fa-regular fa-calendar-days"></i> {event.dateTime}</div>
                 {event.location && <div className="single-event-location"><span>Location: </span>{event.location}</div>}
                 {event.description && <div className="single-event-description"><span>Description: </span>{event.description}</div>}
                 <div className="single-event-spec">{event.specifications}</div>

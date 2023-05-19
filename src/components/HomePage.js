@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { CardActionArea } from '@mui/material';
+import { Link } from "react-router-dom";
 
 export function HomePage(props) {
     // const allUsers = props.usersData;
@@ -62,15 +63,18 @@ function UpcomingEvents(props) {
     })
     .slice(0, 5)
     .map((event) => {
+        const eventLink = '/events/' + encodeURIComponent(event.key);
         return (
-            <div className="event-details">
-                <div className="event-name">{event.name}</div>
-                {event.tags && <div className="event-tag">{event.tags}</div>}
-                <div className="event-time"><i className="fa-regular fa-calendar-days"></i> {event.dateTime}</div>
-                <div className="event-location"><span>Location: </span>{event.location} </div>
-                <div className="event-desc"><span>Description: </span>{event.description}</div>
-                <div className="event-spec">{event.specifications}</div>
-            </div>
+            <CardActionArea component={Link} to={eventLink} key={event.eventID}>
+                <div className="event-details">
+                    <div className="event-name">{event.name}</div>
+                    {event.tags && <div className="event-tag">{event.tags}</div>}
+                    <div className="event-time"><i className="fa-regular fa-calendar-days"></i> {event.dateTime}</div>
+                    <div className="event-location"><span>Location: </span>{event.location} </div>
+                    <div className="event-desc"><span>Description: </span>{event.description}</div>
+                    <div className="event-spec">{event.specifications}</div>
+                </div>
+            </CardActionArea>
         )
     })
 

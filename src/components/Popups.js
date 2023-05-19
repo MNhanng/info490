@@ -70,7 +70,7 @@ export function NewPostPopup(props) {
                             <div>
                                 <label for="tags">Tags</label>
                             </div>
-                            <div class="tags">
+                            <div className="tags">
                                 <div>
                                     <input onClick={tagHandleClick} className={academicTagClass} type="button" value="Academic" />
                                 </div>
@@ -115,45 +115,45 @@ export function ProfilePopup(props) {
                     <Modal.Title>Create New Post</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div class="profile-popup">
-                        <div class="profile-popup-header">
-                            <div class="profile-popup-img"><img src="img/user-img.jpg" alt="user profile"></img></div>
-                            <div class="profile-header-details">
-                                <div class="profile-popup-name">David Smith</div>
-                                <div class="profile-popup-contact">Contact davidsmith@gmail.com</div>
+                    <div className="profile-popup">
+                        <div className="profile-popup-header">
+                            <div className="profile-popup-img"><img src="img/user-img.jpg" alt="user profile"></img></div>
+                            <div className="profile-header-details">
+                                <div className="profile-popup-name">David Smith</div>
+                                <div className="profile-popup-contact">Contact davidsmith@gmail.com</div>
                             </div>
                         </div>
 
-                        <div class="profile-popup-details">
-                            <div class="profile-popup-job-title">
+                        <div className="profile-popup-details">
+                            <div className="profile-popup-job-title">
                                 <div>Job title</div>
                                 <div>Business Analyst</div>
                             </div>
-                            <div class="profile-popup-employer">
+                            <div className="profile-popup-employer">
                                 <div>Employer</div>
                                 <div>Microsoft</div>
                             </div>
-                            <div class="profile-popup-industry">
+                            <div className="profile-popup-industry">
                                 <div>Industry</div>
                                 <div>Technology</div>
                             </div>
-                            <div class="profile-popup-major">
+                            <div className="profile-popup-major">
                                 <div>Major</div>
                                 <div>Informatics</div>
                             </div>
-                            <div class="profile-popup-school">
+                            <div className="profile-popup-school">
                                 <div>School</div>
                                 <div>University of Washington</div>
                             </div>
-                            <div class="profile-popup-degree-type">
+                            <div className="profile-popup-degree-type">
                                 <div>Degree</div>
                                 <div>Bachelor's degree</div>
                             </div>
-                            <div class="profile-popup-grad-year">
+                            <div className="profile-popup-grad-year">
                                 <div>Graduation Year</div>
                                 <div>2018</div>
                             </div>
-                            <div class="profile-popup-language">
+                            <div className="profile-popup-language">
                                 <div>Language</div>
                                 <div>English, Spanish</div>
                             </div>

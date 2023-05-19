@@ -3,7 +3,7 @@ import { CreateButton } from "./ButtonsAndTags"
 import { Link, useParams } from "react-router-dom";
 import _ from 'lodash';
 import Modal from 'react-bootstrap/Modal';
-import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
+import { getDatabase, ref, set as firebaseSet, onValue } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { updateProfile} from 'firebase/auth';
 

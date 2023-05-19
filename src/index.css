@@ -89,7 +89,7 @@ main {
 /* end of nav code*/
 
 main h1 {
-    margin: 0.8rem 1.3em;
+    margin: 2rem 2rem 1rem 2rem;
     font-size: 1.6rem;
     color: #462E7E;
 }
@@ -1068,7 +1068,6 @@ select {
 
 .home-event-container .event-details {
     border: 0.08rem solid gray;
-    padding: 0.5em;
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 2rem;
@@ -1076,7 +1075,7 @@ select {
     flex-basis: 100rem;
     border: 0.05rem solid gray;
     border-left: 0.8rem solid #462E7E;
-    padding: 0.5em;
+    padding: 1rem 2rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     box-shadow: 0.2rem 0.2rem 0.2rem #D3D3D3
@@ -1514,11 +1513,18 @@ form textarea, .edit_profile textarea {
 
 
 /* start of messages page */
+.notice {
+    margin: 1rem 2rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #907AA8;
+}
+
 .chat-container {
     display: flex;
     flex-direction: row;
     margin: 0 1rem;
-    min-height: 80vh;
+    min-height: 75vh;
 }
 
 .messages {
