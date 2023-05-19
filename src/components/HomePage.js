@@ -31,7 +31,6 @@ export function HomePage(props) {
                     <img src={require("../img/home-image.png")} alt="Home page" />
                 </div>
             </div>
-            {/* <HomeBoard/> */}
             <div className="home-event-container">
                 <h1>Upcoming Events</h1>
                 <UpcomingEvents eventsData={props.eventsData} />
@@ -39,21 +38,6 @@ export function HomePage(props) {
         </main>
     )
 }
-
-// function HomeBoard(props) {
-//     return (
-//         <div className="home-activities">
-//             <div className="home-activities-header">Recently Viewed (or Liked Posts or Events)</div>
-//             <div className="home-activities-items">
-//                 <div className="recently-viewed-item"></div>
-//                 <div className="recently-viewed-item"></div>
-//                 <div className="recently-viewed-item"></div>
-//                 <div className="recently-viewed-item"></div>
-//             </div> 
-
-//         </div>
-//     )
-// }
 
 function UpcomingEvents(props) {
     const events = props.eventsData;

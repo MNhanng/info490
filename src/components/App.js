@@ -136,33 +136,6 @@ export default function App(props) {
         return cleanup;
     }, [currentUser]);
 
-    // function for adding new profiles for first time users / people who just signed up
-    // const addNewUserProfile = () => {
-    //     const newProfile = {
-    //         "bio": "",
-    //         "degree": "",
-    //         "email": currentUser.email,
-    //         "employer": "",
-    //         "firstName": currentUser.displayName.substring(0, currentUser.displayName.indexOf(' ')),    
-    //         "lastName": currentUser.displayName.substring(currentUser.displayName.indexOf(' ') + 1),
-    //         "gradYear": "",
-    //         "industry": "",
-    //         "jobTitle": "",
-    //         "languages": "",
-    //         "major": "",
-    //         "number": "",
-    //         "openContact": "",
-    //         "role": "",
-    //         "school": "",
-    //         "userID": currentUser.uid
-    //     }
-    //     const db = getDatabase();
-    //     const allProfilesRef = ref(db, 'users_data/')
-    //     firebasePush(allProfilesRef, newProfile).then(() => console.log("Successfully added new user profile")).catch((error) => setAlertMessage(error.message));
-    // }
-
-
-
     const addPost = (post_title, tags, details) => {
         let postID = 0;
         if (allPosts.length === 0) {

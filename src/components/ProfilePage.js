@@ -584,7 +584,7 @@ export function UserProfilePage(props) {
                             <div className="work-header">Work Experience</div>
                             <div className="work-details">
                                 <div className="job">{user.jobTitle ? user.jobTitle : 'No job title found'}</div>
-                                <div className="employer">{user.employer ? user.employer : 'No employer found'}</div>
+                                <div className="employer">{user.employer ? "@ " + user.employer : 'No employer found'}</div>
                             </div>
                         </div>
 
